@@ -30,6 +30,14 @@ available for full project - import './styles/main.css' in main.ts
 
 layout-এর structural skeleton
 
+* analysis & get skeleton from sketch
+* only structure
+* skeleton to code (visual in browser)
+* main contend dynamically
+* route setup & route mapping for parent & child 
+* route render in app.vue & layout component
+
+
 Sketch theke think korbo - layout a ki ki lagbe - like: Sidebar, Header and MainContent
 
 - skeleton korar por layout structure ta baniye nibo.
@@ -63,3 +71,41 @@ div#left
 aar css korar jonno - first design dekhe widh ta nite parle, sei onujai jaiga chere dile hoye jabe, sathe akta border - enough
 
 aar baki css class gulo need onujai add korbo, no hurry up.
+
+- Dynamically main content : 
+
+actually eita hocche - ami jodi /dash a click kore, dash er content dekhabe, jodi /emp click kori tobe, emp er content dekhabe 
+
+
+setar jonno need route, route install - `pnpm add vue-router`
+
+after install, create route object, then route register in project (main.ts)
+
+then, router er content dekhar jonno, routeView use kora in app.vue page.
+
+jehetu amar layout er sob endpoint after login hobe, so parent a layout component thakbe aar children a jar jar endpoint er contnent dekhabe 
+
+like: 
+
+`/` ei endpoint dile dashboard er content dekhabe : so eita parent route ja app.vue a dekha jabe 
+`/emp` dile employee list er content dekhabe , same to `/new-emp /new-department /list` etc  : eigulo child so, ei content gulo appLayout a dekha jabe
+
+`/login` parent route, but er design alada hobe, tai eita app.vue a dekhabe.
+
+* route a jei component gulo, obossoi `page/views` a rakhbo aar sei page other kichu jokhon use korbo tokhon seikhane `component` use korbo.
+
+
+## how to show content from route
+
+RouterView -- parent in app.vue & children in particular component / layout
+
+1st app.vue run in application then render routerView placeholder.
+
+
+4. Theme & token create 
+
+
+Next - 
+1. dynamic content niye kaj ses hole, theme niye kaj suru korbo, 
+2. then base component er jonno - shadcn 
+3. ui component 
