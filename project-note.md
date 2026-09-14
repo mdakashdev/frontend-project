@@ -133,8 +133,23 @@ apatoto ja create korlam, seta thak actully output jokhon dekhbo, tokhon check k
 
 5. ui component 
 
+small small part niye think korte hobe, now ami `sidebar` niye think kori. 3 ta part ache, 1. logo 2. nav 3. user pic & name
 
-kaj korte jeye kono base component jokhon lagbe tokhon, shadcn niye base compnent niye kaj korbo
+1. logo
+logo er jonno svg use korlam
+svg designer er kahce theke pete pari. or library or website theke nite pari
+https://lucide.dev/
+https://simpleicons.org/
+
+svg file ta assets a rakhalam then component a import kore use korlam
+
+amra icon er jonno or svg er jonno lucid install korbo then use korbo
+
+2. nav
+
+
+
+- note: kaj korte jeye kono base component jokhon lagbe tokhon, shadcn niye base compnent niye kaj korbo
 
 6. base component
 
