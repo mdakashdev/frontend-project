@@ -133,7 +133,10 @@ apatoto ja create korlam, seta thak actully output jokhon dekhbo, tokhon check k
 
 5. ui component 
 
-small small part niye think korte hobe, now ami `sidebar` niye think kori. 3 ta part ache, 1. logo 2. nav 3. user pic & name
+- note: `ui-component` er kaj korte jeye kono base component jokhon lagbe tokhon, shadcn niye base compnent niye kaj korbo
+
+
+> small small part niye think korte hobe, now ami `sidebar` niye think kori. 3 ta part ache, 1. logo 2. nav 3. user pic & name
 
 1. logo
 logo er jonno svg use korlam
@@ -147,9 +150,27 @@ amra icon er jonno or svg er jonno lucid install korbo then use korbo
 
 2. nav
 
+install- `pnpm add lucide-vue-next`
+
+import { Users, Settings } from 'lucide-vue-next' kore then use korte hobe
+
+eigulo ekekta component - like: <Settings :size="20" />
 
 
-- note: kaj korte jeye kono base component jokhon lagbe tokhon, shadcn niye base compnent niye kaj korbo
+sidebar niye kaj korar somai dekhlam main bisoi chilo - `icon` ja lucid library diye solve korechi.
+
+then changellenge chilo 3 ta part ke alada kore class deya, ja `flex flex-col` diye solve korechi, flex hocche magical class
+
+particular kono part a css class dekte hole- tailwind a cole jabe, then example dekhe class add kore dibe or screenshop or image diye ai er kache theke 
+
+jene nite parbe.
+
+3. user & pic
+
+done
+
 
 6. base component
+
+- note: `ui-component` er kaj korte jeye kono base component jokhon lagbe tokhon, shadcn niye base compnent niye kaj korbo
 
