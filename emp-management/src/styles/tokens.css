@@ -1,0 +1,455 @@
+:root {
+
+  /* ============================================================
+     COLORS — Brand / Primary (Blue)
+  ============================================================ */
+  --emp-color-primary-50:  #EFF6FF;
+  --emp-color-primary-100: #DBEAFE;
+  --emp-color-primary-200: #BFDBFE;
+  --emp-color-primary-300: #93C5FD;
+  --emp-color-primary-400: #60A5FA;
+  --emp-color-primary-500: #3B82F6;   /* Main CTA — "Sign In", "+ Add Employee" */
+  --emp-color-primary-600: #2563EB;   /* Hover state */
+  --emp-color-primary-700: #1D4ED8;
+  --emp-color-primary-800: #1E40AF;
+  --emp-color-primary-900: #1E3A8A;
+
+  /* ============================================================
+     COLORS — Neutral / Slate
+  ============================================================ */
+  --emp-color-neutral-50:  #F8FAFC;   /* Page background */
+  --emp-color-neutral-100: #F1F5F9;   /* Subtle bg, table header */
+  --emp-color-neutral-200: #E2E8F0;   /* Borders, dividers */
+  --emp-color-neutral-300: #CBD5E1;   /* Strong border */
+  --emp-color-neutral-400: #94A3B8;   /* Muted text, icons */
+  --emp-color-neutral-500: #64748B;   /* Secondary text */
+  --emp-color-neutral-600: #475569;   /* Body text */
+  --emp-color-neutral-700: #334155;
+  --emp-color-neutral-800: #1E293B;   /* Dark headings */
+  --emp-color-neutral-900: #0F172A;   /* Primary text */
+
+  /* ============================================================
+     COLORS — Success / Active badge (Green)
+  ============================================================ */
+  --emp-color-success-50:  #F0FDF4;
+  --emp-color-success-100: #DCFCE7;   /* Active badge background */
+  --emp-color-success-400: #4ADE80;
+  --emp-color-success-500: #22C55E;
+  --emp-color-success-600: #16A34A;   /* Active badge text */
+  --emp-color-success-700: #15803D;
+
+  /* ============================================================
+     COLORS — Danger / Inactive badge (Red)
+  ============================================================ */
+  --emp-color-danger-50:  #FFF1F2;
+  --emp-color-danger-100: #FFE4E6;    /* Inactive badge background */
+  --emp-color-danger-400: #F87171;
+  --emp-color-danger-500: #EF4444;
+  --emp-color-danger-600: #DC2626;    /* Inactive badge text */
+  --emp-color-danger-700: #B91C1C;
+
+  /* ============================================================
+     COLORS — Warning (Orange/Amber)
+  ============================================================ */
+  --emp-color-warning-50:  #FFFBEB;
+  --emp-color-warning-100: #FEF3C7;
+  --emp-color-warning-400: #FBBF24;
+  --emp-color-warning-500: #F59E0B;
+  --emp-color-warning-600: #D97706;
+
+  /* ============================================================
+     COLORS — Accent (Orange — Departments icon)
+  ============================================================ */
+  --emp-color-accent-50:  #FFF7ED;
+  --emp-color-accent-100: #FFEDD5;
+  --emp-color-accent-500: #F97316;
+  --emp-color-accent-600: #EA580C;
+
+  /* ============================================================
+     COLORS — Chart / Department Distribution
+  ============================================================ */
+  --emp-color-chart-engineering: #3B82F6;
+  --emp-color-chart-marketing:   #8B5CF6;
+  --emp-color-chart-design:      #EC4899;
+  --emp-color-chart-sales:       #F97316;
+  --emp-color-chart-hr:          #EF4444;
+  --emp-color-chart-finance:     #14B8A6;
+  --emp-color-chart-others:      #94A3B8;
+
+  /* ============================================================
+     COLORS — Semantic aliases
+  ============================================================ */
+  --emp-color-bg-page:         var(--emp-color-neutral-50);
+  --emp-color-bg-surface:      #FFFFFF;
+  --emp-color-bg-subtle:       var(--emp-color-neutral-100);
+  --emp-color-bg-muted:        var(--emp-color-neutral-200);
+
+  --emp-color-text-primary:    var(--emp-color-neutral-900);
+  --emp-color-text-secondary:  var(--emp-color-neutral-600);
+  --emp-color-text-muted:      var(--emp-color-neutral-400);
+  --emp-color-text-inverse:    #FFFFFF;
+  --emp-color-text-link:       var(--emp-color-primary-600);
+  --emp-color-text-link-hover: var(--emp-color-primary-700);
+
+  --emp-color-border-default:  var(--emp-color-neutral-200);
+  --emp-color-border-strong:   var(--emp-color-neutral-300);
+  --emp-color-border-focus:    var(--emp-color-primary-500);
+
+  /* ============================================================
+     COLORS — Sidebar / Nav
+  ============================================================ */
+  --emp-color-sidebar-bg:           #FFFFFF;
+  --emp-color-sidebar-border:       var(--emp-color-neutral-200);
+  --emp-color-sidebar-text:         var(--emp-color-neutral-500);
+  --emp-color-sidebar-text-hover:   var(--emp-color-neutral-800);
+  --emp-color-sidebar-text-active:  #FFFFFF;
+  --emp-color-sidebar-item-active:  var(--emp-color-primary-500);
+  --emp-color-sidebar-item-hover:   var(--emp-color-neutral-100);
+  --emp-color-sidebar-icon:         var(--emp-color-neutral-400);
+  --emp-color-sidebar-icon-active:  #FFFFFF;
+
+  /* ============================================================
+     COLORS — Topbar
+  ============================================================ */
+  --emp-color-topbar-bg:            #FFFFFF;
+  --emp-color-topbar-border:        var(--emp-color-neutral-200);
+  --emp-color-topbar-icon:          var(--emp-color-neutral-500);
+
+  /* ============================================================
+     COLORS — Status badges
+  ============================================================ */
+  --emp-color-status-active-bg:     var(--emp-color-success-100);
+  --emp-color-status-active-text:   var(--emp-color-success-600);
+  --emp-color-status-inactive-bg:   var(--emp-color-danger-100);
+  --emp-color-status-inactive-text: var(--emp-color-danger-600);
+
+  /* ============================================================
+     TYPOGRAPHY
+  ============================================================ */
+  --emp-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                      Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --emp-font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Font sizes */
+  --emp-font-size-xs:   0.75rem;    /* 12px — badge, table header label */
+  --emp-font-size-sm:   0.875rem;   /* 14px — body, table cell, input */
+  --emp-font-size-base: 1rem;       /* 16px — default */
+  --emp-font-size-md:   1.125rem;   /* 18px — card section heading */
+  --emp-font-size-lg:   1.25rem;    /* 20px — page sub-heading */
+  --emp-font-size-xl:   1.5rem;     /* 24px — page title "Dashboard", "Employees" */
+  --emp-font-size-2xl:  1.875rem;   /* 30px — stat number */
+  --emp-font-size-3xl:  2.25rem;    /* 36px */
+
+  /* Font weights */
+  --emp-font-weight-regular:  400;
+  --emp-font-weight-medium:   500;
+  --emp-font-weight-semibold: 600;
+  --emp-font-weight-bold:     700;
+
+  /* Line heights */
+  --emp-line-height-tight:   1.25;
+  --emp-line-height-snug:    1.375;
+  --emp-line-height-normal:  1.5;
+  --emp-line-height-relaxed: 1.625;
+
+  /* Letter spacing */
+  --emp-letter-spacing-tight:   -0.025em;
+  --emp-letter-spacing-normal:   0em;
+  --emp-letter-spacing-wide:     0.025em;
+  --emp-letter-spacing-wider:    0.05em;
+  --emp-letter-spacing-widest:   0.1em;
+
+  /* ============================================================
+     SPACING
+  ============================================================ */
+  --emp-space-0:  0;
+  --emp-space-px: 1px;
+  --emp-space-1:  0.25rem;   /*  4px */
+  --emp-space-2:  0.5rem;    /*  8px */
+  --emp-space-3:  0.75rem;   /* 12px */
+  --emp-space-4:  1rem;      /* 16px */
+  --emp-space-5:  1.25rem;   /* 20px */
+  --emp-space-6:  1.5rem;    /* 24px */
+  --emp-space-7:  1.75rem;   /* 28px */
+  --emp-space-8:  2rem;      /* 32px */
+  --emp-space-10: 2.5rem;    /* 40px */
+  --emp-space-12: 3rem;      /* 48px */
+  --emp-space-14: 3.5rem;    /* 56px */
+  --emp-space-16: 4rem;      /* 64px */
+  --emp-space-20: 5rem;      /* 80px */
+  --emp-space-24: 6rem;      /* 96px */
+
+  /* ============================================================
+     BORDER RADIUS
+  ============================================================ */
+  --emp-radius-none: 0;
+  --emp-radius-sm:   0.25rem;   /*  4px */
+  --emp-radius-md:   0.5rem;    /*  8px — inputs, buttons */
+  --emp-radius-lg:   0.75rem;   /* 12px — cards */
+  --emp-radius-xl:   1rem;      /* 16px — large cards, modals */
+  --emp-radius-2xl:  1.5rem;    /* 24px */
+  --emp-radius-full: 9999px;    /* pill — badges, avatars */
+
+  /* ============================================================
+     SHADOWS
+  ============================================================ */
+  --emp-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --emp-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08),
+               0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  --emp-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08),
+               0 2px 4px -2px rgba(0, 0, 0, 0.06);
+  --emp-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08),
+               0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --emp-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
+               0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --emp-shadow-focus: 0 0 0 3px rgba(59, 130, 246, 0.2);
+
+  /* ============================================================
+     LAYOUT
+  ============================================================ */
+  --emp-sidebar-width:           220px;
+  --emp-sidebar-collapsed-width:  60px;
+  --emp-topbar-height:            60px;
+  --emp-content-max-width:      1280px;
+  --emp-content-padding-x:   var(--emp-space-6);
+  --emp-content-padding-y:   var(--emp-space-6);
+
+  /* ============================================================
+     COMPONENT — Card
+  ============================================================ */
+  --emp-card-bg:            var(--emp-color-bg-surface);
+  --emp-card-border:        var(--emp-color-border-default);
+  --emp-card-border-radius: var(--emp-radius-lg);
+  --emp-card-padding:       var(--emp-space-6);
+  --emp-card-shadow:        var(--emp-shadow-sm);
+
+  /* ============================================================
+     COMPONENT — Button
+  ============================================================ */
+  --emp-btn-font-size:        var(--emp-font-size-sm);
+  --emp-btn-font-weight:      var(--emp-font-weight-medium);
+  --emp-btn-padding-x:        var(--emp-space-4);
+  --emp-btn-padding-y:        var(--emp-space-2);
+  --emp-btn-border-radius:    var(--emp-radius-md);
+  --emp-btn-transition:       var(--emp-transition-fast);
+
+  /* Primary */
+  --emp-btn-primary-bg:       var(--emp-color-primary-500);
+  --emp-btn-primary-text:     #FFFFFF;
+  --emp-btn-primary-hover-bg: var(--emp-color-primary-600);
+  --emp-btn-primary-shadow:   var(--emp-shadow-xs);
+
+  /* Secondary / Outline */
+  --emp-btn-secondary-bg:          #FFFFFF;
+  --emp-btn-secondary-text:        var(--emp-color-text-secondary);
+  --emp-btn-secondary-border:      var(--emp-color-border-default);
+  --emp-btn-secondary-hover-bg:    var(--emp-color-neutral-100);
+
+  /* Danger */
+  --emp-btn-danger-bg:        var(--emp-color-danger-500);
+  --emp-btn-danger-text:      #FFFFFF;
+  --emp-btn-danger-hover-bg:  var(--emp-color-danger-600);
+
+  /* Ghost */
+  --emp-btn-ghost-bg:         transparent;
+  --emp-btn-ghost-text:       var(--emp-color-text-secondary);
+  --emp-btn-ghost-hover-bg:   var(--emp-color-neutral-100);
+
+  /* Icon button */
+  --emp-btn-icon-size:        2rem;
+  --emp-btn-icon-border-radius: var(--emp-radius-md);
+
+  /* ============================================================
+     COMPONENT — Input / Form
+  ============================================================ */
+  --emp-input-bg:             var(--emp-color-bg-surface);
+  --emp-input-border:         var(--emp-color-border-default);
+  --emp-input-border-hover:   var(--emp-color-border-strong);
+  --emp-input-border-focus:   var(--emp-color-border-focus);
+  --emp-input-border-radius:  var(--emp-radius-md);
+  --emp-input-padding-x:      var(--emp-space-3);
+  --emp-input-padding-y:      var(--emp-space-2);
+  --emp-input-font-size:      var(--emp-font-size-sm);
+  --emp-input-font-weight:    var(--emp-font-weight-regular);
+  --emp-input-text:           var(--emp-color-text-primary);
+  --emp-input-placeholder:    var(--emp-color-text-muted);
+  --emp-input-shadow-focus:   var(--emp-shadow-focus);
+  --emp-input-height:         2.375rem;   /* 38px */
+
+  /* Label */
+  --emp-label-font-size:      var(--emp-font-size-sm);
+  --emp-label-font-weight:    var(--emp-font-weight-medium);
+  --emp-label-text:           var(--emp-color-neutral-700);
+  --emp-label-margin-bottom:  var(--emp-space-1);
+
+  /* Select */
+  --emp-select-bg:            var(--emp-color-bg-surface);
+  --emp-select-border:        var(--emp-color-border-default);
+  --emp-select-border-radius: var(--emp-radius-md);
+
+  /* ============================================================
+     COMPONENT — Table
+  ============================================================ */
+  --emp-table-bg:                   var(--emp-color-bg-surface);
+  --emp-table-header-bg:            var(--emp-color-bg-subtle);
+  --emp-table-header-text:          var(--emp-color-text-muted);
+  --emp-table-header-font-size:     var(--emp-font-size-xs);
+  --emp-table-header-font-weight:   var(--emp-font-weight-semibold);
+  --emp-table-header-letter-spacing: var(--emp-letter-spacing-wider);
+  --emp-table-row-hover-bg:         var(--emp-color-neutral-50);
+  --emp-table-row-selected-bg:      var(--emp-color-primary-50);
+  --emp-table-border:               var(--emp-color-border-default);
+  --emp-table-cell-padding-x:       var(--emp-space-4);
+  --emp-table-cell-padding-y:       var(--emp-space-3);
+  --emp-table-border-radius:        var(--emp-radius-lg);
+
+  /* ============================================================
+     COMPONENT — Badge / Status pill
+  ============================================================ */
+  --emp-badge-font-size:      var(--emp-font-size-xs);
+  --emp-badge-font-weight:    var(--emp-font-weight-medium);
+  --emp-badge-padding-x:      var(--emp-space-2);
+  --emp-badge-padding-y:      0.1875rem;   /* 3px */
+  --emp-badge-border-radius:  var(--emp-radius-full);
+
+  /* ============================================================
+     COMPONENT — Avatar
+  ============================================================ */
+  --emp-avatar-sm:  1.5rem;    /* 24px */
+  --emp-avatar-md:  2rem;      /* 32px */
+  --emp-avatar-lg:  2.5rem;    /* 40px */
+  --emp-avatar-xl:  3rem;      /* 48px */
+  --emp-avatar-2xl: 4rem;      /* 64px — profile page */
+  --emp-avatar-border-radius: var(--emp-radius-full);
+  --emp-avatar-border:        2px solid var(--emp-color-bg-surface);
+
+  /* ============================================================
+     COMPONENT — Stat Card (Dashboard)
+  ============================================================ */
+  --emp-stat-card-padding:          var(--emp-space-5);
+  --emp-stat-icon-size:             2.5rem;    /* 40px */
+  --emp-stat-icon-border-radius:    var(--emp-radius-lg);
+  --emp-stat-value-font-size:       var(--emp-font-size-2xl);
+  --emp-stat-value-font-weight:     var(--emp-font-weight-bold);
+  --emp-stat-label-font-size:       var(--emp-font-size-sm);
+  --emp-stat-change-font-size:      var(--emp-font-size-xs);
+
+  /* Icon tint per stat type */
+  --emp-stat-employees-icon-bg:     var(--emp-color-primary-50);
+  --emp-stat-employees-icon-color:  var(--emp-color-primary-500);
+  --emp-stat-active-icon-bg:        var(--emp-color-success-50);
+  --emp-stat-active-icon-color:     var(--emp-color-success-500);
+  --emp-stat-dept-icon-bg:          var(--emp-color-accent-50);
+  --emp-stat-dept-icon-color:       var(--emp-color-accent-500);
+  --emp-stat-revenue-icon-bg:       var(--emp-color-warning-50);
+  --emp-stat-revenue-icon-color:    var(--emp-color-warning-500);
+
+  /* Change indicators */
+  --emp-stat-change-positive-text:  var(--emp-color-success-600);
+  --emp-stat-change-negative-text:  var(--emp-color-danger-600);
+
+  /* ============================================================
+     COMPONENT — Pagination
+  ============================================================ */
+  --emp-pagination-item-size:       2rem;
+  --emp-pagination-border-radius:   var(--emp-radius-md);
+  --emp-pagination-active-bg:       var(--emp-color-primary-500);
+  --emp-pagination-active-text:     #FFFFFF;
+  --emp-pagination-hover-bg:        var(--emp-color-neutral-100);
+  --emp-pagination-text:            var(--emp-color-text-secondary);
+  --emp-pagination-border:          var(--emp-color-border-default);
+
+  /* ============================================================
+     COMPONENT — Search bar
+  ============================================================ */
+  --emp-search-bg:            var(--emp-color-neutral-100);
+  --emp-search-border:        transparent;
+  --emp-search-border-focus:  var(--emp-color-primary-500);
+  --emp-search-border-radius: var(--emp-radius-md);
+  --emp-search-icon-color:    var(--emp-color-text-muted);
+  --emp-search-height:        var(--emp-input-height);
+
+  /* ============================================================
+     COMPONENT — Dropdown / Menu
+  ============================================================ */
+  --emp-dropdown-bg:            var(--emp-color-bg-surface);
+  --emp-dropdown-border:        var(--emp-color-border-default);
+  --emp-dropdown-border-radius: var(--emp-radius-lg);
+  --emp-dropdown-shadow:        var(--emp-shadow-lg);
+  --emp-dropdown-item-padding-x: var(--emp-space-4);
+  --emp-dropdown-item-padding-y: var(--emp-space-2);
+  --emp-dropdown-item-hover-bg:  var(--emp-color-neutral-50);
+  --emp-dropdown-item-font-size: var(--emp-font-size-sm);
+
+  /* ============================================================
+     COMPONENT — Modal / Dialog
+  ============================================================ */
+  --emp-modal-bg:             var(--emp-color-bg-surface);
+  --emp-modal-border-radius:  var(--emp-radius-xl);
+  --emp-modal-shadow:         var(--emp-shadow-xl);
+  --emp-modal-padding:        var(--emp-space-6);
+  --emp-modal-overlay-bg:     rgba(15, 23, 42, 0.4);
+
+  /* ============================================================
+     COMPONENT — Tabs (Profile page)
+  ============================================================ */
+  --emp-tab-font-size:          var(--emp-font-size-sm);
+  --emp-tab-font-weight:        var(--emp-font-weight-medium);
+  --emp-tab-text:               var(--emp-color-text-muted);
+  --emp-tab-text-active:        var(--emp-color-primary-600);
+  --emp-tab-border-active:      var(--emp-color-primary-500);
+  --emp-tab-border-width:       2px;
+  --emp-tab-padding-x:          var(--emp-space-4);
+  --emp-tab-padding-y:          var(--emp-space-2);
+
+  /* ============================================================
+     COMPONENT — Toggle / Switch (Settings)
+  ============================================================ */
+  --emp-toggle-bg-off:          var(--emp-color-neutral-300);
+  --emp-toggle-bg-on:           var(--emp-color-primary-500);
+  --emp-toggle-thumb-bg:        #FFFFFF;
+  --emp-toggle-width:           2.75rem;
+  --emp-toggle-height:          1.5rem;
+  --emp-toggle-border-radius:   var(--emp-radius-full);
+
+  /* ============================================================
+     COMPONENT — Chart
+  ============================================================ */
+  --emp-chart-grid-color:       var(--emp-color-neutral-100);
+  --emp-chart-axis-text:        var(--emp-color-text-muted);
+  --emp-chart-axis-font-size:   var(--emp-font-size-xs);
+  --emp-chart-line-color:       var(--emp-color-primary-400);
+  --emp-chart-fill-from:        rgba(59, 130, 246, 0.15);
+  --emp-chart-fill-to:          rgba(59, 130, 246, 0);
+  --emp-chart-dot-color:        var(--emp-color-primary-500);
+  --emp-chart-dot-size:         6px;
+
+  /* ============================================================
+     COMPONENT — Skill tag (Profile page)
+  ============================================================ */
+  --emp-skill-tag-bg:           var(--emp-color-primary-50);
+  --emp-skill-tag-text:         var(--emp-color-primary-700);
+  --emp-skill-tag-border-radius: var(--emp-radius-md);
+  --emp-skill-tag-padding-x:    var(--emp-space-3);
+  --emp-skill-tag-padding-y:    var(--emp-space-1);
+  --emp-skill-tag-font-size:    var(--emp-font-size-xs);
+  --emp-skill-tag-font-weight:  var(--emp-font-weight-medium);
+
+  /* ============================================================
+     TRANSITIONS
+  ============================================================ */
+  --emp-transition-fast:   150ms ease;
+  --emp-transition-normal: 250ms ease;
+  --emp-transition-slow:   350ms ease;
+
+  /* ============================================================
+     Z-INDEX
+  ============================================================ */
+  --emp-z-base:     0;
+  --emp-z-raised:   10;
+  --emp-z-dropdown: 100;
+  --emp-z-sticky:   200;
+  --emp-z-overlay:  300;
+  --emp-z-modal:    400;
+  --emp-z-toast:    500;
+}

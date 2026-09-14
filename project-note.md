@@ -104,8 +104,37 @@ RouterView -- parent in app.vue & children in particular component / layout
 
 4. Theme & token create 
 
+## token create - in src/styles/tokens.css
 
-Next - 
-1. dynamic content niye kaj ses hole, theme niye kaj suru korbo, 
-2. then base component er jonno - shadcn 
-3. ui component 
+so, tokens gulo ber korte hobe, eita AI er help niye / ux er kache theke niye nibo.
+
+pi : `need token /Users/softzino/Documents/ART4/chat-widget-project/frontend-project/sketch/emp.png for tokens.css  and i want to add prefix emp` 
+
+then i get -  Colors, Typography, Spacing & Layout, Border Radius & Shadows, Components (all 9 screens covered)
+
+claude: `emp.png[Image #1] i need token for claude.css and add prefix emp`
+
+then i get, everything
+
+ami pi & claude diye try korlam, pore caile chatgpt diye o korte paro.
+
+## Theme
+- now theme create to map tailwindcss with tokens
+- Maps emp design tokens → Tailwind CSS v4 @theme
+
+pi: ` now, i want to create theme.css to mapping tokens.css with tailwindcss`
+
+apatoto ja create korlam, seta thak actully output jokhon dekhbo, tokhon check korbo, thik ache kina, or kichu changes lagbe kina
+
+### must be test 
+
+- mapping ta ki actually tailwind ke represent kore kina!!
+
+
+5. ui component 
+
+
+kaj korte jeye kono base component jokhon lagbe tokhon, shadcn niye base compnent niye kaj korbo
+
+6. base component
+

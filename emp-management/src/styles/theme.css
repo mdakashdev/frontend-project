@@ -1,0 +1,260 @@
+/**
+ * theme.css
+ *
+ * Maps emp design tokens → Tailwind CSS v4 @theme
+ *
+ * How it works (Tailwind v4):
+ *   • @theme variables become the CSS custom properties Tailwind uses to
+ *     generate utility classes at build time.
+ *   • Every --color-* entry  → bg-*, text-*, border-*, ring-*, fill-*, stroke-*
+ *   • --font-{name}          → font-{name}          (font-family)
+ *   • --text-{name}          → text-{name}          (font-size)
+ *   • --font-weight-{name}   → font-{name}          (font-weight)
+ *   • --leading-{name}       → leading-{name}       (line-height)
+ *   • --tracking-{name}      → tracking-{name}      (letter-spacing)
+ *   • --spacing              → base multiplier for p-*, m-*, gap-*, w-*, h-*, …
+ *   • --radius-{name}        → rounded-{name}       (border-radius)
+ *   • --shadow-{name}        → shadow-{name}        (box-shadow)
+ *   • --z-{name}             → z-{name}             (z-index)
+ *
+ * Usage examples:
+ *   bg-primary-500        border-neutral-200     text-success-600
+ *   rounded-lg            shadow-md              font-sans
+ *   text-sm               font-semibold          leading-normal
+ *   tracking-wide         p-6  m-4  gap-3        z-modal
+ */
+
+@import "./tokens.css";
+
+@theme {
+
+  /* ============================================================
+     COLORS — Primary
+     Utilities: bg-primary-{n}  text-primary-{n}  border-primary-{n}
+  ============================================================ */
+  --color-primary-50:  var(--emp-color-primary-50);
+  --color-primary-100: var(--emp-color-primary-100);
+  --color-primary-200: var(--emp-color-primary-200);
+  --color-primary-300: var(--emp-color-primary-300);
+  --color-primary-400: var(--emp-color-primary-400);
+  --color-primary-500: var(--emp-color-primary-500);
+  --color-primary-600: var(--emp-color-primary-600);
+  --color-primary-700: var(--emp-color-primary-700);
+  --color-primary-800: var(--emp-color-primary-800);
+  --color-primary-900: var(--emp-color-primary-900);
+
+  /* ============================================================
+     COLORS — Neutral
+     Utilities: bg-neutral-{n}  text-neutral-{n}  border-neutral-{n}
+  ============================================================ */
+  --color-neutral-50:  var(--emp-color-neutral-50);
+  --color-neutral-100: var(--emp-color-neutral-100);
+  --color-neutral-200: var(--emp-color-neutral-200);
+  --color-neutral-300: var(--emp-color-neutral-300);
+  --color-neutral-400: var(--emp-color-neutral-400);
+  --color-neutral-500: var(--emp-color-neutral-500);
+  --color-neutral-600: var(--emp-color-neutral-600);
+  --color-neutral-700: var(--emp-color-neutral-700);
+  --color-neutral-800: var(--emp-color-neutral-800);
+  --color-neutral-900: var(--emp-color-neutral-900);
+
+  /* ============================================================
+     COLORS — Success
+     Utilities: bg-success-{n}  text-success-{n}  border-success-{n}
+  ============================================================ */
+  --color-success-50:  var(--emp-color-success-50);
+  --color-success-100: var(--emp-color-success-100);
+  --color-success-400: var(--emp-color-success-400);
+  --color-success-500: var(--emp-color-success-500);
+  --color-success-600: var(--emp-color-success-600);
+  --color-success-700: var(--emp-color-success-700);
+
+  /* ============================================================
+     COLORS — Danger
+     Utilities: bg-danger-{n}  text-danger-{n}  border-danger-{n}
+  ============================================================ */
+  --color-danger-50:  var(--emp-color-danger-50);
+  --color-danger-100: var(--emp-color-danger-100);
+  --color-danger-400: var(--emp-color-danger-400);
+  --color-danger-500: var(--emp-color-danger-500);
+  --color-danger-600: var(--emp-color-danger-600);
+  --color-danger-700: var(--emp-color-danger-700);
+
+  /* ============================================================
+     COLORS — Warning
+     Utilities: bg-warning-{n}  text-warning-{n}  border-warning-{n}
+  ============================================================ */
+  --color-warning-50:  var(--emp-color-warning-50);
+  --color-warning-100: var(--emp-color-warning-100);
+  --color-warning-400: var(--emp-color-warning-400);
+  --color-warning-500: var(--emp-color-warning-500);
+  --color-warning-600: var(--emp-color-warning-600);
+
+  /* ============================================================
+     COLORS — Accent (Orange)
+     Utilities: bg-accent-{n}  text-accent-{n}  border-accent-{n}
+  ============================================================ */
+  --color-accent-50:  var(--emp-color-accent-50);
+  --color-accent-100: var(--emp-color-accent-100);
+  --color-accent-500: var(--emp-color-accent-500);
+  --color-accent-600: var(--emp-color-accent-600);
+
+  /* ============================================================
+     COLORS — Chart palette
+     Utilities: bg-chart-{name}  text-chart-{name}  fill-chart-{name}
+  ============================================================ */
+  --color-chart-engineering: var(--emp-color-chart-engineering);
+  --color-chart-marketing:   var(--emp-color-chart-marketing);
+  --color-chart-design:      var(--emp-color-chart-design);
+  --color-chart-sales:       var(--emp-color-chart-sales);
+  --color-chart-hr:          var(--emp-color-chart-hr);
+  --color-chart-finance:     var(--emp-color-chart-finance);
+  --color-chart-others:      var(--emp-color-chart-others);
+
+  /* ============================================================
+     COLORS — Semantic surface / background
+     Utilities: bg-surface  bg-page  bg-subtle  bg-muted
+  ============================================================ */
+  --color-surface:       var(--emp-color-bg-surface);
+  --color-page:          var(--emp-color-bg-page);
+  --color-subtle:        var(--emp-color-bg-subtle);
+  --color-muted-bg:      var(--emp-color-bg-muted);
+
+  /* ============================================================
+     COLORS — Semantic text
+     Utilities: text-primary-text  text-secondary-text  text-muted-text
+  ============================================================ */
+  --color-primary-text:   var(--emp-color-text-primary);
+  --color-secondary-text: var(--emp-color-text-secondary);
+  --color-muted-text:     var(--emp-color-text-muted);
+  --color-inverse-text:   var(--emp-color-text-inverse);
+  --color-link:           var(--emp-color-text-link);
+  --color-link-hover:     var(--emp-color-text-link-hover);
+
+  /* ============================================================
+     COLORS — Semantic border
+     Utilities: border-default  border-strong  border-focus
+  ============================================================ */
+  --color-border-default: var(--emp-color-border-default);
+  --color-border-strong:  var(--emp-color-border-strong);
+  --color-border-focus:   var(--emp-color-border-focus);
+
+  /* ============================================================
+     COLORS — Sidebar
+     Utilities: bg-sidebar  text-sidebar  border-sidebar
+  ============================================================ */
+  --color-sidebar:              var(--emp-color-sidebar-bg);
+  --color-sidebar-border:       var(--emp-color-sidebar-border);
+  --color-sidebar-text:         var(--emp-color-sidebar-text);
+  --color-sidebar-text-hover:   var(--emp-color-sidebar-text-hover);
+  --color-sidebar-text-active:  var(--emp-color-sidebar-text-active);
+  --color-sidebar-active:       var(--emp-color-sidebar-item-active);
+  --color-sidebar-hover:        var(--emp-color-sidebar-item-hover);
+  --color-sidebar-icon:         var(--emp-color-sidebar-icon);
+  --color-sidebar-icon-active:  var(--emp-color-sidebar-icon-active);
+
+  /* ============================================================
+     COLORS — Status badges
+     Utilities: bg-status-active  text-status-active  etc.
+  ============================================================ */
+  --color-status-active-bg:     var(--emp-color-status-active-bg);
+  --color-status-active-text:   var(--emp-color-status-active-text);
+  --color-status-inactive-bg:   var(--emp-color-status-inactive-bg);
+  --color-status-inactive-text: var(--emp-color-status-inactive-text);
+
+  /* ============================================================
+     TYPOGRAPHY — Font families
+     Utilities: font-sans  font-mono
+  ============================================================ */
+  --font-sans: var(--emp-font-family-base);
+  --font-mono: var(--emp-font-family-mono);
+
+  /* ============================================================
+     TYPOGRAPHY — Font sizes
+     Utilities: text-xs  text-sm  text-base  text-md
+               text-lg  text-xl  text-2xl  text-3xl
+  ============================================================ */
+  --text-xs:   var(--emp-font-size-xs);    /* 12px */
+  --text-sm:   var(--emp-font-size-sm);    /* 14px */
+  --text-base: var(--emp-font-size-base);  /* 16px */
+  --text-md:   var(--emp-font-size-md);    /* 18px */
+  --text-lg:   var(--emp-font-size-lg);    /* 20px */
+  --text-xl:   var(--emp-font-size-xl);    /* 24px */
+  --text-2xl:  var(--emp-font-size-2xl);   /* 30px */
+  --text-3xl:  var(--emp-font-size-3xl);   /* 36px */
+
+  /* ============================================================
+     TYPOGRAPHY — Font weights
+     Utilities: font-normal  font-medium  font-semibold  font-bold
+  ============================================================ */
+  --font-weight-normal:   var(--emp-font-weight-regular);
+  --font-weight-medium:   var(--emp-font-weight-medium);
+  --font-weight-semibold: var(--emp-font-weight-semibold);
+  --font-weight-bold:     var(--emp-font-weight-bold);
+
+  /* ============================================================
+     TYPOGRAPHY — Line heights
+     Utilities: leading-tight  leading-snug  leading-normal  leading-relaxed
+  ============================================================ */
+  --leading-tight:   var(--emp-line-height-tight);
+  --leading-snug:    var(--emp-line-height-snug);
+  --leading-normal:  var(--emp-line-height-normal);
+  --leading-relaxed: var(--emp-line-height-relaxed);
+
+  /* ============================================================
+     TYPOGRAPHY — Letter spacings
+     Utilities: tracking-tight  tracking-normal  tracking-wide
+               tracking-wider  tracking-widest
+  ============================================================ */
+  --tracking-tight:   var(--emp-letter-spacing-tight);
+  --tracking-normal:  var(--emp-letter-spacing-normal);
+  --tracking-wide:    var(--emp-letter-spacing-wide);
+  --tracking-wider:   var(--emp-letter-spacing-wider);
+  --tracking-widest:  var(--emp-letter-spacing-widest);
+
+  /* ============================================================
+     SPACING
+     Base multiplier: --spacing = 0.25rem
+     → p-1=4px  p-2=8px  p-3=12px  p-4=16px  p-5=20px
+       p-6=24px  p-8=32px  p-10=40px  p-12=48px  p-16=64px
+     All Tailwind spacing utilities (p-*, m-*, gap-*, w-*, h-*,
+     inset-*, space-*, size-*, …) use this multiplier.
+  ============================================================ */
+  --spacing: 0.25rem;
+
+  /* ============================================================
+     BORDER RADIUS
+     Utilities: rounded-none  rounded-sm  rounded-md  rounded-lg
+               rounded-xl  rounded-2xl  rounded-full
+  ============================================================ */
+  --radius-none: var(--emp-radius-none);
+  --radius-sm:   var(--emp-radius-sm);
+  --radius-md:   var(--emp-radius-md);
+  --radius-lg:   var(--emp-radius-lg);
+  --radius-xl:   var(--emp-radius-xl);
+  --radius-2xl:  var(--emp-radius-2xl);
+  --radius-full: var(--emp-radius-full);
+
+  /* ============================================================
+     SHADOWS
+     Utilities: shadow-xs  shadow-sm  shadow-md  shadow-lg  shadow-xl
+  ============================================================ */
+  --shadow-xs: var(--emp-shadow-xs);
+  --shadow-sm: var(--emp-shadow-sm);
+  --shadow-md: var(--emp-shadow-md);
+  --shadow-lg: var(--emp-shadow-lg);
+  --shadow-xl: var(--emp-shadow-xl);
+
+  /* ============================================================
+     Z-INDEX
+     Utilities: z-dropdown  z-sticky  z-overlay  z-modal  z-toast
+  ============================================================ */
+  --z-base:     var(--emp-z-base);
+  --z-raised:   var(--emp-z-raised);
+  --z-dropdown: var(--emp-z-dropdown);
+  --z-sticky:   var(--emp-z-sticky);
+  --z-overlay:  var(--emp-z-overlay);
+  --z-modal:    var(--emp-z-modal);
+  --z-toast:    var(--emp-z-toast);
+
+}
