@@ -195,8 +195,18 @@ install - `pnpm dlx shadcn-vue@latest init`
 
 note: compilerOptions na thakle, **root `tsconfig.json` a compilerOptions add korte hobe.
 
+then, now amader need input field, so input install korbo. `pnpm dlx shadcn-vue@latest add input`
+
 
 6. base component
 
 - note: `ui-component` er kaj korte jeye kono base component jokhon lagbe tokhon, shadcn niye base compnent niye kaj korbo
 
+
+
+# question 
+
+@/lib a keno aslo?
+tailwind css test
+amar theme diye test
+shadcn er css diye tes
