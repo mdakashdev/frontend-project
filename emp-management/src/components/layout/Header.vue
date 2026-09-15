@@ -9,7 +9,7 @@ import {
 import { Input } from '@/components/ui/input'
 </script>
 <template>
-  <header class="flex items-center h-16 border-b border-slate-200 justify-between px-6">
+  <header class="flex items-center h-16 border-b border-sidebar-border justify-between px-6">
     <div class="relative w-120">
       <Search
         :size="18"
@@ -23,7 +23,7 @@ import { Input } from '@/components/ui/input'
 <!--      />-->
     <Input
       placeholder="Search anything"
-      class="pl-10"
+      class="pl-10 bg-surface"
     />
     </div>
 

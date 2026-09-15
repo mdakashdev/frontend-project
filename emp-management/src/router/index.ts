@@ -21,11 +21,11 @@ const router = createRouter({
           component: Dashboard
         },
         {
-          path: '/new-emp',
+          path: 'new-emp',
           component: AddEmp
         },
         {
-          path: '/emp',
+          path: 'emp',
           component: ListEmp
         }
       ]

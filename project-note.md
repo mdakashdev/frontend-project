@@ -197,16 +197,43 @@ note: compilerOptions na thakle, **root `tsconfig.json` a compilerOptions add ko
 
 then, now amader need input field, so input install korbo. `pnpm dlx shadcn-vue@latest add input`
 
+then, input field use in header component. so Input component ব্যবহার korlam from shadcn-vue 
 
-6. base component
+> now, dashboard page niye kaj korbo.
+
+dashboard kaj korte jeye -full layout er background color and border er jonno kaj korlam, so eita agei korte hobe.
+
+after theme & token, before ui component - you should layout backgorund and border niye kaj kora. 
+
+ami theme theke theke variable use korechi. for background and border 
+
+- before work dashboard, click dashboard menu and active color. blue (eikhanei theme ta buje nib)
+
+> menu bar and active color.
+
+sei jonno `RouterLink` use korlam for link then active color use korlam and kichu css er jonno class use korlam.
+
+> now dashboard page er kaj korbo
+
+---
+
+6. Base component
 
 - note: `ui-component` er kaj korte jeye kono base component jokhon lagbe tokhon, shadcn niye base compnent niye kaj korbo
 
+input field er jonno shadcn-vue use korlam.
 
+install - `pnpm dlx shadcn-vue@latest init`
+
+note: compilerOptions na thakle, **root `tsconfig.json` a compilerOptions add korte hobe.
+
+then, now amader need input field, so input install korbo. `pnpm dlx shadcn-vue@latest add input`
+
+then, input field use in header component. so Input component ব্যবহার korlam from shadcn-vue
 
 # question 
 
-@/lib a keno aslo?
 tailwind css test
-amar theme diye test
-shadcn er css diye tes
+amar theme diye test (ja mapping korechi)
+shadcn er css diye test (shadcn jei base component ta use kortechi tar css kothai theke asche or mappning) - mane design compatible
+theme theke keno , kivabe use korbo ta jante hobe.
