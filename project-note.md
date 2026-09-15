@@ -26,7 +26,7 @@ then @import "tailwindcss" in src/styles/main.css
 available for full project - import './styles/main.css' in main.ts 
 ```
 
-3. Layout skeleton & stracture
+3. Layout skeleton & structure
 
 layout-এর structural skeleton
 
@@ -133,6 +133,10 @@ apatoto ja create korlam, seta thak actully output jokhon dekhbo, tokhon check k
 
 5. ui component 
 
+* svg icon - lucid
+* base component - shadcn
+
+
 - note: `ui-component` er kaj korte jeye kono base component jokhon lagbe tokhon, shadcn niye base compnent niye kaj korbo
 
 
@@ -168,6 +172,28 @@ jene nite parbe.
 3. user & pic
 
 done
+
+> now, next chunk header niye kaj korbo. 2 ta part 1. search 2. user & logout 
+
+```text
+- ami jokhon header er design korte gelam, dekhlam 3 ta part ache, search, bell, user-& logout
+- ami structure korte pari, div niye part kore, then flex use kore korlam, ami jani search er jonno input field lagbe setar basic kaj korlam
+- but jokhon actually css class gulo lagbe tokhon, hoi amake sketch file dhore map gulo nite hobe, or AI diye kore nite hobe.
+```
+* ami ei css gulo, obossoi AI er help niye kore nibo. so, structure nije aar actually css from AI
+
+---
+when i was working on header, then i get `input field` which is base component. 
+
+input field akta re usable component, ja onek jaigai use hobe, seta ami nije korte pari or 2nd option - shadcn use kora.
+
+so, i decided base component for - shadcn.
+
+## shadcn
+
+install - `pnpm dlx shadcn-vue@latest init`
+
+note: compilerOptions na thakle, **root `tsconfig.json` a compilerOptions add korte hobe.
 
 
 6. base component
