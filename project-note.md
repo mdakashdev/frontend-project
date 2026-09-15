@@ -215,6 +215,10 @@ sei jonno `RouterLink` use korlam for link then active color use korlam and kich
 
 > now dashboard page er kaj korbo
 
+- heading - done
+- card - eita reusable so, amra ekhon card compnent crete korbo. src/component/Card.vue
+- card component korechi, using props
+
 ---
 
 6. Base component
@@ -230,6 +234,7 @@ note: compilerOptions na thakle, **root `tsconfig.json` a compilerOptions add ko
 then, now amader need input field, so input install korbo. `pnpm dlx shadcn-vue@latest add input`
 
 then, input field use in header component. so Input component ব্যবহার korlam from shadcn-vue
+
 
 # question 
 
