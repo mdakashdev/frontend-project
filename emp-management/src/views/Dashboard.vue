@@ -29,7 +29,6 @@ import {
       <CCard class="w-full max-w-sm">
         <CardHeader>
           <CardTitle class="font-normal">Total Value</CardTitle>
-          <CardDescription>+12.5% from last month</CardDescription>
           <CardAction><Users :size="20" /></CardAction>
         </CardHeader>
         <CardContent class="text-2xl font-semibold">1248</CardContent>
@@ -38,7 +37,6 @@ import {
       <CCard class="w-full max-w-sm">
         <CardHeader>
           <CardTitle class="font-normal">Total Value</CardTitle>
-          <CardDescription>+12.5% from last month</CardDescription>
           <CardAction><Building2 :size="20"/></CardAction>
         </CardHeader>
         <CardContent class="text-2xl font-semibold">1248</CardContent>
@@ -47,7 +45,6 @@ import {
       <CCard class="w-full max-w-sm">
         <CardHeader>
           <CardTitle class="font-normal">Total Value</CardTitle>
-          <CardDescription>+12.5% from last month</CardDescription>
           <CardAction><SquareCheckBig :size="20" /></CardAction>
         </CardHeader>
         <CardContent class="text-2xl font-semibold">1248</CardContent>

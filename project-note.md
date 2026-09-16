@@ -240,6 +240,51 @@ we got card component, akta mojar bisoy -
 
 dashboard component a card perfectly use korlam 
 
+> design system concept 
+
+story: css er jonno amra tailwindcss use korbo. let, primary text color - text-blue-600 for tailwindcss er Typography er color er moddhe pore.
+now amar akta design tokens ache - jekhane primary text color hocche: --emp-color-danger-500: #EF4444;
+
+ami jodi, kono jaigai tailwindcss er text-blue-600 use kori tahole ki pabo ? aar amar tokens er ta use korte cai tahole kivabe pabo?
+
+ami jante cai, tokens.css, theme.css kivabe konta kaj kore?
+
+answer: 
+1. sorasori tailwind class use kora
+2. sorasori amar design er tokens.css theke var use kora
+3. amar tokens.css ke tailwindcss er sathe map kore expose kore class hisabe use kora.
+
+## now, shadcn er sathe compatible 
+
+
+tailwindcss, my design (tokens.css) , theme eigulo bujlam
+
+now, ami shadcn-vue er component use korbo like - Card, so se kon css use korbe eita first bolo,
+then second amar design tokens er sathe er map kivabe korbo ba ki korte hoi?
+
+- ami caile, shadcn-design-tokens (mans semantic design token) er value ke override korte pari. amar token er variable diye.
+- like: --background: var(--emp-color-primary-400);
+- tahole, 2 ta semantic design tokens, 1ta nijer design er theme.css and arekta shadcn er - shadcn-design-tokens.css, now ami theme.css
+
+
+তাহলে একটাই আসল source of truth = তোমার tokens.css।
+Shadcn শুধু তার component-এর জন্য semantic naming layer।
+
+
+### summary
+- tokens.css hobe ekmatro source of truth - amar design system er. also .dark er value ekhane add kora thakbe.
+- aar shadcn er semantic design er jonno - shadcn-design-tokens.css 
+  amader desgin tokens er sathe shadcn token value ovverride kore dite pari. tahole amader design tai pabe.
+  shadcn init korar somai jeigulo semantic design dei, seigulo hocche tar tokens.
+  এগুলো হচ্ছে shadcn-এর semantic design tokens। mane, eigulo shadcn er, not amar design tokens. so eita actually shadcn-vue, tai ekhane amar moto kore kono tokens add korar sujog nai.
+  amar ta to amar tokens.css a korte pari.
+  then, ami ei shadcn er token gulo ke, tailwind class er moto use korte cai, tahole obossoi tailwindcss er namespace use kore theme a map korte hobe
+- theme.css hobe ekmatro tailwindcss er sathe mapping, @theme inline use korbo, aar er vitore 2ta block a jar jar ta seta use korbo,
+    akta nijer mapping, arekta shadcn er mapping
+- main.css use kore sobgulo ke import kore dilei holo.
+- note: shadcn theke jokhon amar kono compnent nei, sei jei class gulo dei -sekhane dui dhoroner class thake 1. tailwindcss er defualt 2. semantic design theke nei.  seita tumi easily distinguise
+   korte paro & tailwind er sathe mapping kore diye expected output pete paro.
+
 ---
 
 6. Base component
