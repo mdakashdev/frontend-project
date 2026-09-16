@@ -219,6 +219,16 @@ sei jonno `RouterLink` use korlam for link then active color use korlam and kich
 - card - eita reusable so, amra ekhon card compnent crete korbo. src/component/Card.vue
 - card component korechi, using props
 
+- shadcn er card component ache - https://ui.shadcn.com/docs/components/base/card 
+- seta niye akta try korte paro, then other things.
+
+> graph / char
+
+graph er jonno amra popular library use korbo - `vue3-apexcharts`
+
+install - `pnpm add apexcharts vue3-apexcharts`
+
+
 ---
 
 6. Base component

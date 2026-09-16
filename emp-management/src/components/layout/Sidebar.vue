@@ -27,14 +27,14 @@ import {
         <LayoutDashboard :size="20" />
         <span>Dashboard</span>
       </RouterLink>
-<!--      <RouterLink-->
-<!--        to="/emp"-->
-<!--        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"-->
-<!--        active-class="bg-sidebar-active text-sidebar-text-active"-->
-<!--      >-->
-<!--        <Users :size="20" />-->
-<!--        <span>Employee</span>-->
-<!--      </RouterLink>-->
+      <RouterLink
+        to="/emp"
+        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
+        active-class="bg-sidebar-active text-sidebar-text-active"
+      >
+        <Users :size="20" />
+        <span>List</span>
+      </RouterLink>
 
 <!--      <RouterLink-->
 <!--        to="/new-emp"-->

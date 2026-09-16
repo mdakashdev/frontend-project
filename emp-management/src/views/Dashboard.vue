@@ -7,6 +7,8 @@ import {
 } from 'lucide-vue-next'
 
 import Card from '@/components/Card.vue'
+import EmployeeChart from "@/components/EmployeeChart.vue";
+import DepartmentChart from "@/components/DepartmentChart.vue";
 </script>
 <template>
   <div class="flex flex-col gap-6 px-6 py-4">
@@ -22,9 +24,13 @@ import Card from '@/components/Card.vue'
       <Card :icon="Settings" title="Total Value" />
     </div>
 
-    <div>
-      <h2>graph</h2>
-      <h3>departmene</h3>
+    <div class="flex items-stretch gap-6">
+      <div class="flex-1 border">
+        <EmployeeChart />
+      </div>
+      <div class="w-1/3 border">
+        <DepartmentChart />
+      </div>
     </div>
 
     <div>

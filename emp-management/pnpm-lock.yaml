@@ -14,6 +14,9 @@ dependencies:
   '@vueuse/core':
     specifier: ^14.4.0
     version: 14.4.0(vue@3.5.42)
+  apexcharts:
+    specifier: ^7.3.0
+    version: 7.3.0
   class-variance-authority:
     specifier: ^0.7.1
     version: 0.7.1
@@ -35,6 +38,9 @@ dependencies:
   vue-router:
     specifier: ^5.3.1
     version: 5.3.1(vite@8.3.0)(vue@3.5.42)
+  vue3-apexcharts:
+    specifier: ^1.11.1
+    version: 1.11.1(apexcharts@7.3.0)(vue@3.5.42)
 
 devDependencies:
   '@tsconfig/node24':
@@ -1470,6 +1476,17 @@ packages:
     resolution: {integrity: sha512-9k3v7xcHwgdO/DruxGIg4HtjvlAZlcnsX/mzqUb1t3NkYnl9kK2UJ+Gq0io+vQf7iT//BD/HB/NBkUR1LWxoeA==}
     engines: {node: '>=14'}
     dev: true
+
+  /apex-commons@0.7.0:
+    resolution: {integrity: sha512-cGspw4G0FV/hULrJy75Du301lFGSkMWph4c5B+/YX4CBImG8WFWRUZ5dTFKYcoK5Q8/Ax2jHAKWVVRzNZOWH7g==}
+    dev: false
+
+  /apexcharts@7.3.0:
+    resolution: {integrity: sha512-WCpubnhgwuNdhH0VZ/Wizj13NlKqDBAxUTYmhnd01pBnDsdiPKNuXFATvDS2t1sojOVuzDFpCvBOWGEvbSUi6g==}
+    engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
+    dependencies:
+      apex-commons: 0.7.0
+    dev: false
 
   /ast-kit@2.2.0:
     resolution: {integrity: sha512-m1Q/RaVOnTp9JxPX+F+Zn7IcLYMzM8kZofDImfsKZd8MbR+ikdOzTeztStWqfrqIxZnYWryyI9ePm3NGjnZgGw==}
@@ -3072,6 +3089,16 @@ packages:
       '@vue/language-core': 3.3.11
       typescript: 6.0.3
     dev: true
+
+  /vue3-apexcharts@1.11.1(apexcharts@7.3.0)(vue@3.5.42):
+    resolution: {integrity: sha512-MbN3vg8bMG19wc0Lm1HkeQvODgLm56DgpIxtNUO0xpf/JCzYWVGE4jzXp2JISzy2s3Kul1yOxNQUYsLvKQ5L9g==}
+    peerDependencies:
+      apexcharts: '>=5.10.0'
+      vue: '>=3.0.0'
+    dependencies:
+      apexcharts: 7.3.0
+      vue: 3.5.42(typescript@6.0.3)
+    dev: false
 
   /vue@3.5.42(typescript@6.0.3):
     resolution: {integrity: sha512-4RyHQTbQvOPs3MfvUO1Sg0YRrKNnA0mAVtvpd12Tg1fKDN7OHBUl1IqSn8zGJjK9nI3NkNp8cgTpVrSZC5TTcA==}
