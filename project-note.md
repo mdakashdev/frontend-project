@@ -219,15 +219,26 @@ sei jonno `RouterLink` use korlam for link then active color use korlam and kich
 - card - eita reusable so, amra ekhon card compnent crete korbo. src/component/Card.vue
 - card component korechi, using props
 
-- shadcn er card component ache - https://ui.shadcn.com/docs/components/base/card 
+- shadcn er card component ache - https://www.shadcn-vue.com/docs/components/card#installation
 - seta niye akta try korte paro, then other things.
 
 > graph / char
 
-graph er jonno amra popular library use korbo - `vue3-apexcharts`
+graph er jonno amra popular library use korbo - `vue3-apexcharts` and `appexcharts`
 
 install - `pnpm add apexcharts vue3-apexcharts`
 
+> shadcn card
+
+install - `pnpm dlx shadcn-vue@latest add card`
+
+we got card component, akta mojar bisoy - 
+
+এখানে তোমার package.json-এ shadcn-vue নামে কোনো package dependency যোগ হয় না।
+
+তাহলে pnpm dlx কী করছে? pnpm dlx মূলত package-টা temporary ভাবে download করে command হিসেবে execute করে।
+
+dashboard component a card perfectly use korlam 
 
 ---
 
@@ -252,3 +263,9 @@ tailwind css test
 amar theme diye test (ja mapping korechi)
 shadcn er css diye test (shadcn jei base component ta use kortechi tar css kothai theke asche or mappning) - mane design compatible
 theme theke keno , kivabe use korbo ta jante hobe.
+
+- ki ki tool use korechi ta, shortlist korbo.
+
+# Note
+
+- css er jonno always - AI theke help niyechi, specially tailwind css
