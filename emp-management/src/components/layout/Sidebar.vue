@@ -8,8 +8,7 @@ import {
   ChartNoAxesCombined,
   SquareCheckBig,
   Users,
-  Settings,
-  Plus
+  Settings
 } from 'lucide-vue-next'
 </script>
 <template>
@@ -29,25 +28,16 @@ import {
         <span>Dashboard</span>
       </RouterLink>
       <RouterLink
-        to="/emp"
+        to="/employee"
         class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
         active-class="bg-sidebar-active text-sidebar-text-active"
       >
         <Users :size="20" />
-        <span>List</span>
+        <span>Employee</span>
       </RouterLink>
 
       <RouterLink
-        to="/new"
-        class="flex items-center gap-2 rounded-md text-sidebar-text px-3 py-2 transition-colors"
-        active-class="bg-sidebar-active text-sidebar-text-active"
-      >
-        <Plus :size="20" />
-        <span>New Employee</span>
-      </RouterLink>
-
-      <RouterLink
-        to="/new-emp"
+        to="/department"
         class="flex items-center gap-2 rounded-md text-sidebar-text px-3 py-2 transition-colors"
         active-class="bg-sidebar-active text-sidebar-text-active"
       >
@@ -56,7 +46,7 @@ import {
       </RouterLink>
 
       <RouterLink
-        to="/new-emp"
+        to="/task"
         class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
         active-class="bg-sidebar-active text-sidebar-text-active"
       >
@@ -65,7 +55,7 @@ import {
       </RouterLink>
 
       <RouterLink
-        to="/new-emp"
+        to="/calender"
         class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
         active-class="bg-sidebar-active text-sidebar-text-active"
       >
@@ -74,7 +64,7 @@ import {
       </RouterLink>
 
       <RouterLink
-        to="/new-emp"
+        to="/report"
         class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
         active-class="bg-sidebar-active text-sidebar-text-active"
       >
@@ -83,7 +73,7 @@ import {
       </RouterLink>
 
       <RouterLink
-        to="/new-emp"
+        to="/settings"
         class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
         active-class="bg-sidebar-active text-sidebar-text-active"
       >

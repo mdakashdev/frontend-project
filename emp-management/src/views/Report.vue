@@ -1,3 +1,3 @@
 <template>
-  <h1>new emp </h1>
+  <h1>Report</h1>
 </template>

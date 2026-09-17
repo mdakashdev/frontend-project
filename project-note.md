@@ -308,6 +308,10 @@ amra kaj korte korte onek gulo base component peyechi, like - input, button, etc
 
 - table list a button and input ache ja shadcn theke use korte hobe and arrow from svg library
 
+- `Employee menu` te click korle - /employee endpoint a list open hoi, now ami jodi new employee click kolre ki same endpoint open hoi?
+   `answer` : /employee/create and using children route.
+- so, ami menu link and route and view pages structure and active children color thik korlam.
+
 ---
 
 6. Base component
