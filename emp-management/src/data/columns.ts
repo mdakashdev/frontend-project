@@ -10,6 +10,7 @@ export const columns: ColumnDef<typeof features, Employee>[] = [
   {
     accessorKey: 'department',
     header: 'Department',
+    filterFn: 'equalsString',
   },
   {
     accessorKey: 'email',
@@ -22,5 +23,6 @@ export const columns: ColumnDef<typeof features, Employee>[] = [
   {
     accessorKey: 'status',
     header: 'Status',
+    filterFn: 'equalsString',
   },
 ]

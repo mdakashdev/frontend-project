@@ -9,6 +9,7 @@ const table = useTable({
   features,
   columns,
   data: allEmployees,
+  globalFilterFn: 'includesString',
 
   initialState: {
     pagination: {
@@ -20,12 +21,32 @@ const table = useTable({
 
 const search = ref('');
 
+// Pending (not yet applied) filter values
+const pendingDepartment = ref('')
+const pendingStatus = ref('')
+const pendingRole = ref('')
+
 watch(search, (val) => {
   table.setGlobalFilter(val)
   table.setPageIndex(0)
 })
 
-console.log('rows', table.getRowModel().rows);
+function applyFilters() {
+  table.getColumn('department')?.setFilterValue(pendingDepartment.value || undefined)
+  table.getColumn('status')?.setFilterValue(pendingStatus.value || undefined)
+  table.setPageIndex(0)
+}
+
+function resetFilters() {
+  search.value = ''
+  pendingDepartment.value = ''
+  pendingStatus.value = ''
+  pendingRole.value = ''
+  table.getColumn('department')?.setFilterValue(undefined)
+  table.getColumn('status')?.setFilterValue(undefined)
+  table.setGlobalFilter(undefined)
+  table.setPageIndex(0)
+}
 </script>
 <template>
   <div class="flex flex-col gap-6 px-6 py-4">
@@ -57,10 +78,11 @@ console.log('rows', table.getRowModel().rows);
         </label>
 
         <select
+          v-model="pendingDepartment"
           class="h-10 w-full rounded-md border bg-background px-3 text-sm outline-none
              focus:border-primary"
         >
-          <option>All Departments</option>
+          <option value="">All Departments</option>
           <option>Engineering</option>
           <option>Marketing</option>
           <option>Design</option>
@@ -76,10 +98,11 @@ console.log('rows', table.getRowModel().rows);
         </label>
 
         <select
+          v-model="pendingStatus"
           class="h-10 w-full rounded-md border bg-background px-3 text-sm outline-none
              focus:border-primary"
         >
-          <option>All Status</option>
+          <option value="">All Status</option>
           <option>Active</option>
           <option>Inactive</option>
         </select>
@@ -92,10 +115,11 @@ console.log('rows', table.getRowModel().rows);
         </label>
 
         <select
+          v-model="pendingRole"
           class="h-10 w-full rounded-md border bg-background px-3 text-sm outline-none
              focus:border-primary"
         >
-          <option>All Roles</option>
+          <option value="">All Roles</option>
           <option>Frontend Developer</option>
           <option>Backend Developer</option>
           <option>Marketing Manager</option>
@@ -109,6 +133,7 @@ console.log('rows', table.getRowModel().rows);
       <button
         type="button"
         class="h-10 rounded-md border px-5 text-sm font-medium hover:bg-muted"
+        @click="resetFilters"
       >
         ↻ Reset
       </button>
@@ -117,7 +142,8 @@ console.log('rows', table.getRowModel().rows);
       <button
         type="button"
         class="h-10 rounded-md border border-primary bg-primary px-5
-           text-sm font-medium text-primary-foreground hover:bg-primary/90"
+           text-sm font-medium hover:bg-primary/90"
+        @click="applyFilters"
       >
         Filter
       </button>
