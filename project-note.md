@@ -294,7 +294,10 @@ Shadcn শুধু তার component-এর জন্য semantic naming laye
 - then sei feature gulo babohar er jonno, use table er object a pass kore deya. const table = useTable({})
 - easy, table a sobkichu peye jabe, sei table diye bivonno method dhorle sob data, pagination paouwa jabe. 
 - Flexrender diye sob kichu render hoi.
-- pagination er size thik korlam
+- pagination & pagination size (5) (https://github.com/mdakashdev/frontend-project/commit/97639dabf8963495eb27e66ca60dfee15cb0260c)
+- search (https://github.com/mdakashdev/frontend-project/commit/d963672b5ba63457a2cbe7d36b23e696b22253c2), 
+- filter (https://github.com/mdakashdev/frontend-project/commit/f5342fb38d23bfe0faa1813adbc8ee469b8644dc)
+- column short(https://github.com/mdakashdev/frontend-project/commit/e6174b3a0c138441b25522cc510782e79a4e9007)
 
 
 note: mojar bisoy onek kichu chatgpt a solve dite pare na, tare onek kosto kore context bujate hoi, tokhon easily pi use korle hoye jai.
