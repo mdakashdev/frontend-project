@@ -8,7 +8,8 @@ import {
   ChartNoAxesCombined,
   SquareCheckBig,
   Users,
-  Settings
+  Settings,
+  Plus
 } from 'lucide-vue-next'
 </script>
 <template>
@@ -36,50 +37,59 @@ import {
         <span>List</span>
       </RouterLink>
 
-<!--      <RouterLink-->
-<!--        to="/new-emp"-->
-<!--        class="flex items-center gap-2 rounded-md text-sidebar-text px-3 py-2 transition-colors"-->
-<!--        active-class="bg-sidebar-active text-sidebar-text-active"-->
-<!--      >-->
-<!--        <Building2 :size="20" />-->
-<!--        <span>Departments</span>-->
-<!--      </RouterLink>-->
+      <RouterLink
+        to="/new"
+        class="flex items-center gap-2 rounded-md text-sidebar-text px-3 py-2 transition-colors"
+        active-class="bg-sidebar-active text-sidebar-text-active"
+      >
+        <Plus :size="20" />
+        <span>New Employee</span>
+      </RouterLink>
 
-<!--      <RouterLink-->
-<!--        to="/new-emp"-->
-<!--        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"-->
-<!--        active-class="bg-sidebar-active text-sidebar-text-active"-->
-<!--      >-->
-<!--        <SquareCheckBig :size="20" />-->
-<!--        <span>Tasks</span>-->
-<!--      </RouterLink>-->
+      <RouterLink
+        to="/new-emp"
+        class="flex items-center gap-2 rounded-md text-sidebar-text px-3 py-2 transition-colors"
+        active-class="bg-sidebar-active text-sidebar-text-active"
+      >
+        <Building2 :size="20" />
+        <span>Departments</span>
+      </RouterLink>
 
-<!--      <RouterLink-->
-<!--        to="/new-emp"-->
-<!--        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"-->
-<!--        active-class="bg-sidebar-active text-sidebar-text-active"-->
-<!--      >-->
-<!--        <CalendarDays :size="20" />-->
-<!--        <span>Calender</span>-->
-<!--      </RouterLink>-->
+      <RouterLink
+        to="/new-emp"
+        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
+        active-class="bg-sidebar-active text-sidebar-text-active"
+      >
+        <SquareCheckBig :size="20" />
+        <span>Tasks</span>
+      </RouterLink>
 
-<!--      <RouterLink-->
-<!--        to="/new-emp"-->
-<!--        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"-->
-<!--        active-class="bg-sidebar-active text-sidebar-text-active"-->
-<!--      >-->
-<!--        <ChartNoAxesCombined :size="20" />-->
-<!--        <span>Reports</span>-->
-<!--      </RouterLink>-->
+      <RouterLink
+        to="/new-emp"
+        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
+        active-class="bg-sidebar-active text-sidebar-text-active"
+      >
+        <CalendarDays :size="20" />
+        <span>Calender</span>
+      </RouterLink>
 
-<!--      <RouterLink-->
-<!--        to="/new-emp"-->
-<!--        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"-->
-<!--        active-class="bg-sidebar-active text-sidebar-text-active"-->
-<!--      >-->
-<!--        <Settings :size="20" />-->
-<!--        <span>Settings</span>-->
-<!--      </RouterLink>-->
+      <RouterLink
+        to="/new-emp"
+        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
+        active-class="bg-sidebar-active text-sidebar-text-active"
+      >
+        <ChartNoAxesCombined :size="20" />
+        <span>Reports</span>
+      </RouterLink>
+
+      <RouterLink
+        to="/new-emp"
+        class="flex items-center gap-2 rounded-md px-3 py-2 text-sidebar-text transition-colors"
+        active-class="bg-sidebar-active text-sidebar-text-active"
+      >
+        <Settings :size="20" />
+        <span>Settings</span>
+      </RouterLink>
     </nav>
     <div class="mt-auto p-6 flex gap-2 items-center">
       <Users :size="20"/>

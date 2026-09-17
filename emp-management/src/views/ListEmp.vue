@@ -4,6 +4,7 @@ import { FlexRender, useTable } from '@tanstack/vue-table';
 import { allEmployees } from "@/data/employees.ts"
 import { columns } from "@/data/columns.ts"
 import { features } from "@/data/tableConfig.ts"
+import { Funnel } from "lucide-vue-next"
 
 const table = useTable({
   features,
@@ -141,11 +142,14 @@ function resetFilters() {
       <!-- Filter -->
       <button
         type="button"
-        class="h-10 rounded-md border border-primary bg-primary px-5
+        class="flex items-center gap-2 h-10 rounded-md border border-primary bg-primary px-5
            text-sm font-medium hover:bg-primary/90"
         @click="applyFilters"
       >
-        Filter
+        <Funnel :size="16" />
+        <span>
+          Filter
+        </span>
       </button>
 
     </div>

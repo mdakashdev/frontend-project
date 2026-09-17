@@ -304,6 +304,10 @@ note: mojar bisoy onek kichu chatgpt a solve dite pare na, tare onek kosto kore 
 
 amra kaj korte korte onek gulo base component peyechi, like - input, button, etc seigulo jehetu reusable tai, shadcn theke use korbo.
 
+> Form & form validation
+
+- table list a button and input ache ja shadcn theke use korte hobe and arrow from svg library
+
 ---
 
 6. Base component
@@ -333,3 +337,8 @@ theme theke keno , kivabe use korbo ta jante hobe.
 # Note
 
 - css er jonno always - AI theke help niyechi, specially tailwind css
+
+# Later 
+
+- const columns: ColumnDef<typeof features, Employee>[] = []
+- eitar basic type ta bujechi, now aro deep bujte hole, pore typescript dekhar somai dekhbo.
