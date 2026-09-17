@@ -173,12 +173,21 @@ function resetFilters() {
             v-for="header in headerGroup.headers"
             :key="header.id"
             class="px-4 py-3 text-left text-sm font-medium text-muted-foreground"
+            :class="{ 'cursor-pointer select-none hover:text-primary-text': header.column.getCanSort() }"
+            @click="header.column.getToggleSortingHandler()?.($event)"
           >
-            <FlexRender
-              v-if="!header.isPlaceholder"
-              :render="header.column.columnDef.header"
-              :props="header.getContext()"
-            />
+            <div class="flex items-center gap-1">
+              <FlexRender
+                v-if="!header.isPlaceholder"
+                :render="header.column.columnDef.header"
+                :props="header.getContext()"
+              />
+              <span v-if="header.column.getCanSort()" class="text-xs">
+                <template v-if="header.column.getIsSorted() === 'asc'">↑</template>
+                <template v-else-if="header.column.getIsSorted() === 'desc'">↓</template>
+                <template v-else><span class="opacity-40">↕</span></template>
+              </span>
+            </div>
           </th>
         </tr>
         </thead>
