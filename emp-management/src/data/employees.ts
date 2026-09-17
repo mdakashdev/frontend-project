@@ -1,0 +1,168 @@
+export type Employee = {
+  id: number
+  name: string
+  avatar: string
+  department: string
+  email: string
+  joinDate: string
+  status: 'Active' | 'Inactive'
+}
+
+export const employees: Employee[] = [
+  {
+    id: 1,
+    name: 'Ayesha Rahman',
+    avatar: '/avatars/ayesha.jpg',
+    department: 'Engineering',
+    email: 'ayesha@company.com',
+    joinDate: 'Aug 20, 2025',
+    status: 'Active',
+  },
+  {
+    id: 2,
+    name: 'Tanvir Hasan',
+    avatar: '/avatars/tanvir.jpg',
+    department: 'Marketing',
+    email: 'tanvir@company.com',
+    joinDate: 'Aug 16, 2025',
+    status: 'Active',
+  },
+  {
+    id: 3,
+    name: 'Nusrat Jahan',
+    avatar: '/avatars/nusrat.jpg',
+    department: 'Design',
+    email: 'nusrat@company.com',
+    joinDate: 'Aug 15, 2025',
+    status: 'Active',
+  },
+  {
+    id: 4,
+    name: 'Rafid Islam',
+    avatar: '/avatars/rafid.jpg',
+    department: 'Sales',
+    email: 'rafid@company.com',
+    joinDate: 'Aug 12, 2025',
+    status: 'Inactive',
+  },
+  {
+    id: 5,
+    name: 'Sadia Akter',
+    avatar: '/avatars/sadia.jpg',
+    department: 'HR',
+    email: 'sadia@company.com',
+    joinDate: 'Aug 10, 2025',
+    status: 'Active',
+  },
+]
+
+export const allEmployees: Employee[] = [
+  {
+    id: 1,
+    name: 'Faysal Khan',
+    avatar: '/avatars/ayesha.jpg',
+    department: 'Engineering',
+    email: 'faysal@company.com',
+    joinDate: 'Aug 20, 2025',
+    status: 'Active',
+  },
+  {
+    id: 2,
+    name: 'Tanvir Hasan',
+    avatar: '/avatars/tanvir.jpg',
+    department: 'Marketing',
+    email: 'tanvir@company.com',
+    joinDate: 'Aug 16, 2025',
+    status: 'Active',
+  },
+  {
+    id: 3,
+    name: 'Nasim rana',
+    avatar: '/avatars/nusrat.jpg',
+    department: 'Design',
+    email: 'nasim@company.com',
+    joinDate: 'Aug 15, 2025',
+    status: 'Active',
+  },
+  {
+    id: 4,
+    name: 'Tanyeem safwan',
+    avatar: '/avatars/rafid.jpg',
+    department: 'Sales',
+    email: 'tanyeem@company.com',
+    joinDate: 'Aug 12, 2025',
+    status: 'Inactive',
+  },
+  {
+    id: 5,
+    name: 'Taisar rahman',
+    avatar: '/avatars/sadia.jpg',
+    department: 'HR',
+    email: 'taisar@company.com',
+    joinDate: 'Aug 10, 2025',
+    status: 'Active',
+  },
+  {
+    id: 6,
+    name: 'Shakel Ahmed',
+    avatar: '/avatars/sadia.jpg',
+    department: 'HR',
+    email: 'shakel@company.com',
+    joinDate: 'Aug 10, 2025',
+    status: 'Active',
+  },
+  {
+    id: 7,
+    name: 'Ismail Rana',
+    avatar: '/avatars/sadia.jpg',
+    department: 'HR',
+    email: 'rana@company.com',
+    joinDate: 'Aug 10, 2025',
+    status: 'Active',
+  },
+  {
+    id: 8,
+    name: 'Hasibul Rubel',
+    avatar: '/avatars/sadia.jpg',
+    department: 'HR',
+    email: 'rubel@company.com',
+    joinDate: 'Aug 10, 2025',
+    status: 'Active',
+  },
+  {
+    id: 9,
+    name: 'Hasibul Rajin',
+    avatar: '/avatars/sadia.jpg',
+    department: 'HR',
+    email: 'rajin@company.com',
+    joinDate: 'Aug 10, 2025',
+    status: 'Active',
+  },
+  {
+    id: 10,
+    name: 'Nahid Hasan',
+    avatar: '/avatars/sadia.jpg',
+    department: 'HR',
+    email: 'nahid@company.com',
+    joinDate: 'Aug 10, 2025',
+    status: 'Active',
+  },
+  {
+    id: 11,
+    name: 'Joy Kumar',
+    avatar: '/avatars/sadia.jpg',
+    department: 'HR',
+    email: 'joy@company.com',
+    joinDate: 'Aug 10, 2025',
+    status: 'Active',
+  },
+  {
+    id: 12,
+    name: 'Ariful Islam',
+    avatar: '/avatars/sadia.jpg',
+    department: 'HR',
+    email: 'arif@company.com',
+    joinDate: 'Aug 10, 2025',
+    status: 'Active',
+  },
+]
