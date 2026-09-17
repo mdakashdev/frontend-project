@@ -285,6 +285,22 @@ Shadcn শুধু তার component-এর জন্য semantic naming laye
 - note: shadcn theke jokhon amar kono compnent nei, sei jei class gulo dei -sekhane dui dhoroner class thake 1. tailwindcss er defualt 2. semantic design theke nei.  seita tumi easily distinguise
    korte paro & tailwind er sathe mapping kore diye expected output pete paro.
 
+> tables
+
+- we use tanstack/vue-table table 
+- install - `pnpm add @tanstack/vue-table`
+- created data, column and tanstack er jonno feature
+- tableConfig hocche - table a ki ki feature thakbe seta available kora. like - pagination, search, sort etc
+- then sei feature gulo babohar er jonno, use table er object a pass kore deya. const table = useTable({})
+- easy, table a sobkichu peye jabe, sei table diye bivonno method dhorle sob data, pagination paouwa jabe. 
+- Flexrender diye sob kichu render hoi.
+- pagination er size thik korlam
+
+
+note: mojar bisoy onek kichu chatgpt a solve dite pare na, tare onek kosto kore context bujate hoi, tokhon easily pi use korle hoye jai.
+
+amra kaj korte korte onek gulo base component peyechi, like - input, button, etc seigulo jehetu reusable tai, shadcn theke use korbo.
+
 ---
 
 6. Base component

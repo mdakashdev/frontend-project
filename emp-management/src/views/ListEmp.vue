@@ -7,9 +7,16 @@ import { features } from "@/data/tableConfig.ts"
 const table = useTable({
   features,
   columns,
-  data: allEmployees
+  data: allEmployees,
+  initialState: {
+    pagination: {
+      pageIndex: 0,
+      pageSize: 5,
+    },
+  },
 })
 
+console.log('rows', table.getRowModel().rows);
 </script>
 <template>
   <div class="flex flex-col gap-6 px-6 py-4">
