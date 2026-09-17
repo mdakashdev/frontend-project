@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import { FlexRender, useTable } from '@tanstack/vue-table';
 import { allEmployees } from "@/data/employees.ts"
 import { columns } from "@/data/columns.ts"
@@ -8,12 +9,20 @@ const table = useTable({
   features,
   columns,
   data: allEmployees,
+
   initialState: {
     pagination: {
       pageIndex: 0,
       pageSize: 5,
     },
   },
+})
+
+const search = ref('');
+
+watch(search, (val) => {
+  table.setGlobalFilter(val)
+  table.setPageIndex(0)
 })
 
 console.log('rows', table.getRowModel().rows);
@@ -34,6 +43,7 @@ console.log('rows', table.getRowModel().rows);
           Search
         </label>
         <input
+          v-model="search"
           type="text"
           placeholder="Search by name, email, or department"
           class="h-10 w-full rounded-md border px-3 text-sm outline-none focus:border-primary"
@@ -121,7 +131,7 @@ console.log('rows', table.getRowModel().rows);
       <div class="flex items-center justify-between px-5 py-4">
         <div>
           <h2 class="text-base font-semibold">
-            Employees ({{ allEmployees.length }})
+            Employees ({{ table.getFilteredRowModel().rows.length }})
           </h2>
         </div>
       </div>
@@ -173,7 +183,7 @@ console.log('rows', table.getRowModel().rows);
         <!-- Result info -->
         <p class="text-sm text-muted-foreground">
           Showing 1–{{ table.getRowModel().rows.length }}
-          of {{ allEmployees.length }} results
+          of {{ table.getFilteredRowModel().rows.length }} results
         </p>
 
         <!-- Pagination -->

@@ -1,10 +1,15 @@
 import {
   tableFeatures,
   rowPaginationFeature,
-  createPaginatedRowModel
+  createPaginatedRowModel,
+  globalFilteringFeature,
+  createFilteredRowModel
 } from '@tanstack/vue-table'
 
 export const features = tableFeatures({
   rowPaginationFeature,
-  paginatedRowModel: createPaginatedRowModel()
+  paginatedRowModel: createPaginatedRowModel(),
+
+  globalFilteringFeature,
+  filteredRowModel: createFilteredRowModel(),
 })
