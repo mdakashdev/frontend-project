@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { DateValue } from '@internationalized/date'
+// import type { DateValue } from '@internationalized/date'
+import { Field, useForm } from 'vee-validate'
 
 import {
   Calendar as CalendarIcon,
@@ -23,7 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const date = ref<DateValue>()
+// const date = ref<DateValue>()
 const open = ref(false)
 
 const fileInput = ref<HTMLInputElement | null>(null)
@@ -31,6 +32,17 @@ const fileInput = ref<HTMLInputElement | null>(null)
 const openFilePicker = () => {
   fileInput.value?.click()
 }
+
+const { handleSubmit } = useForm({
+  initialValues: {
+    status: 'active',
+  },
+})
+
+const submitForm = handleSubmit((values) => {
+  console.log('SUBMIT:', values)
+})
+
 </script>
 <template>
   <div class="flex flex-col gap-6 px-6 py-4">
@@ -38,103 +50,120 @@ const openFilePicker = () => {
       <h1 class="text-xl font-semibold text-primary-text">Employee</h1>
       <p class="mt-1 text-sm text-secondary-text">Here's whats happening with your team today</p>
     </div>
-
     <div class="rounded-lg border bg-background p-6">
-        <div class="grid grid-cols-2 gap-x-10 gap-y-6">
+      <form @submit.prevent="submitForm">
+      <div class="grid grid-cols-2 gap-x-10 gap-y-6">
 
           <div class="flex flex-col gap-2">
             <label class="text-sm font-medium text-primary-text">
               Full Name <span class="text-destructive">*</span>
             </label>
 
-            <Input
-              type="text"
-              placeholder="Enter full name"
-              class="h-12"
-            />
+            <Field name="fullName" v-slot="{ field }">
+              <Input
+                  v-bind="field"
+                  type="text"
+                  placeholder="Enter full name"
+                  class="h-12"
+                />
+            </Field>
           </div>
           <div class="flex flex-col gap-2">
             <label class="text-sm font-medium text-primary-text">
               Position <span class="text-destructive">*</span>
             </label>
 
-            <Input
-              type="text"
-              placeholder="Enter position"
-              class="h-12"
-            />
+            <Field name="position" v-slot="{ field }">
+              <Input
+                v-bind="field"
+                type="text"
+                placeholder="Enter position"
+                class="h-12"
+              />
+            </Field>
           </div>
 
           <div class="flex flex-col gap-2">
             <label class="text-sm font-medium text-primary-text">
               Email Address <span class="text-destructive">*</span>
             </label>
-
-            <Input
-              type="email"
-              placeholder="Enter email address"
-              class="h-12"
-            />
+            <Field name="email" v-slot="{ field }">
+              <Input
+                v-bind="field"
+                type="email"
+                placeholder="Enter email address"
+                class="h-12"
+              />
+            </Field>
           </div>
           <div class="flex flex-col gap-2">
             <label class="text-sm font-medium text-primary-text">
               Date of Joining <span class="text-destructive">*</span>
             </label>
 
-            <Popover v-model:open="open">
-              <PopoverTrigger as-child>
-                <Button
-                  variant="outline"
-                  class="h-12 w-full justify-between font-normal"
-                >
+            <Field name="joinDate" v-slot="{ value, handleChange }">
+              <Popover v-model:open="open">
+                <PopoverTrigger as-child>
+                  <Button
+                    variant="outline"
+                    class="h-12 w-full justify-between font-normal"
+                  >
                   <span>
                     {{ date ? date.toString() : 'Select date' }}
                   </span>
 
-                  <CalendarIcon class="size-4" />
-                </Button>
-              </PopoverTrigger>
+                    <CalendarIcon class="size-4" />
+                  </Button>
+                </PopoverTrigger>
 
-              <PopoverContent class="w-auto p-0" align="start">
-                <Calendar
-                  v-model="date"
-                  @update:model-value="open = false"
-                />
-              </PopoverContent>
-            </Popover>
+                <PopoverContent class="w-auto p-0" align="start">
+                  <Calendar
+                    v-model="date"
+                    @update:model-value="(newDate) => {
+                      handleChange(newDate)
+                      open = false
+                    }"
+                  />
+                </PopoverContent>
+              </Popover>
+            </Field>
           </div>
 
           <div class="flex flex-col gap-2">
             <label class="text-sm font-medium text-primary-text">
               Phone number
             </label>
-
-            <Input
-              type="text"
-              placeholder="Enter phone number"
-              class="h-12"
-            />
+            <Field name="phone" v-slot="{ field }">
+              <Input
+                v-bind="field"
+                type="text"
+                placeholder="Enter phone number"
+                class="h-12"
+              />
+            </Field>
           </div>
           <div class="flex flex-col gap-2">
             <label class="text-sm font-medium text-primary-text">
               Status
             </label>
 
-            <Select default-value="active">
-              <SelectTrigger class="!h-12 w-full">
-                <SelectValue />
-              </SelectTrigger>
+            <Field name="status" v-slot="{ componentField }">
+              <Select v-bind="componentField" default-value="active">
+                <SelectTrigger class="!h-12 w-full">
+                  <SelectValue />
+                </SelectTrigger>
 
-              <SelectContent>
-                <SelectItem value="active">
-                  Active
-                </SelectItem>
+                <SelectContent>
+                  <SelectItem value="active">
+                    Active
+                  </SelectItem>
 
-                <SelectItem value="inactive">
-                  Inactive
-                </SelectItem>
-              </SelectContent>
-            </Select>
+                  <SelectItem value="inactive">
+                    Inactive
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </Field>
           </div>
 
           <div class="flex flex-col gap-2">
@@ -142,33 +171,35 @@ const openFilePicker = () => {
               Deparment <span class="text-destructive">*</span>
             </label>
 
-            <Select>
-              <SelectTrigger class="!h-12 w-full">
-                <SelectValue placeholder="Select department" />
-              </SelectTrigger>
+            <Field name="department" v-slot="{ componentField }">
+              <Select v-bind="componentField">
+                <SelectTrigger class="!h-12 w-full">
+                  <SelectValue placeholder="Select department" />
+                </SelectTrigger>
 
-              <SelectContent>
-                <SelectItem value="engineering">
-                  Engineering
-                </SelectItem>
+                <SelectContent>
+                  <SelectItem value="engineering">
+                    Engineering
+                  </SelectItem>
 
-                <SelectItem value="marketing">
-                  Marketing
-                </SelectItem>
+                  <SelectItem value="marketing">
+                    Marketing
+                  </SelectItem>
 
-                <SelectItem value="design">
-                  Design
-                </SelectItem>
+                  <SelectItem value="design">
+                    Design
+                  </SelectItem>
 
-                <SelectItem value="sales">
-                  Sales
-                </SelectItem>
+                  <SelectItem value="sales">
+                    Sales
+                  </SelectItem>
 
-                <SelectItem value="hr">
-                  HR
-                </SelectItem>
-              </SelectContent>
-            </Select>
+                  <SelectItem value="hr">
+                    HR
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </Field>
           </div>
           <div class="flex flex-col gap-2">
             <label class="text-sm font-medium text-primary-text">
@@ -201,12 +232,15 @@ const openFilePicker = () => {
             </div>
 
             <!-- Actual file input -->
-            <input
-              ref="fileInput"
-              type="file"
-              accept="image/jpeg,image/png"
-              class="hidden"
-            />
+            <Field name="profilePhoto" v-slot="{ handleChange }">
+              <input
+                ref="fileInput"
+                type="file"
+                accept="image/jpeg,image/png"
+                class="hidden"
+                @change="handleChange"
+              />
+            </Field>
           </div>
 
         </div>
@@ -226,8 +260,7 @@ const openFilePicker = () => {
           Save Employee
         </button>
       </div>
-
+      </form>
     </div>
-
   </div>
 </template>

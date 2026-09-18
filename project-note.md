@@ -312,7 +312,7 @@ amra kaj korte korte onek gulo base component peyechi, like - input, button, etc
    `answer` : /employee/create and using children route.
 - so, ami menu link and route and view pages structure and active children color thik korlam.
 
-- `now Form : `  
+- `now Form : `  1. ui ready 2. validate using vee-validate 3. Zod — validation rules 4. API submit 5. Success / error handling
 - `first ui ta ready` kore, tai shadcn use korbo for ui component.
 - so, ami dekhbo form a amar ki ki lagbe, like - input, select, calender, upload image, button; ei 5 ta lagbe, tai ami age shadcn theke install kore nibo
 - https://www.shadcn-vue.com/docs/components
@@ -321,9 +321,14 @@ amra kaj korte korte onek gulo base component peyechi, like - input, button, etc
 - then form design suru kore, aar jekhane jei component lagbe seita use koro.
 - calender error jonno - pnpm add @internationalized/date eita install korechi, dependency error.
 - ami ui ready korlam, sei jonno - shadcn theke 5/6 ta component use korlam, aar design er class gulor jonno AI er help nilam, then amar form ta done
-- now full code ta review korbo - jei kono ta shadcn er baire ache kina.
+- now full code ta review korbo - je kono ta shadcn er baire ache kina.
 - review: ekhane exceptional chilo - calender ja popover diye kora hoyeche another one profile photo - actually file upload er jonno input use kora hoyeche but seta hidden rekhe button click korle ta open hoi.
-- 
+- `2nd vee-validate`: 
+- install `pnpm add vee-validate`  https://vee-validate.logaretm.com/v3/guide/basics.html#registering-the-validation-provider
+- then form diye wrap korbo, 
+- then vee validated `Field component` diye each field (input, select, date, photo) connect korbo 
+- input er jonno - slot:field, select er jonno slot:componentField, date er jonno slot:{ value, handleChange }, photo er jonno slot:handleChange
+- jehetu, status default value set thake, tai useForm a initialValues dite hobe. 
 
 
 ---
