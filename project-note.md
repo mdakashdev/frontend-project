@@ -312,6 +312,20 @@ amra kaj korte korte onek gulo base component peyechi, like - input, button, etc
    `answer` : /employee/create and using children route.
 - so, ami menu link and route and view pages structure and active children color thik korlam.
 
+- `now Form : `  
+- `first ui ta ready` kore, tai shadcn use korbo for ui component.
+- so, ami dekhbo form a amar ki ki lagbe, like - input, select, calender, upload image, button; ei 5 ta lagbe, tai ami age shadcn theke install kore nibo
+- https://www.shadcn-vue.com/docs/components
+- `pnpm dlx shadcn-vue@latest add button` , `pnpm dlx shadcn-vue@latest add select`, `pnpm dlx shadcn-vue@latest add calendar`
+- `pnpm dlx shadcn-vue@latest add popover`
+- then form design suru kore, aar jekhane jei component lagbe seita use koro.
+- calender error jonno - pnpm add @internationalized/date eita install korechi, dependency error.
+- ami ui ready korlam, sei jonno - shadcn theke 5/6 ta component use korlam, aar design er class gulor jonno AI er help nilam, then amar form ta done
+- now full code ta review korbo - jei kono ta shadcn er baire ache kina.
+- review: ekhane exceptional chilo - calender ja popover diye kora hoyeche another one profile photo - actually file upload er jonno input use kora hoyeche but seta hidden rekhe button click korle ta open hoi.
+- 
+
+
 ---
 
 6. Base component
@@ -337,6 +351,7 @@ shadcn er css diye test (shadcn jei base component ta use kortechi tar css kotha
 theme theke keno , kivabe use korbo ta jante hobe.
 
 - ki ki tool use korechi ta, shortlist korbo.
+- button, input etc nite hobe from shadcn
 
 # Note
 

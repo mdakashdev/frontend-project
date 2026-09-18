@@ -1,18 +1,20 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Input } from '@/components/ui/input'
+import type { DateValue } from '@internationalized/date'
+
 import {
   Calendar as CalendarIcon,
   UserRound,
   Upload
 } from 'lucide-vue-next'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Button } from '@/components/ui/button'
-import { Calendar } from '@/components/ui/calendar'
 import {
   Select,
   SelectContent,
@@ -21,7 +23,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const date = ref<Date>()
+const date = ref<DateValue>()
+const open = ref(false)
+
 const fileInput = ref<HTMLInputElement | null>(null)
 
 const openFilePicker = () => {
@@ -77,14 +81,14 @@ const openFilePicker = () => {
               Date of Joining <span class="text-destructive">*</span>
             </label>
 
-            <Popover>
+            <Popover v-model:open="open">
               <PopoverTrigger as-child>
                 <Button
                   variant="outline"
                   class="h-12 w-full justify-between font-normal"
                 >
                   <span>
-                    {{ date ? date.toLocaleDateString() : 'Select date' }}
+                    {{ date ? date.toString() : 'Select date' }}
                   </span>
 
                   <CalendarIcon class="size-4" />
@@ -92,7 +96,10 @@ const openFilePicker = () => {
               </PopoverTrigger>
 
               <PopoverContent class="w-auto p-0" align="start">
-                <Calendar v-model="date" />
+                <Calendar
+                  v-model="date"
+                  @update:model-value="open = false"
+                />
               </PopoverContent>
             </Popover>
           </div>
@@ -163,17 +170,6 @@ const openFilePicker = () => {
               </SelectContent>
             </Select>
           </div>
-<!--          <div class="flex flex-col gap-2">-->
-<!--            <label class="text-sm font-medium text-primary-text">-->
-<!--              Profile Photo-->
-<!--            </label>-->
-
-<!--            <Input-->
-<!--              type="file"-->
-<!--              accept="image/png,image/jpeg,image/jpg"-->
-<!--              class="h-12"-->
-<!--            />-->
-<!--          </div>-->
           <div class="flex flex-col gap-2">
             <label class="text-sm font-medium text-primary-text">
               Profile Photo
@@ -182,10 +178,7 @@ const openFilePicker = () => {
             <div class="flex items-center gap-5">
 
               <!-- Avatar -->
-              <div
-                class="flex h-24 w-24 shrink-0 items-center justify-center
-             rounded-full bg-muted"
-              >
+              <div class="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-muted">
                 <UserRound class="size-10 text-muted-foreground" />
               </div>
 
@@ -218,10 +211,22 @@ const openFilePicker = () => {
 
         </div>
 
-      <div class="">
-        <button>Cancel</button>
-        <button>Save Employee</button>
+      <div class="flex items-center justify-end gap-4 mt-15">
+        <button
+          type="button"
+          class="h-10 rounded-md border px-6 text-sm font-medium text-primary-text hover:bg-muted"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="h-10 rounded-md border px-6 text-sm font-medium bg-sidebar-active text-white hover:bg-primary/90"
+        >
+          Save Employee
+        </button>
       </div>
+
     </div>
 
   </div>
