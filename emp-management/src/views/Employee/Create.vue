@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import * as z from 'zod'
+import { toTypedSchema } from '@vee-validate/zod'
 // import type { DateValue } from '@internationalized/date'
 import { Field, useForm } from 'vee-validate'
 
@@ -33,8 +35,42 @@ const openFilePicker = () => {
   fileInput.value?.click()
 }
 
+const schema = toTypedSchema(
+  z.object({
+    fullName: z.string().min(1, 'Full name is required'),
+    email: z.string()
+      .min(1, 'Email is required')
+      .email('Enter a valid email'),
+    position: z.string().min(1, 'Position is required'),
+    department: z.string().min(1, 'Department is required'),
+    joinDate: z.any().refine(
+      (value) =>
+        value !== undefined && value !== null,
+        'Date of joining is required'
+    ),
+    profilePhoto: z.any()
+      .optional()
+      .refine(
+        (file) =>
+          !file || ['image/jpeg', 'image/png'].includes(file.type),
+          'Only JPG and PNG images are allowed'
+      )
+      .refine(
+        (file) =>
+          !file || file.size <= 1 * 1024 * 1024,
+          'Image must be less than 1MB'
+      ),
+  })
+)
+
 const { handleSubmit } = useForm({
+  validationSchema: schema,
   initialValues: {
+    fullName: '',
+    email: '',
+    position: '',
+    department: '',
+    joinDate: undefined,
     status: 'active',
   },
 })
@@ -42,6 +78,8 @@ const { handleSubmit } = useForm({
 const submitForm = handleSubmit((values) => {
   console.log('SUBMIT:', values)
 })
+
+
 
 </script>
 <template>
@@ -59,13 +97,19 @@ const submitForm = handleSubmit((values) => {
               Full Name <span class="text-destructive">*</span>
             </label>
 
-            <Field name="fullName" v-slot="{ field }">
+            <Field name="fullName" v-slot="{ field, errorMessage }">
               <Input
                   v-bind="field"
                   type="text"
                   placeholder="Enter full name"
                   class="h-12"
+                  :class="{
+                    'border-red-500 focus-visible:ring-red-500': errorMessage
+                  }"
                 />
+              <p v-if="errorMessage" class="mt-1 text-sm text-red-500">
+                {{ errorMessage }}
+              </p>
             </Field>
           </div>
           <div class="flex flex-col gap-2">
@@ -73,13 +117,19 @@ const submitForm = handleSubmit((values) => {
               Position <span class="text-destructive">*</span>
             </label>
 
-            <Field name="position" v-slot="{ field }">
+            <Field name="position" v-slot="{ field, errorMessage }">
               <Input
                 v-bind="field"
                 type="text"
                 placeholder="Enter position"
                 class="h-12"
+                :class="{
+                    'border-red-500 focus-visible:ring-red-500': errorMessage
+                  }"
               />
+              <p v-if="errorMessage" class="mt-1 text-sm text-red-500">
+                {{ errorMessage }}
+              </p>
             </Field>
           </div>
 
@@ -87,13 +137,19 @@ const submitForm = handleSubmit((values) => {
             <label class="text-sm font-medium text-primary-text">
               Email Address <span class="text-destructive">*</span>
             </label>
-            <Field name="email" v-slot="{ field }">
+            <Field name="email" v-slot="{ field, errorMessage }">
               <Input
                 v-bind="field"
                 type="email"
                 placeholder="Enter email address"
                 class="h-12"
+                :class="{
+                    'border-red-500 focus-visible:ring-red-500': errorMessage
+                  }"
               />
+              <p v-if="errorMessage" class="mt-1 text-sm text-red-500">
+                {{ errorMessage }}
+              </p>
             </Field>
           </div>
           <div class="flex flex-col gap-2">
@@ -101,12 +157,15 @@ const submitForm = handleSubmit((values) => {
               Date of Joining <span class="text-destructive">*</span>
             </label>
 
-            <Field name="joinDate" v-slot="{ value, handleChange }">
+            <Field name="joinDate" v-slot="{ value, handleChange, errorMessage }">
               <Popover v-model:open="open">
                 <PopoverTrigger as-child>
                   <Button
                     variant="outline"
                     class="h-12 w-full justify-between font-normal"
+                    :class="{
+                      'border-red-500 focus:ring-red-500': errorMessage
+                    }"
                   >
                   <span>
                     {{ date ? date.toString() : 'Select date' }}
@@ -126,6 +185,9 @@ const submitForm = handleSubmit((values) => {
                   />
                 </PopoverContent>
               </Popover>
+              <p v-if="errorMessage" class="mt-1 text-sm text-red-500">
+                {{ errorMessage }}
+              </p>
             </Field>
           </div>
 
@@ -171,9 +233,14 @@ const submitForm = handleSubmit((values) => {
               Deparment <span class="text-destructive">*</span>
             </label>
 
-            <Field name="department" v-slot="{ componentField }">
+            <Field name="department" v-slot="{ componentField, errorMessage }">
               <Select v-bind="componentField">
-                <SelectTrigger class="!h-12 w-full">
+                <SelectTrigger
+                  class="!h-12 w-full"
+                  :class="{
+                    'border-red-500 focus:ring-red-500': errorMessage
+                  }"
+                >
                   <SelectValue placeholder="Select department" />
                 </SelectTrigger>
 
@@ -199,6 +266,9 @@ const submitForm = handleSubmit((values) => {
                   </SelectItem>
                 </SelectContent>
               </Select>
+              <p v-if="errorMessage" class="text-sm text-red-500">
+                {{ errorMessage }}
+              </p>
             </Field>
           </div>
           <div class="flex flex-col gap-2">
@@ -232,7 +302,7 @@ const submitForm = handleSubmit((values) => {
             </div>
 
             <!-- Actual file input -->
-            <Field name="profilePhoto" v-slot="{ handleChange }">
+            <Field name="profilePhoto" v-slot="{ handleChange, errorMessage }">
               <input
                 ref="fileInput"
                 type="file"
@@ -240,6 +310,9 @@ const submitForm = handleSubmit((values) => {
                 class="hidden"
                 @change="handleChange"
               />
+              <p v-if="errorMessage" class="mt-1 text-sm text-red-500">
+                {{ errorMessage }}
+              </p>
             </Field>
           </div>
 
