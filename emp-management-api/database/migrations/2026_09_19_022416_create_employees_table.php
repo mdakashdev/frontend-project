@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('position');
             $table->string('email')->unique();
 
-            $table->date('joining_data');
+            $table->date('joining_date');
 
             $table->string('phone')->nullable();
 
