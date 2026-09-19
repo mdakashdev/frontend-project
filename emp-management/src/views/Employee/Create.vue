@@ -113,7 +113,7 @@ const submitForm = handleSubmit((values) => {
     position: values.position,
     email: values.email,
     department: values.department,
-    joinDate: values.joinDate,
+    joining_data: values.joinDate,
     status: values.status,
     phone: values.phone,
     profilePhoto: values.profilePhoto,
