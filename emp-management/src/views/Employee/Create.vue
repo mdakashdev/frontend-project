@@ -35,33 +35,36 @@ const openFilePicker = () => {
   fileInput.value?.click()
 }
 
-const schema = toTypedSchema(
-  z.object({
-    fullName: z.string().min(1, 'Full name is required'),
+const formSchema = z.object({
+  fullName: z.string().min(1, 'Full name is required'),
     email: z.string()
-      .min(1, 'Email is required')
-      .email('Enter a valid email'),
-    position: z.string().min(1, 'Position is required'),
-    department: z.string().min(1, 'Department is required'),
-    joinDate: z.any().refine(
-      (value) =>
-        value !== undefined && value !== null,
-        'Date of joining is required'
-    ),
-    profilePhoto: z.any()
-      .optional()
-      .refine(
-        (file) =>
-          !file || ['image/jpeg', 'image/png'].includes(file.type),
-          'Only JPG and PNG images are allowed'
-      )
-      .refine(
-        (file) =>
-          !file || file.size <= 1 * 1024 * 1024,
-          'Image must be less than 1MB'
-      ),
-  })
-)
+  .min(1, 'Email is required')
+  .email('Enter a valid email'),
+  position: z.string().min(1, 'Position is required'),
+  department: z.string().min(1, 'Department is required'),
+  joinDate: z.any().refine(
+  (value) =>
+    value !== undefined && value !== null,
+  'Date of joining is required'
+),
+  profilePhoto: z.any()
+  .optional()
+  .refine(
+    (file) =>
+      !file || ['image/jpeg', 'image/png'].includes(file.type),
+    'Only JPG and PNG images are allowed'
+  )
+  .refine(
+    (file) =>
+      !file || file.size <= 1 * 1024 * 1024,
+    'Image must be less than 1MB'
+  ),
+  status: z.enum(['active', 'inactive'])
+});
+
+type EmployeeForm = z.infer<typeof formSchema>;
+
+const schema = toTypedSchema(formSchema);
 
 const { handleSubmit } = useForm({
   validationSchema: schema,
@@ -76,7 +79,18 @@ const { handleSubmit } = useForm({
 })
 
 const submitForm = handleSubmit((values) => {
-  console.log('SUBMIT:', values)
+  const employee = {
+    id: Date.now(),
+    name: values.fullName,
+    position: values.position,
+    email: values.email,
+    department: values.department,
+    joinDate: values.joinDate,
+    status: values.status,
+    phone: values.phone,
+    profilePhoto: values.profilePhoto,
+  }
+  console.log('employee:', employee)
 })
 
 
@@ -168,7 +182,7 @@ const submitForm = handleSubmit((values) => {
                     }"
                   >
                   <span>
-                    {{ date ? date.toString() : 'Select date' }}
+                    {{ value ? value.toString() : 'Select date' }}
                   </span>
 
                     <CalendarIcon class="size-4" />
