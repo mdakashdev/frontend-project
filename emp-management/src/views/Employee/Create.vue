@@ -123,7 +123,7 @@ const submitForm = handleSubmit((values) => {
 
   resetForm()
   profilePhotoPreview.value = null
-
+  date.value = undefined
 })
 
 
@@ -382,7 +382,7 @@ const submitForm = handleSubmit((values) => {
         <button
           type="button"
           class="h-10 rounded-md border px-6 text-sm font-medium text-primary-text hover:bg-muted"
-          @click="resetForm()"
+          @click="resetForm(); profilePhotoPreview = null; date = undefined"
         >
           Cancel
         </button>

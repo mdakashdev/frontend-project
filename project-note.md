@@ -312,7 +312,7 @@ amra kaj korte korte onek gulo base component peyechi, like - input, button, etc
    `answer` : /employee/create and using children route.
 - so, ami menu link and route and view pages structure and active children color thik korlam.
 
-- `now Form : `  1. ui ready 2. validate using vee-validate 3. Zod — validation rules 4. API submit 5. Success / error handling
+- `now Form : `  1. ui ready 2. validate using vee-validate 3. Zod — validation rules 4. API submit 5. Success / error handling & toast
 - `1. first ui ta ready` kore, tai shadcn use korbo for ui component.
 - so, ami dekhbo form a amar ki ki lagbe, like - input, select, calender, upload image, button; ei 5 ta lagbe, tai ami age shadcn theke install kore nibo
 - https://www.shadcn-vue.com/docs/components
@@ -344,6 +344,7 @@ amra kaj korte korte onek gulo base component peyechi, like - input, button, etc
 - then use in any component
 - store bananor pore, vue dev tools diye check korechi, store asche ki na, employeeStore peyechi
 - now data gulo store a push korbo, jekhen a data mapp kore ready korechi.
+- now, after submit data / form reset korbo. then profile photo preview er jonno kaj korbo
 
 
 note: amra bolte pari - vee-validate hocche field conncet korar jonno aar zod error schema create korar jonno
