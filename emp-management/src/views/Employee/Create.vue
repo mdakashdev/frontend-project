@@ -31,9 +31,32 @@ import { useEmployeeStore } from '@/stores/employee'
 const employeeStore = useEmployeeStore();
 
 // const date = ref<DateValue>()
+const date = ref()
 const open = ref(false)
 
 const fileInput = ref<HTMLInputElement | null>(null)
+
+
+const profilePhotoPreview = ref<string | null>(null)
+
+const handleProfilePhoto = (
+  event: Event,
+  handleChange: (value: File | undefined) => void
+) => {
+  const input = event.target as HTMLInputElement
+  const file = input.files?.[0]
+
+  handleChange(file)
+
+  if (file) {
+    profilePhotoPreview.value = URL.createObjectURL(file)
+  } else {
+    profilePhotoPreview.value = null
+  }
+}
+
+
+
 
 const openFilePicker = () => {
   fileInput.value?.click()
@@ -71,7 +94,7 @@ type EmployeeForm = z.infer<typeof formSchema>;
 
 const schema = toTypedSchema(formSchema);
 
-const { handleSubmit } = useForm({
+const { handleSubmit, resetForm } = useForm({
   validationSchema: schema,
   initialValues: {
     fullName: '',
@@ -97,6 +120,10 @@ const submitForm = handleSubmit((values) => {
   }
   console.log('employee:', employee)
   employeeStore.addEmployee(employee);
+
+  resetForm()
+  profilePhotoPreview.value = null
+
 })
 
 
@@ -303,7 +330,17 @@ const submitForm = handleSubmit((values) => {
 
               <!-- Avatar -->
               <div class="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-muted">
-                <UserRound class="size-10 text-muted-foreground" />
+                <img
+                  v-if="profilePhotoPreview"
+                  :src="profilePhotoPreview"
+                  alt="Profile preview"
+                  class="h-full w-full object-cover"
+                />
+
+                <UserRound
+                  v-else
+                  class="size-10 text-muted-foreground"
+                />
               </div>
 
               <!-- Upload -->
@@ -318,7 +355,7 @@ const submitForm = handleSubmit((values) => {
                 </button>
 
                 <p class="text-xs text-muted-foreground">
-                  JPG, PNG less than 2MB
+                  JPG, PNG less than 1MB
                 </p>
               </div>
 
@@ -331,7 +368,7 @@ const submitForm = handleSubmit((values) => {
                 type="file"
                 accept="image/jpeg,image/png"
                 class="hidden"
-                @change="handleChange"
+                @change="(event) => handleProfilePhoto(event, handleChange)"
               />
               <p v-if="errorMessage" class="mt-1 text-sm text-red-500">
                 {{ errorMessage }}
@@ -345,6 +382,7 @@ const submitForm = handleSubmit((values) => {
         <button
           type="button"
           class="h-10 rounded-md border px-6 text-sm font-medium text-primary-text hover:bg-muted"
+          @click="resetForm()"
         >
           Cancel
         </button>
