@@ -335,7 +335,15 @@ amra kaj korte korte onek gulo base component peyechi, like - input, button, etc
 - then schema create korechi zod object use kore. then sei schem useForm ke diye dici.
 - amar 5 ta field a validation error dite hobe seta (fullName, email, position, department & joinDate) -> done
 - profile photo er jonno 2 ta validation set korbo : 1. JPG/PNG 2. max 2MB
-- 
+- `note:` jodi filed a touche korle - error dekhabe aar out hole o dekhane then - use `meta` and `meta.touched`
+- Zod schema → TypeScript type করব।
+- EmployeeForm type তৈরি হয়েছে। এবার আমরা submit values-এর type check করব।
+- db field er sathe form field er mapping kore akta object create korbo.
+- `4. 4th`: pinia store korbo, (after mapping)
+- install `pnpm add pinia` then register in global main.ts then crate store in stores/employee.ts
+- then use in any component
+- store bananor pore, vue dev tools diye check korechi, store asche ki na, employeeStore peyechi
+- now data gulo store a push korbo, jekhen a data mapp kore ready korechi.
 
 
 note: amra bolte pari - vee-validate hocche field conncet korar jonno aar zod error schema create korar jonno
@@ -375,3 +383,4 @@ theme theke keno , kivabe use korbo ta jante hobe.
 
 - const columns: ColumnDef<typeof features, Employee>[] = []
 - eitar basic type ta bujechi, now aro deep bujte hole, pore typescript dekhar somai dekhbo.
+- pore dekhbo, jei jei tools gulo use korechi, seigulo sei jai popular and appropiate kina, aar ki similar tools ache.

@@ -26,6 +26,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import { useEmployeeStore } from '@/stores/employee'
+
+const employeeStore = useEmployeeStore();
+
 // const date = ref<DateValue>()
 const open = ref(false)
 
@@ -59,7 +63,8 @@ const formSchema = z.object({
       !file || file.size <= 1 * 1024 * 1024,
     'Image must be less than 1MB'
   ),
-  status: z.enum(['active', 'inactive'])
+  status: z.enum(['active', 'inactive']),
+  phone: z.string().optional(),
 });
 
 type EmployeeForm = z.infer<typeof formSchema>;
@@ -91,8 +96,8 @@ const submitForm = handleSubmit((values) => {
     profilePhoto: values.profilePhoto,
   }
   console.log('employee:', employee)
+  employeeStore.addEmployee(employee);
 })
-
 
 
 </script>
@@ -103,6 +108,10 @@ const submitForm = handleSubmit((values) => {
       <p class="mt-1 text-sm text-secondary-text">Here's whats happening with your team today</p>
     </div>
     <div class="rounded-lg border bg-background p-6">
+      <div v-for="employee in employeeStore.employees" :key="employee.id">
+        {{ employee }}
+      </div>
+
       <form @submit.prevent="submitForm">
       <div class="grid grid-cols-2 gap-x-10 gap-y-6">
 

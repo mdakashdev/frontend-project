@@ -4,7 +4,8 @@ export type Employee = {
   avatar: string
   department: string
   email: string
-  joinDate: string
+  joinDate: string,
+  phone?: string
   status: 'Active' | 'Inactive'
 }
 
