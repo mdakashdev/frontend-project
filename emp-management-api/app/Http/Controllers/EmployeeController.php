@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EmployeeRequest;
+use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
@@ -23,7 +23,7 @@ class EmployeeController extends Controller
         return response()->json([
                 'success' => true,
                 'message' => 'Employee created successfully',
-                'data' => $response
+                'data' => new EmployeeResource($response)
         ], 201);
     }
 }
