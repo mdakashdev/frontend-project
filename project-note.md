@@ -365,6 +365,20 @@ then, now amader need input field, so input install korbo. `pnpm dlx shadcn-vue@
 
 then, input field use in header component. so Input component ব্যবহার korlam from shadcn-vue
 
+7. Backend application 
+
+- laravel install
+- employee migration create.
+- now, employee create akta endpoint kore, request, controller, resource data in korano.
+- jehetu api endpoint, tai api route amra endpoint korbo. - so eita easy setup hocche - php artisan install:api
+- tahole routes, api.php and bootstrap a register kore dibe. then `postman` diye age test kore nibo.
+- then - other things suru korbo like - controller, resource, request etc
+- `EmployeeController, EmployeeRequest, Model`(jehetu model er maddhome db te insert hobe)- Employee, `EmployeeResource`
+- now insert data in db
+- photo niye kaj korbo - photo ke local storage a save korbo, db te insert korbo and return a back korbo.
+- photo store korar por seta publicly access korar jonno `storate:link` korte hoi. ja korle url diye browse kora jai.
+- date casting in model a, then akta carbon object pai, ja diye formate kora jai
+
 
 # question 
 

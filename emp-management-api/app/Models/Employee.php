@@ -16,4 +16,11 @@ class Employee extends Model
         'department',
         'photo'
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'joining_date' => 'date',
+        ];
+    }
 }

@@ -13,9 +13,10 @@ class EmployeeController extends Controller
     {
         $data = $request->validated();
 
-        //photo
-
-        //resources
+        //Store photo
+        if ($request->hasFile('photo')) {
+            $data['photo'] = $request->file('photo')->store('employees', 'public');
+        }
 
         //crete employee
         $response = Employee::create($data);

@@ -19,11 +19,11 @@ class EmployeeResource extends JsonResource
             'name' => $this->name,
             'position' => $this->position,
             'email' => $this->email,
-            'joining_date' => $this->joining_date,
+            'joining_date' => $this->joining_date?->format('Y-m-d'),
             'phone' => $this->phone,
             'status' => $this->status,
             'department' => $this->department,
-            'photo' => $this->photo,
+            'photo' => $this->photo ? asset('storage/' . $this->photo) : null,
 
         ];
     }
