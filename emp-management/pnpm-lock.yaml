@@ -62,6 +62,9 @@ dependencies:
   vue-router:
     specifier: ^5.3.1
     version: 5.3.1(pinia@4.0.3)(vite@8.3.0)(vue@3.5.42)
+  vue-sonner:
+    specifier: ^2.0.9
+    version: 2.0.9
   vue3-apexcharts:
     specifier: ^1.11.1
     version: 1.11.1(apexcharts@7.3.0)(vue@3.5.42)
@@ -3550,6 +3553,21 @@ packages:
       - rollup
       - unloader
       - webpack
+    dev: false
+
+  /vue-sonner@2.0.9:
+    resolution: {integrity: sha512-i6BokNlNDL93fpzNxN/LZSn6D6MzlO+i3qXt6iVZne3x1k7R46d5HlFB4P8tYydhgqOrRbIZEsnRd3kG7qGXyw==}
+    peerDependencies:
+      '@nuxt/kit': ^4.0.3
+      '@nuxt/schema': ^4.0.3
+      nuxt: ^4.0.3
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      '@nuxt/schema':
+        optional: true
+      nuxt:
+        optional: true
     dev: false
 
   /vue-tsc@3.3.11(typescript@6.0.3):
