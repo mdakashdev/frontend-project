@@ -48,14 +48,24 @@ const { mutate, isPending } = useMutation({
   onError: (error: unknown) => {
     const { errors, message } = getApiError(error)
 
+    // map backend snake_case field names → frontend camelCase field names
+    const fieldMap: Record<string, string> = {
+      name: 'fullName',
+      joining_date: 'joinDate',
+      photo: 'profilePhoto',
+    }
+
+    // 422 validation: map errors to form fields
     if (errors) {
       Object.entries(errors).forEach(([field, messages]) => {
-        setFieldError(field, messages[0])
+        const formField = fieldMap[field] ?? field
+        setFieldError(formField, messages[0])
       })
       return
     }
 
-    toast.error(message)
+    // non-422 with a message (e.g. duplicate email race condition)
+    if (message) toast.error(message)
   },
 })
 

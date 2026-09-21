@@ -426,4 +426,4 @@ theme theke keno , kivabe use korbo ta jante hobe.
 - backend a kivabe cors setup kore seta jante hobe & handle
 - new formData ki ekmatro way. ??
 - useMutaiton for tanstack
-- error handling aro valo kore dekte hobe, backend error and frontend error
+- error handling aro valo kore dekte hobe, backend error and frontend error (axios error, interceptor), toaster
