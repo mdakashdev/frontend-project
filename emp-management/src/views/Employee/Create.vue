@@ -26,8 +26,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import { toast } from 'vue-sonner'
 import { useMutation } from '@tanstack/vue-query'
 import type { Employee } from '@/data/employees'
+import { getApiError } from '@/utils/api-error'
 
 import { useEmployeeStore } from '@/stores/employee'
 
@@ -40,10 +42,20 @@ const { mutate, isPending } = useMutation({
     resetForm()
     profilePhotoPreview.value = null
     date.value = undefined
+    toast.success('Employee created successfully.')
   },
 
-  onError: (error) => {
-    console.error('Failed to create employee:', error)
+  onError: (error: unknown) => {
+    const { errors, message } = getApiError(error)
+
+    if (errors) {
+      Object.entries(errors).forEach(([field, messages]) => {
+        setFieldError(field, messages[0])
+      })
+      return
+    }
+
+    toast.error(message)
   },
 })
 
@@ -108,7 +120,7 @@ type EmployeeForm = z.infer<typeof formSchema>;
 
 const schema = toTypedSchema(formSchema);
 
-const { handleSubmit, resetForm } = useForm({
+const { handleSubmit, resetForm, setFieldError } = useForm({
   validationSchema: schema,
   initialValues: {
     fullName: '',

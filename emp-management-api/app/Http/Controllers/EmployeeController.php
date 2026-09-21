@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EmployeeRequest;
 use App\Http\Resources\EmployeeResource;
 use App\Models\Employee;
+use Illuminate\Database\UniqueConstraintViolationException;
 use Illuminate\Http\JsonResponse;
 
 class EmployeeController extends Controller
@@ -18,13 +19,23 @@ class EmployeeController extends Controller
             $data['photo'] = $request->file('photo')->store('employees', 'public');
         }
 
-        //crete employee
-        $response = Employee::create($data);
+        //create employee
+        try {
+            $response = Employee::create($data);
+        } catch (UniqueConstraintViolationException) {
+            return response()->json([
+                'success' => false,
+                'message' => 'This email address is already registered.',
+                'errors' => [
+                    'email' => ['This email address is already registered.']
+                ]
+            ], 422);
+        }
 
         return response()->json([
-                'success' => true,
-                'message' => 'Employee created successfully',
-                'data' => new EmployeeResource($response)
+            'success' => true,
+            'message' => 'Employee created successfully',
+            'data' => new EmployeeResource($response)
         ], 201);
     }
 }

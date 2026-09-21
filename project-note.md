@@ -392,13 +392,17 @@ then, input field use in header component. so Input component ব্যবহা
 - install `pnpm add @tanstack/vue-query` then QueryClient setup korbo, jeno puro app a available hoi. - in main.ts then useMutation diye data pass korbo.
 - now toaster niye kaj korbo aar backend theke kono error thakle seta show korbo.
 
-pore tanstack use korbo.
-flow ta likhte hobe.
-
 Flow: 
 1. backend api expose 
 2. cors setup 
 3. axios install -> employeeApi call post api -> form theke data pass to store (pinia) -> store theke api te data pass and instert soomthly.
+
+
+9. Toaster
+- handle success & error
+- install - vue-sonner; `pnpm add vue-sonner` then vue-sonner/style.css add in main.css
+- Toaster jehetu sob page a tai, app.vue a rakte hobe. error hanlde er jonno - utils theke use korechi.
+- axios a baseURL ta env theke use korlam and env ke gitigonre a diye dite hobe
 
 # question 
 
@@ -422,3 +426,4 @@ theme theke keno , kivabe use korbo ta jante hobe.
 - backend a kivabe cors setup kore seta jante hobe & handle
 - new formData ki ekmatro way. ??
 - useMutaiton for tanstack
+- error handling aro valo kore dekte hobe, backend error and frontend error
