@@ -55,9 +55,6 @@ const handleProfilePhoto = (
   }
 }
 
-
-
-
 const openFilePicker = () => {
   fileInput.value?.click()
 }
@@ -113,7 +110,7 @@ const submitForm = handleSubmit((values) => {
     position: values.position,
     email: values.email,
     department: values.department,
-    joining_data: values.joinDate,
+    joining_date: values.joinDate,
     status: values.status,
     phone: values.phone,
     profilePhoto: values.profilePhoto,

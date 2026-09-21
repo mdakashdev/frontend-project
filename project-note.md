@@ -380,6 +380,20 @@ then, input field use in header component. so Input component ব্যবহা
 - date casting in model a, then akta carbon object pai, ja diye formate kora jai
 
 
+8. frontend theke backend connect korbo
+
+- axios use korbo, sei jonno structure, install, global config korte hobe
+- axios install - `pnpm add axios`, central config
+- employee er jonno akta page baniye sekhane post api call korlam and data pass korlam.
+- then component page import kore just call kore dibo. but insert hobe na, bec - cors error asbe sei jonno config/cors.php & middleware - handlecors dite hobe
+- image frontend theke pathanor jonno - `new formData` use korte hobe. aar api call korar somai - content type - multipart/form-data pass korte hobe.
+- & type hisabe formData use korechi.
+
+pore tanstack use korbo.
+flow ta likhte hobe.
+
+
+
 # question 
 
 tailwind css test
@@ -399,3 +413,4 @@ theme theke keno , kivabe use korbo ta jante hobe.
 - const columns: ColumnDef<typeof features, Employee>[] = []
 - eitar basic type ta bujechi, now aro deep bujte hole, pore typescript dekhar somai dekhbo.
 - pore dekhbo, jei jei tools gulo use korechi, seigulo sei jai popular and appropiate kina, aar ki similar tools ache.
+- backend a kivabe cors setup kore seta jante hobe & handle

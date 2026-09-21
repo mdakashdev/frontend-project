@@ -1,12 +1,15 @@
 export type Employee = {
   id: number
   name: string
-  avatar: string
+  avatar?: string
   department: string
   email: string
-  joinDate: string,
+  joinDate?: string
+  joining_date?: string | any
+  position?: string
   phone?: string
-  status: 'Active' | 'Inactive'
+  status: 'active' | 'inactive'
+  profilePhoto?: File
 }
 
 export const employees: Employee[] = [
@@ -17,7 +20,7 @@ export const employees: Employee[] = [
     department: 'Engineering',
     email: 'ayesha@company.com',
     joinDate: 'Aug 20, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 2,
@@ -26,7 +29,7 @@ export const employees: Employee[] = [
     department: 'Marketing',
     email: 'tanvir@company.com',
     joinDate: 'Aug 16, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 3,
@@ -35,7 +38,7 @@ export const employees: Employee[] = [
     department: 'Design',
     email: 'nusrat@company.com',
     joinDate: 'Aug 15, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 4,
@@ -44,7 +47,7 @@ export const employees: Employee[] = [
     department: 'Sales',
     email: 'rafid@company.com',
     joinDate: 'Aug 12, 2025',
-    status: 'Inactive',
+    status: 'inactive',
   },
   {
     id: 5,
@@ -53,7 +56,7 @@ export const employees: Employee[] = [
     department: 'HR',
     email: 'sadia@company.com',
     joinDate: 'Aug 10, 2025',
-    status: 'Active',
+    status: 'active',
   },
 ]
 
@@ -65,7 +68,7 @@ export const allEmployees: Employee[] = [
     department: 'Engineering',
     email: 'faysal@company.com',
     joinDate: 'Aug 20, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 2,
@@ -74,7 +77,7 @@ export const allEmployees: Employee[] = [
     department: 'Marketing',
     email: 'tanvir@company.com',
     joinDate: 'Aug 16, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 3,
@@ -83,7 +86,7 @@ export const allEmployees: Employee[] = [
     department: 'Design',
     email: 'nasim@company.com',
     joinDate: 'Aug 15, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 4,
@@ -92,7 +95,7 @@ export const allEmployees: Employee[] = [
     department: 'Sales',
     email: 'tanyeem@company.com',
     joinDate: 'Aug 12, 2025',
-    status: 'Inactive',
+    status: 'inactive',
   },
   {
     id: 5,
@@ -101,7 +104,7 @@ export const allEmployees: Employee[] = [
     department: 'HR',
     email: 'taisar@company.com',
     joinDate: 'Aug 10, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 6,
@@ -110,7 +113,7 @@ export const allEmployees: Employee[] = [
     department: 'HR',
     email: 'shakel@company.com',
     joinDate: 'Aug 10, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 7,
@@ -119,7 +122,7 @@ export const allEmployees: Employee[] = [
     department: 'HR',
     email: 'rana@company.com',
     joinDate: 'Aug 10, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 8,
@@ -128,7 +131,7 @@ export const allEmployees: Employee[] = [
     department: 'HR',
     email: 'rubel@company.com',
     joinDate: 'Aug 10, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 9,
@@ -137,7 +140,7 @@ export const allEmployees: Employee[] = [
     department: 'HR',
     email: 'rajin@company.com',
     joinDate: 'Aug 10, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 10,
@@ -146,7 +149,7 @@ export const allEmployees: Employee[] = [
     department: 'HR',
     email: 'nahid@company.com',
     joinDate: 'Aug 10, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 11,
@@ -155,7 +158,7 @@ export const allEmployees: Employee[] = [
     department: 'HR',
     email: 'joy@company.com',
     joinDate: 'Aug 10, 2025',
-    status: 'Active',
+    status: 'active',
   },
   {
     id: 12,
@@ -164,6 +167,6 @@ export const allEmployees: Employee[] = [
     department: 'HR',
     email: 'arif@company.com',
     joinDate: 'Aug 10, 2025',
-    status: 'Active',
+    status: 'active',
   },
 ]
