@@ -15,7 +15,10 @@ export const useEmployeeStore = defineStore('employee', () => {
       formData.append('department', employee.department)
       formData.append('joining_date', employee.joining_date.toString())
       formData.append('status', employee.status)
-      formData.append('phone', employee.phone)
+
+      if (employee.phone) {
+        formData.append('phone', employee.phone)
+      }
 
       if (employee.profilePhoto) {
         formData.append('photo', employee.profilePhoto)
@@ -29,7 +32,7 @@ export const useEmployeeStore = defineStore('employee', () => {
 
       const response = await createEmployee(formData)
 
-      employees.value.push(response)
+      employees.value.push(response.data)
 
       return response
     }

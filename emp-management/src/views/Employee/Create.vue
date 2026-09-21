@@ -26,9 +26,26 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+import { useMutation } from '@tanstack/vue-query'
+import type { Employee } from '@/data/employees'
+
 import { useEmployeeStore } from '@/stores/employee'
 
 const employeeStore = useEmployeeStore();
+
+const { mutate, isPending } = useMutation({
+  mutationFn: (employee: Employee) => employeeStore.addEmployee(employee),
+
+  onSuccess: () => {
+    resetForm()
+    profilePhotoPreview.value = null
+    date.value = undefined
+  },
+
+  onError: (error) => {
+    console.error('Failed to create employee:', error)
+  },
+})
 
 // const date = ref<DateValue>()
 const date = ref()
@@ -116,11 +133,8 @@ const submitForm = handleSubmit((values) => {
     profilePhoto: values.profilePhoto,
   }
   console.log('employee:', employee)
-  employeeStore.addEmployee(employee);
-
-  resetForm()
-  profilePhotoPreview.value = null
-  date.value = undefined
+  //employeeStore.addEmployee(employee);
+  mutate(employee)
 })
 
 
@@ -387,8 +401,9 @@ const submitForm = handleSubmit((values) => {
         <button
           type="submit"
           class="h-10 rounded-md border px-6 text-sm font-medium bg-sidebar-active text-white hover:bg-primary/90"
+          :disabled="isPending"
         >
-          Save Employee
+          {{ isPending ? 'Saving...' : 'Save Employee' }}
         </button>
       </div>
       </form>

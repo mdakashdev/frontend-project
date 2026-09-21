@@ -388,11 +388,17 @@ then, input field use in header component. so Input component ব্যবহা
 - then component page import kore just call kore dibo. but insert hobe na, bec - cors error asbe sei jonno config/cors.php & middleware - handlecors dite hobe
 - image frontend theke pathanor jonno - `new formData` use korte hobe. aar api call korar somai - content type - multipart/form-data pass korte hobe.
 - & type hisabe formData use korechi.
+- now try to, tanstack query install for server loading handle korar jonno.
+- install `pnpm add @tanstack/vue-query` then QueryClient setup korbo, jeno puro app a available hoi. - in main.ts then useMutation diye data pass korbo.
+- now toaster niye kaj korbo aar backend theke kono error thakle seta show korbo.
 
 pore tanstack use korbo.
 flow ta likhte hobe.
 
-
+Flow: 
+1. backend api expose 
+2. cors setup 
+3. axios install -> employeeApi call post api -> form theke data pass to store (pinia) -> store theke api te data pass and instert soomthly.
 
 # question 
 
@@ -414,3 +420,5 @@ theme theke keno , kivabe use korbo ta jante hobe.
 - eitar basic type ta bujechi, now aro deep bujte hole, pore typescript dekhar somai dekhbo.
 - pore dekhbo, jei jei tools gulo use korechi, seigulo sei jai popular and appropiate kina, aar ki similar tools ache.
 - backend a kivabe cors setup kore seta jante hobe & handle
+- new formData ki ekmatro way. ??
+- useMutaiton for tanstack
