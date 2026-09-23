@@ -404,6 +404,22 @@ Flow:
 - Toaster jehetu sob page a tai, app.vue a rakte hobe. error hanlde er jonno - utils theke use korechi.
 - axios a baseURL ta env theke use korlam and env ke gitigonre a diye dite hobe
 
+
+10. depratment 
+    - form design , endpoint create
+        `pnpm dlx shadcn-vue@latest add textarea` textarea install, install hocchilona then PI use kore korechi.
+    - design korar somay, jokhon part part think korbo tokhon, jehetu shadcn-vue use kortechi seikhan theke doc dekhe desing a help nite pari, memorize think na kore.
+    - grid niye think korlam, grid theke dekhe nilam. - https://tailwindcss.com/docs/grid-column
+    - department form - done
+    - 
+
+
+
+
+
+
+
+
 # question 
 
 tailwind css test
