@@ -13,6 +13,7 @@ import Task from "@/views/Task.vue";
 import Report from "@/views/Report.vue"
 import Calender from "@/views/Calender.vue"
 import Settings from "@/views/Settings.vue"
+import DepartmentCreate from "@/views/Department/Create.vue"
 
 const router = createRouter({
   history: createWebHistory(),
@@ -40,7 +41,12 @@ const router = createRouter({
         },
         {
           path: 'department',
-          component: Department
+          children: [
+            {
+              path: 'create',
+              component: DepartmentCreate
+            }
+          ]
         },
         {
           path: 'task',
