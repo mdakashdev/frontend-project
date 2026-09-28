@@ -56,13 +56,31 @@ const { mutate, isPending } = useMutation({
     }
 
     // 422 validation: map errors to form fields
-    if (errors) {
-      Object.entries(errors).forEach(([field, messages]) => {
-        const formField = fieldMap[field] ?? field
-        setFieldError(formField, messages[0])
-      })
-      return
+     if (errors) {
+  Object.entries(errors).forEach(([field, messages]) => {
+    const formField = fieldMap[field] ?? field
+
+    const validFields = [
+      'fullName',
+      'email',
+      'position',
+      'department',
+      'phone',
+      'status',
+      'joinDate',
+      'profilePhoto',
+    ] as const
+
+    if (validFields.includes(formField as typeof validFields[number])) {
+      setFieldError(
+        formField as typeof validFields[number],
+        messages[0]
+      )
     }
+  })
+
+  return
+}
 
     // non-422 with a message (e.g. duplicate email race condition)
     if (message) toast.error(message)
