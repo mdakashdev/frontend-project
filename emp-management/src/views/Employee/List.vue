@@ -52,7 +52,7 @@ function resetFilters() {
 <template>
   <div class="flex flex-col gap-6 px-6 py-4">
     <div>
-      <h1 class="text-xl font-semibold text-primary-text">Employee</h1>
+      <h1 class="text-xl font-semibold text-primary-text">Employee  - CI/CD Test</h1>
       <p class="mt-1 text-sm text-secondary-text">Here's whats happening with your team today</p>
     </div>
 
