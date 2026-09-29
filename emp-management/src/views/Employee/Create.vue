@@ -59,8 +59,26 @@ const { mutate, isPending } = useMutation({
     if (errors) {
       Object.entries(errors).forEach(([field, messages]) => {
         const formField = fieldMap[field] ?? field
-        setFieldError(formField, messages[0])
+
+        const validFields = [
+          'fullName',
+          'email',
+          'position',
+          'department',
+          'phone',
+          'status',
+          'joinDate',
+          'profilePhoto',
+        ] as const
+
+        if (validFields.includes(formField as typeof validFields[number])) {
+          setFieldError(
+            formField as typeof validFields[number],
+            messages[0]
+          )
+        }
       })
+
       return
     }
 

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import VueApexCharts from "vue3-apexcharts";
+import type { ApexOptions } from "apexcharts";
 
 const series = [34, 18, 15, 12, 10, 11];
 
-const chartOptions = {
+const chartOptions: ApexOptions = {
   chart: {
     type: "donut",
     toolbar: {
