@@ -412,8 +412,18 @@ Flow:
     - grid niye think korlam, grid theke dekhe nilam. - https://tailwindcss.com/docs/grid-column
     - department form - done
     - 
+next todo - nije nije puro file ta data niye insert korte hobe. sei jonno ektu smart hou
+    - validation bosabo. need `Field` lagbe - so vee-validate theke Field niye bosabo - https://vee-validate.logaretm.com/v4/api/field/
+    - then sekhan theke use korbo, select er jonno - `componentField`
+    - field error and submit 
+    - zod diye schema create 
 
+> note: practical ja hocche, zod, vee-validate, tailwind kivabe use korte hoi, sei doc theke niye niye form ta read kortechi.
 
+1. ui form ready 
+2. validation `FIELD` add
+3. schema create
+    
 
 
 
