@@ -10,7 +10,7 @@ export const useEmployeeStore = defineStore('employee', () => {
       const formData = new FormData()
 
       formData.append('name', employee.name)
-      formData.append('position', employee.position)
+      formData.append('position', employee.position ?? '')
       formData.append('email', employee.email)
       formData.append('department', employee.department)
       formData.append('joining_date', employee.joining_date.toString())
