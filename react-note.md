@@ -1,4 +1,22 @@
-1. React App Build 
+# Topics
+- React app build
+- Tailwind config
+- Path alias config
+- Router / page introduce
+
+# Official
+
+- React : https://react.dev
+- Latest stable version: 19.3
+- React Router: https://reactrouter.com/
+- Latest stable version: 8.4.0
+
+# Note
+
+- akta language or framework a update thakte hole, seitar document a jeye changelog docs ta pora. taholei actually update thaka jai.
+
+
+# 1. React App Build
 
 - checked node version `node -v`
 - project init :  https://react.dev/learn/build-a-react-app-from-scratch
@@ -7,8 +25,7 @@
 pnpm create vite@latest
 ```
 
-
-2. Tailwind install & configure
+# 2. Tailwind install & configure
 
 - install doc : https://tailwindcss.com/docs/installation/using-vite
 - added plugin in vite.config.ts 
@@ -18,12 +35,13 @@ pnpm create vite@latest
 pnpm add tailwindcss @tailwindcss/vite
 ```
 
-3. layout skeleton kora.
+## Layout skeleton kora.
 
+- main structure ta think kore skeleton korlam.
 
-4. Path Alias Configuration এবং Alias Resolution
+# 4. Path Alias Configuration এবং Alias Resolution
 
-- se jonno types/node install korte hobe
+- se jonno `types/node` install korte hobe
 - tsconfig a baseurl & path add korte hobe
 - vite.config a resolve add korte hobe.
 
@@ -31,6 +49,65 @@ pnpm add tailwindcss @tailwindcss/vite
 pnpm add -D @types/node
 ```
 
+# 5. Router / Page Introduce 
+
+- router install korechi. and setup korechi.
+
+6. App Layout
+
+- AppLayout.tsx-কে layouts/ folder-এ রাখবে। কারণ এর কাজ হলো একাধিক page-এর common structure ধরে রাখা।
+- Outlet হলো মূল বিষয়। এর জায়গায় active route-এর page render হবে।
+- এখানে index: true মানে / URL-এ Dashboard দেখাবে।
+
+
+7. Design Implement
+
+ami skeleton bananor por, akta akta kore design korbo, sei cinta theke `sidebar pic` korlam
+
+> sidebar 
+
+- eita korar jonno ki ki need, dekha gelo icon lagbe, sei jonno প্রয়োজনীয় package install kora.
+- Icon for lucide-react - `pnpm add lucide-react`
+- design ta `AI` diye kore nilam
+
+> Header
+- header a dekhlam kichu install kora lagbe na, tai AI diye design kore nilam.
+
+> Dashboard 
+
+amar kache mone hoyeche, dashboard design ta neyar somai, eita ke o part kore felte pari. 
+
+1. Card Section -  card er jonno `lucide-react` use kortechi.
+2. Charts - Employee Growth এবং Department Distribution chart বানানোর জন্য `recharts` ব্যবহার করব।
+3. Table - 
+
+se jonno component a dashboard name akta folder kore, 3 ta segment er file ke rakhbo.
+
+then AI er kache design nite pari.
+
+`Pending`: 
+- design tokens
+- shadcn/vue use
+- token css use 
+
+
+Day-1: Oct 14, 2026
+Day-2: Oct 15, 2026
+Day-3: Oct 16, 2026
+Day-4: Oct 17, 2026
+Day-5: Oct 18, 2026
+Day-6: Oct 19, 2026
+Day-7: Oct 20, 2026
+Day-8: Oct 21, 2026
+Day-9: Oct 22, 2026
+Day-10: Oct 23, 2026
+
+
+
+
+# Target 
+- 10 * 3 = 30h
+- 
 
 ---
 

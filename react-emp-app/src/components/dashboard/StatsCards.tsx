@@ -44,7 +44,7 @@ const colorStyles = {
   orange: 'bg-orange-100 text-orange-600',
 }
 
-export default function StatsCards() {
+function StatsCards() {
   return (
     <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
       {stats.map((stat) => {
@@ -86,3 +86,5 @@ export default function StatsCards() {
     </section>
   )
 }
+
+export default StatsCards;
