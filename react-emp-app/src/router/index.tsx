@@ -5,6 +5,7 @@ import Dashboard from "@/pages/Dashboard.tsx";
 import Employee from "@/pages/Employee.tsx";
 import Settings from "@/pages/Settings.tsx";
 import Department from "@/pages/Department.tsx";
+import EmployeeCreate from "@/pages/Employee/Create.tsx";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             {
                 path: 'emp',
                 Component: Employee
+            },
+            {
+                path: 'emp/create',
+                Component: EmployeeCreate
             },
             {
                 path: 'setting',
