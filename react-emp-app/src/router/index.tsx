@@ -4,6 +4,7 @@ import AppLayout from "@/layouts/AppLayout.tsx";
 import Dashboard from "@/pages/Dashboard.tsx";
 import Employee from "@/pages/Employee.tsx";
 import Settings from "@/pages/Settings.tsx";
+import Department from "@/pages/Department.tsx";
 
 const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
             {
                 path: 'setting',
                 Component: Settings
+            },
+            {
+                path: 'departments',
+                Component: Department
             }
         ]
     }
