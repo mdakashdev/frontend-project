@@ -8,6 +8,8 @@ import {
   ChevronDown,
 } from 'lucide-react'
 import type { EmployeeFormData } from '@/types/employee.ts'
+import { createEmployee } from "@/api/employeeApi.ts";
+import axios from 'axios'
 
 const departments = [
   'Engineering',
@@ -21,7 +23,8 @@ const departments = [
 function EmployeeForm() {
   const navigate = useNavigate()
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const [photo, setPhoto] = useState<string | null>(null)
+  const [photo, setPhoto] = useState<File | null>(null)
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null)
 
   const {
     register,
@@ -33,11 +36,37 @@ function EmployeeForm() {
     },
   })
 
-  const onSubmit = (data: EmployeeFormData) => {
+  const onSubmit = async (data: EmployeeFormData) => {
     console.log('Employee data:', data)
     console.log('Profile photo:', photo)
     // Later: send data to Laravel API
-    navigate('/emp')
+
+    const payload = new FormData()
+
+    payload.append('name', data.fullName)
+    payload.append('email', data.email)
+    payload.append('phone', data.phone)
+    payload.append('department', data.department)
+    payload.append('position', data.position)
+    payload.append('joining_date', data.joiningDate)
+    payload.append('status', data.status.toLowerCase())
+
+    if (photo) {
+      payload.append('photo', photo)
+    }
+
+    try {
+      await createEmployee(payload)
+      navigate('/emp')
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log('Status:', error.response?.status)
+        console.log('Validation errors:', error.response?.data)
+      } else {
+        console.error(error)
+      }
+    }
+
   }
 
   const inputClass ='mt-2 h-11 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
@@ -213,9 +242,9 @@ function EmployeeForm() {
 
             <div className="mt-2 flex items-center gap-4">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-100 text-slate-400">
-                {photo ? (
+                {photoPreview ? (
                   <img
-                    src={photo}
+                    src={photoPreview}
                     alt="Employee preview"
                     className="h-full w-full object-cover"
                   />
@@ -240,7 +269,8 @@ function EmployeeForm() {
                       return
                     }
 
-                    setPhoto(URL.createObjectURL(file))
+                    setPhoto(file)
+                    setPhotoPreview(URL.createObjectURL(file))
                   }}
                 />
 
