@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 import { ChevronDown } from 'lucide-react'
 import type { DepartmentFormData } from '@/types/department.ts'
+import { createDepartment } from "@/api/departmentApi.ts"
 
 const employees = [
   { id: '1', name: 'John Doe' },
@@ -25,10 +26,17 @@ function DepartmentForm() {
     },
   })
 
-  const onSubmit = (data: DepartmentFormData) => {
+  const onSubmit = async (data: DepartmentFormData) => {
     console.log('Department data:', data)
 
+    const payload = {
+      name: data.departmentName,
+      description: data.description,
+      dep_head: data.departmentHead,
+      status: data.status,
+    }
     // Later: send data to Laravel API
+    await createDepartment(payload)
     navigate('/departments')
   }
 

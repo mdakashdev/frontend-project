@@ -4,3 +4,10 @@ export type DepartmentFormData = {
   departmentHead: string
   status: string
 }
+
+export interface DepartmentData {
+  name: string,
+  description: string,
+  dep_head: string,
+  status: string
+}
