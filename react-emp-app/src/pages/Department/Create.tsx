@@ -1,13 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 import { ChevronDown } from 'lucide-react'
-
-type DepartmentFormData = {
-  departmentName: string
-  description: string
-  departmentHead: string
-  status: string
-}
+import type { DepartmentFormData } from '@/types/department.ts'
 
 const employees = [
   { id: '1', name: 'John Doe' },

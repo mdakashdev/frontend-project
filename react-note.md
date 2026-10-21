@@ -115,7 +115,7 @@ Form:
 - validate form value 
 - validation error display / show
 - photo handle
-- api binding 
+- api binding  ---> `pending`
 
 amar `first dorkar` form submit korar tai, form submit kivabe kore, seta sekhar jonno `react-hook-form` a gelam.
 
@@ -132,6 +132,15 @@ then `error`, ja amra formState use kore handle korbo
 formState হলো React Hook Form-এর একটি object, যেটা form-এর বর্তমান অবস্থা সম্পর্কে information রাখে।
 
 formState: { errors, isSubmitting, isValid, isDirty }, ei fulo pauwa jai. 
+
+Photo: 
+- 3 ta part, view, hidden input, button click
+- Need understand useState : useState → `React-এর Hook, যা state তৈরি ও manage করে।`
+- যখন কোনো value পরিবর্তন হবে এবং সেই পরিবর্তনের কারণে UI update করতে হবে, তখন React-এ useState ব্যবহার করা ভালো।
+- এখানে useState ব্যবহার করা ভালো। কারণ photo পরিবর্তন হলে React component আবার render করবে।
+- fileInputRef ব্যবহার করছি hidden file input-কে JavaScript/React থেকে control করার জন্য
+- mechanism: ami jodi hidden akta input file ke click korte cai through button then hidden `file input element` er ref lagbe ja amra fileInputRef er maddhome raktechi 
+- then ami jokhon button a click kortechi se, se ref thaka input field ke click kortechi then windwo open hoi, then onchange a photo set hoi
 
 
 
@@ -150,6 +159,12 @@ Department Form:
 - button theke click kore form a url jabar jonno navigate use kora hoi - onClick={() => navigate('/emp/create')}
 - `pnpm add react-hook-form` react-hook-form ব্যবহার করি React-এর form তৈরি করা, input-এর value manage করা এবং validation করার জন্য।
 - https://react-hook-form.com/get-started
+
+Form:
+- form value dynamically on submit to reactive value
+- validate form value
+- validation error display / show
+- api binding  ---> `pending`
 
 ---
 
