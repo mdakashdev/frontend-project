@@ -7,16 +7,7 @@ import {
   UserRound,
   ChevronDown,
 } from 'lucide-react'
-
-type EmployeeFormData = {
-  fullName: string
-  position: string
-  email: string
-  joiningDate: string
-  phone: string
-  status: string
-  department: string
-}
+import type { EmployeeFormData } from '@/types/employee.ts'
 
 const departments = [
   'Engineering',
@@ -25,7 +16,7 @@ const departments = [
   'Sales',
   'HR',
   'Finance',
-]
+];
 
 function EmployeeForm() {
   const navigate = useNavigate()
@@ -45,13 +36,11 @@ function EmployeeForm() {
   const onSubmit = (data: EmployeeFormData) => {
     console.log('Employee data:', data)
     console.log('Profile photo:', photo)
-
     // Later: send data to Laravel API
     navigate('/emp')
   }
 
-  const inputClass =
-    'mt-2 h-11 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
+  const inputClass ='mt-2 h-11 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
 
   const labelClass = 'text-sm font-medium text-slate-700'
 
@@ -79,9 +68,7 @@ function EmployeeForm() {
               Full Name <span className="text-red-500">*</span>
             </label>
             <input
-              {...register('fullName', {
-                required: 'Full name is required',
-              })}
+              {...register('fullName', { required: 'Full name is required',})}
               placeholder="Enter full name"
               className={inputClass}
             />

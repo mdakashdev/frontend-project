@@ -73,17 +73,85 @@ ami skeleton bananor por, akta akta kore design korbo, sei cinta theke `sidebar 
 > Header
 - header a dekhlam kichu install kora lagbe na, tai AI diye design kore nilam.
 
-> Dashboard 
+> Dashboard page
 
 amar kache mone hoyeche, dashboard design ta neyar somai, eita ke o part kore felte pari. 
 
 1. Card Section -  card er jonno `lucide-react` use kortechi.
 2. Charts - Employee Growth এবং Department Distribution chart বানানোর জন্য `recharts` ব্যবহার করব।
-3. Table - 
+3. Table - plain table th tr td
 
 se jonno component a dashboard name akta folder kore, 3 ta segment er file ke rakhbo.
 
-then AI er kache design nite pari.
+then AI er kache design nite pari. desing nibo screen shot diye chunk vabe design ta nibo. like dashboard
+
+a 3 ta part korechi 3 ta alada alada kore caibo. then hoye jabe.
+
+> Employee page
+
+- employee page design korbo.
+
+employee page ta chatgpt ke dibo then design er code ta nibo. 
+
+aar employee er akta pages ache sei page code ta likhbo.
+
+`pending list` : pagination, filter 
+
+Employee Form:
+
+- button theke click kore form a url jabar jonno navigate use kora hoi - onClick={() => navigate('/emp/create')}
+- https://reactrouter.com/  > useNavigate from react-router
+- `pnpm add react-hook-form` react-hook-form ব্যবহার করি React-এর form তৈরি করা, input-এর value manage করা এবং validation করার জন্য।
+- https://react-hook-form.com/get-started > useForm from react-hook-form
+- useRef, useState both hook use from `react`
+- https://lucide.dev/guide/react/  > icon use from lucide-react
+
+shared types: 
+- shared types maintain korar jonno - types folder create kore. like - types/employee.ts
+
+
+Form: 
+- form value dynamically on submit to reactive value
+- validate form value 
+- validation error display / show
+- photo handle
+- api binding 
+
+amar `first dorkar` form submit korar tai, form submit kivabe kore, seta sekhar jonno `react-hook-form` a gelam.
+
+so i get onSubmit={handleSubmit(onSubmit)}, then i used that approach.
+
+then i need `2nd dorkar`, how to get data from form field. setar jonno each filed ke `register korte hobe`
+
+mane, register diye react hook form er sathe jukto kori,  register() → Input-এর value track করা → handleSubmit() → onSubmit(data)
+
+`register` diye `validation` kora tau onek easy, 2nd argument a object accept kore, sekhane pass korlei hoye jai.
+
+then `error`, ja amra formState use kore handle korbo 
+
+formState হলো React Hook Form-এর একটি object, যেটা form-এর বর্তমান অবস্থা সম্পর্কে information রাখে।
+
+formState: { errors, isSubmitting, isValid, isDirty }, ei fulo pauwa jai. 
+
+
+
+> Department page
+
+- department page design korbo.
+
+department page ta chatgpt ke dibo then design er code ta nibo.
+
+aar department er akta pages ache sei page code ta likhbo.
+
+`pending list` : pagination, filter
+
+Department Form:
+
+- button theke click kore form a url jabar jonno navigate use kora hoi - onClick={() => navigate('/emp/create')}
+- `pnpm add react-hook-form` react-hook-form ব্যবহার করি React-এর form তৈরি করা, input-এর value manage করা এবং validation করার জন্য।
+- https://react-hook-form.com/get-started
+
+---
 
 `Pending`: 
 - design tokens
@@ -91,16 +159,25 @@ then AI er kache design nite pari.
 - token css use 
 
 
-Day-1: Oct 14, 2026
-Day-2: Oct 15, 2026
-Day-3: Oct 16, 2026
-Day-4: Oct 17, 2026
-Day-5: Oct 18, 2026
-Day-6: Oct 19, 2026
-Day-7: Oct 20, 2026
-Day-8: Oct 21, 2026
-Day-9: Oct 22, 2026
-Day-10: Oct 23, 2026
+Day-0: Oct 20, 2026
+
+Design: 
+- Employee page
+- Employee Form and install `pnpm add react-hook-form`
+- Department page
+
+Day-1: Oct 21, 2026
+
+
+Day-2: Oct 22, 2026
+Day-3: Oct 23, 2026
+Day-4: Oct 24, 2026
+Day-5: Oct 25, 2026
+Day-6: Oct 26, 2026
+Day-7: Oct 27, 2026
+Day-8: Oct 28, 2026
+Day-9: Oct 29, 2026
+Day-10: Oct 30, 2026
 
 
 
