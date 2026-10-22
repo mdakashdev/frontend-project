@@ -38,4 +38,15 @@ class EmployeeController extends Controller
             'data' => new EmployeeResource($response)
         ], 201);
     }
+
+    public function list()
+    {
+        $employee = Employee::all();
+
+        return response()->json([
+            'success' => true,
+            'messages' => 'Employee list retrieved successfully',
+            'data' => EmployeeResource::collection($employee)
+        ], 200);
+    }
 }

@@ -11,3 +11,5 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/employees', [EmployeeController::class, 'store']);
 Route::post('/departments', [DepartmentController::class, 'store']);
+Route::get('/departments', [DepartmentController::class, 'list']);
+Route::get('/employees', [EmployeeController::class, 'list']);
