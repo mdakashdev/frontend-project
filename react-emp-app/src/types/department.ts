@@ -11,3 +11,17 @@ export interface DepartmentData {
   dep_head: string,
   status: string
 }
+
+export type Department = {
+  id: number
+  name: string
+  description: string
+  dep_head: string
+  status: string
+}
+
+export type DepartmentResponse = {
+  success: boolean
+  messages: string
+  data: Department[]
+}

@@ -4,9 +4,9 @@ import AppLayout from "@/layouts/AppLayout.tsx";
 import Dashboard from "@/pages/Dashboard.tsx";
 import Employee from "@/pages/Employee.tsx";
 import Settings from "@/pages/Settings.tsx";
-import Department from "@/pages/Department.tsx";
 import EmployeeCreate from "@/pages/Employee/Create.tsx";
 import DepartmentCreate from "@/pages/Department/Create.tsx";
+import DepartmentList from "@/pages/Department/List.tsx";
 
 const router = createBrowserRouter([
     {
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'departments',
-                Component: Department
+                Component: DepartmentList
             },
             {
                 path: 'departments/create',
