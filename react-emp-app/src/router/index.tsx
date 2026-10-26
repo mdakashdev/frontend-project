@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router"
 
 import AppLayout from "@/layouts/AppLayout.tsx";
 import Dashboard from "@/pages/Dashboard.tsx";
-import Employee from "@/pages/Employee.tsx";
+import EmployeeList from "@/pages/Employee/List.tsx";
 import Settings from "@/pages/Settings.tsx";
 import EmployeeCreate from "@/pages/Employee/Create.tsx";
 import DepartmentCreate from "@/pages/Department/Create.tsx";
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'emp',
-                Component: Employee
+                Component: EmployeeList
             },
             {
                 path: 'emp/create',
