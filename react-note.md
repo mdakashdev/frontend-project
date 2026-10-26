@@ -107,7 +107,7 @@ Employee Form:
 - https://lucide.dev/guide/react/  > icon use from lucide-react
 
 shared types: 
-- shared types maintain korar jonno - types folder create kore. like - types/employee.ts
+- shared types maintain korar jonno - types folder create kore. like - types/employeeApi.ts
 
 
 Form: 
@@ -115,7 +115,7 @@ Form:
 - validate form value 
 - validation error display / show
 - photo handle
-- api binding  ---> `pending`
+- api binding
 
 amar `first dorkar` form submit korar tai, form submit kivabe kore, seta sekhar jonno `react-hook-form` a gelam.
 
@@ -142,7 +142,21 @@ Photo:
 - mechanism: ami jodi hidden akta input file ke click korte cai through button then hidden `file input element` er ref lagbe ja amra fileInputRef er maddhome raktechi 
 - then ami jokhon button a click kortechi se, se ref thaka input field ke click kortechi then windwo open hoi, then onchange a photo set hoi
 
+api-binding:
+- eitar jonno amader 3 ta kaj korte hobe.
+- axios er jonno api/ folder structure a global Axios configuration korte hobe. and `axios instance` create
+- Employee-সংক্রান্ত API functions likhte hobe employeeApi.ts 
+- then pages/ theke api call korte hobe.
 
+1. `pnpm add axios` then configure axios.ts theke axios instance create kora, file and env create.
+2. employeeApi a function likhe sekhane backend api call kora.
+3. now, implement employee page - 
+4. photo handle korar jonno - photo-টাও API-তে পাঠানোর জন্য FormData ব্যবহার করতে হবে।, and type o hobe formData
+
+Flow ta holo - api te backend api call kora -> FormData use kore data and photo apend kore pass kore deya. taholei hoye jai.
+
+list-show:
+- /employee list endpoint ready.
 
 > Department page
 
@@ -166,6 +180,26 @@ Form:
 - validation error display / show
 - api binding  ---> `pending`
 
+api-binding: 
+- 
+
+
+list-show: 
+- /department list endpoint ready.
+  - useEffect hook, API থেকে data আনা kaj ta kora hoi.
+  - useMemo hook, ব্যবহার করা হয় expensive calculation বারবার করা এড়ানোর জন্য।
+  - flow: akta api connect korechi `departmentApi.ts` a ->
+  
+
+list ta ke chunk kori - first useEffect
+
+3 ti hook - useEffect(Component load হওয়ার পরে কোনো কাজ চালায়, যেমন API call), 
+          - useMemo(কোনো calculation-এর result মনে রাখে, প্রয়োজন হলে আবার calculation করে), 
+          - useState (Data সংরক্ষণ করে এবং পরিবর্তন হলে UI update করে)
+
+pagination:
+- 
+
 ---
 
 `Pending`: 
@@ -183,8 +217,20 @@ Design:
 
 Day-1: Oct 21, 2026
 
+- Employee form & Department Form: useNavigate, useForm, Icon library, onSubmit, Register, formState, useState
+- submit, validate, error show
+- photo handle (fileInputRef, display, button)
+- shared types 
+- Tools - `react-hook-form`, `react-router`, `lucide-react`, `react`
+
+---
+- /departments backend endpoint ready.
+- employee form and department form api binding - done
 
 Day-2: Oct 22, 2026
+
+- employee and department list api endpoint.
+
 Day-3: Oct 23, 2026
 Day-4: Oct 24, 2026
 Day-5: Oct 25, 2026
@@ -522,7 +568,7 @@ amra kaj korte korte onek gulo base component peyechi, like - input, button, etc
 - EmployeeForm type তৈরি হয়েছে। এবার আমরা submit values-এর type check করব।
 - db field er sathe form field er mapping kore akta object create korbo.
 - `4. 4th`: pinia store korbo, (after mapping)
-- install `pnpm add pinia` then register in global main.ts then crate store in stores/employee.ts
+- install `pnpm add pinia` then register in global main.ts then crate store in stores/employeeApi.ts
 - then use in any component
 - store bananor pore, vue dev tools diye check korechi, store asche ki na, employeeStore peyechi
 - now data gulo store a push korbo, jekhen a data mapp kore ready korechi.
