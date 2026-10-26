@@ -50,14 +50,15 @@ function Department() {
 
     const filteredDepartments = useMemo(() => {
         const query = search.trim().toLowerCase()
-        console.log('search', search);
-        console.log('department', departments);
+
         return departments.filter(
             (department) =>
                 department.name.toLowerCase().includes(query) ||
                 department.description.toLowerCase().includes(query),
         )
     }, [search, departments])
+
+    console.log(JSON.stringify(filteredDepartments, null, 2))
 
     const totalPages = Math.max(
         1,
