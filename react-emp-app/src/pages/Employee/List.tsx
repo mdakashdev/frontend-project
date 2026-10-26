@@ -107,59 +107,19 @@ function Employee() {
                         </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-100">
-                        {workers.map((employee) => (
-                            <tr
-                                key={employee.id}
-                                className='transition-colors hover:bg-blue-50/40'
-                            >
-                                <td className="px-5 py-4">
-                                    <input
-                                        type="checkbox"
-                                        aria-label={`Select ${employee.name}`}
-                                        className="h-4 w-4 rounded border-slate-300 accent-blue-600"
-                                    />
-                                </td>
-
-                                <td className="whitespace-nowrap px-3 py-4">
-                                    <div className="flex items-center gap-3">
-                                        {employee.name}
-                                    </div>
-                                </td>
-
-                                <td className="whitespace-nowrap px-3 py-4 text-slate-500">
-                                    {employee.email}
-                                </td>
-
-                                <td className="whitespace-nowrap px-3 py-4 text-slate-600">
-                                    {employee.department}
-                                </td>
-
-                                <td className="px-3 py-4">
-                                    <span
-                                        className={`inline-flex rounded-md px-2.5 py-1 text-xs font-medium ${
-                                            employee.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-600'
-                                        }`}
-                                    >
-                                      {employee.status}
-                                    </span>
-                                </td>
-
-                                <td className="px-5 py-4 text-right">
-                                    <button
-                                        type="button"
-                                        aria-label={`More actions for ${employee.name}`}
-                                        onClick={() =>
-                                            navigate(`/emp/${employee.id}/edit`)
-                                        }
-                                        className="rounded-md p-1.5 text-slate-500 hover:bg-slate-100 hover:text-blue-600"
-                                    >
-                                        <MoreVertical size={18}/>
-                                    </button>
+                        { loading ? (
+                            <tr>
+                                <td colSpan={6} className="px-6 py-12 text-center">
+                                    Loading employee...
                                 </td>
                             </tr>
-                        ))}
-
-                        {workers.length === 0 && (
+                        ) : error ? (
+                            <tr>
+                                <td colSpan={6} className="px-6 py-12 text-center text-red-600">
+                                    {error}
+                                </td>
+                            </tr>
+                        ) : workers.length === 0 ? (
                             <tr>
                                 <td
                                     colSpan={6}
@@ -168,7 +128,61 @@ function Employee() {
                                     No employees found.
                                 </td>
                             </tr>
+                        ) : (
+                            workers.map((employee) => (
+                                <tr
+                                    key={employee.id}
+                                    className='transition-colors hover:bg-blue-50/40'
+                                >
+                                    <td className="px-5 py-4">
+                                        <input
+                                            type="checkbox"
+                                            aria-label={`Select ${employee.name}`}
+                                            className="h-4 w-4 rounded border-slate-300 accent-blue-600"
+                                        />
+                                    </td>
+
+                                    <td className="whitespace-nowrap px-3 py-4">
+                                        <div className="flex items-center gap-3">
+                                            {employee.name}
+                                        </div>
+                                    </td>
+
+                                    <td className="whitespace-nowrap px-3 py-4 text-slate-500">
+                                        {employee.email}
+                                    </td>
+
+                                    <td className="whitespace-nowrap px-3 py-4 text-slate-600">
+                                        {employee.department}
+                                    </td>
+
+                                    <td className="px-3 py-4">
+                                    <span
+                                        className={`inline-flex rounded-md px-2.5 py-1 text-xs font-medium ${
+                                            employee.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-600'
+                                        }`}
+                                    >
+                                      {employee.status}
+                                    </span>
+                                    </td>
+
+                                    <td className="px-5 py-4 text-right">
+                                        <button
+                                            type="button"
+                                            aria-label={`More actions for ${employee.name}`}
+                                            onClick={() =>
+                                                navigate(`/emp/${employee.id}/edit`)
+                                            }
+                                            className="rounded-md p-1.5 text-slate-500 hover:bg-slate-100 hover:text-blue-600"
+                                        >
+                                            <MoreVertical size={18}/>
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))
                         )}
+
+
                         </tbody>
 
                     </table>
