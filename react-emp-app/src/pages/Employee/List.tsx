@@ -15,6 +15,9 @@ function Employee() {
     const [workers, setWorkers] = useState([]);
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
+    const [filterOpen, setFilterOpen] = useState(false)
+    const [statusFilter, setStatusFilter] = useState('All')
+    const [selected, setSelected] = useState<number[]>([])
 
 
     useEffect(() => {
@@ -56,12 +59,42 @@ function Employee() {
                     <div className="relative">
                         <button
                             type="button"
+                            onClick={() => setFilterOpen(!filterOpen)}
                             className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-50"
                         >
                             <Filter size={16} />
                             Filter
                             <ChevronDown size={15} />
                         </button>
+
+                    {filterOpen && (
+                        <div
+                            className="absolute right-0 z-10 mt-2 w-44 rounded-lg border border-slate-200 bg-white p-3 shadow-lg">
+                            <p className="mb-2 text-xs font-semibold text-slate-500">
+                                Filter by status
+                            </p>
+
+                            {['All', 'Active', 'Inactive'].map((status) => (
+                                <button
+                                    key={status}
+                                    type="button"
+                                    onClick={() => {
+                                        setStatusFilter(status)
+                                        setFilterOpen(false)
+                                        setPage(1)
+                                        setSelected([])
+                                    }}
+                                    className={`block w-full rounded-md px-3 py-2 text-left text-sm ${
+                                        statusFilter === status
+                                            ? 'bg-blue-50 font-medium text-blue-600'
+                                            : 'text-slate-600 hover:bg-slate-50'
+                                    }`}
+                                >
+                                    {status}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                     </div>
 
                     {/* Add Employee */}
