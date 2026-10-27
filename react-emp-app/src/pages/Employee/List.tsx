@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 import {
     Users,
@@ -18,6 +18,7 @@ function Employee() {
     const [filterOpen, setFilterOpen] = useState(false)
     const [statusFilter, setStatusFilter] = useState('All')
     const [selected, setSelected] = useState<number[]>([])
+    const [sortAsc, setSortAsc] = useState(true)
 
 
     useEffect(() => {
@@ -39,6 +40,21 @@ function Employee() {
     }, []);
 
     console.log('all-workers', workers);
+
+    const filteredEmployees = useMemo(() => {
+        const result = workers.filter(
+            (employee) =>
+                statusFilter === 'All' ||
+                employee.status.toLowerCase() === statusFilter.toLowerCase(),
+        )
+
+        return [...result].sort((a, b) =>
+            sortAsc
+                ? a.name.localeCompare(b.name)
+                : b.name.localeCompare(a.name),
+        )
+    }, [workers, statusFilter, sortAsc])
+
 
 
     return (
@@ -117,7 +133,9 @@ function Employee() {
                         <h2 className="font-semibold text-slate-800">
                             All Employees
                         </h2>
-                        <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-600">Length</span>
+                        <span className="rounded-full bg-blue-50 px-2 py-0.5 text-xs font-medium text-blue-600">
+                            {filteredEmployees.length}
+                        </span>
                     </div>
                 </div>
 
@@ -152,7 +170,7 @@ function Employee() {
                                     {error}
                                 </td>
                             </tr>
-                        ) : workers.length === 0 ? (
+                        ) : filteredEmployees.length === 0 ? (
                             <tr>
                                 <td
                                     colSpan={6}
@@ -162,7 +180,7 @@ function Employee() {
                                 </td>
                             </tr>
                         ) : (
-                            workers.map((employee) => (
+                            filteredEmployees.map((employee) => (
                                 <tr
                                     key={employee.id}
                                     className='transition-colors hover:bg-blue-50/40'

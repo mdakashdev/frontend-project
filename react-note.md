@@ -158,6 +158,19 @@ Flow ta holo - api te backend api call kora -> FormData use kore data and photo 
 list-show:
 - /employee list endpoint ready.
 
+Try to implement - employee list
+
+Target: list page ta ke split kore then kaj ta ses kora.
+
+first, backend api connect with frontend using axios.
+second, using useEffect hook, se seat backend data in useState
+    then, we will use in template that using map.
+    then, showing loading, error, length and list
+
+next day - filter, search, 
+
+
+
 > Department page
 
 - department page design korbo.
@@ -234,8 +247,35 @@ Day-2: Oct 22, 2026
 Day-3: Oct 23, 2026
 Day-4: Oct 24, 2026
 Day-5: Oct 25, 2026
+
 Day-6: Oct 26, 2026
+
+`Target`: list page ta ke split kore then kaj ta ses kora.
+
+- department list - done
+- employee list - running 
+
 Day-7: Oct 27, 2026
+
+First - data display
+- backend api er sathe connect kore akta method create kora - `employeeApi`
+- sei method ke, list page import kore, `useEffect` hook use kore call kora. 
+- then api data ke - `useState` hook a rakha. 
+- ei list page ke maintain korar jonno - common hocche 3 ta bisoy niye kaj kora `loading`, `error`, `data`
+- then template a show kora - tar jonno table a, `map` use kore field gulo er valu dekhano.
+
+2nd - Filter
+- filter er jonno - `filterOpen, statusFilter & selected` 3 ta useState lagbe. only dropdown ta open korar jonno.
+- useMemo-এর ভিতরে যে state বা variable ব্যবহার করবে, সেটি পরিবর্তন হলে calculation আবার চালাতে চাইলে dependency array-তে রাখতে হবে।
+- filteredEmployees ber korar jonno amra `useMemo` hook use korlam. [depency array te seita dilam]
+
+> achieve hocche - reat er hook gulo - useMemo, useState, useEffect
+
+3rd - sorting 
+-
+
+
+
 Day-8: Oct 28, 2026
 Day-9: Oct 29, 2026
 Day-10: Oct 30, 2026
