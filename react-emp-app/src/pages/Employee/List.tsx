@@ -7,8 +7,12 @@ import {
     ChevronDown,
     MoreVertical,
     ArrowUpDown,
+    ChevronLeft,
+    ChevronRight,
 } from 'lucide-react'
 import { employeeList } from '@/api/employeeApi.ts'
+
+const PAGE_SIZE = 5;
 
 function Employee() {
     const navigate = useNavigate()
@@ -20,6 +24,7 @@ function Employee() {
     const [statusFilter, setStatusFilter] = useState('All')
     const [selected, setSelected] = useState<number[]>([])
     const [sortAsc, setSortAsc] = useState(true)
+    const [page, setPage] = useState(1);
 
 
     useEffect(() => {
@@ -56,7 +61,14 @@ function Employee() {
         )
     }, [workers, statusFilter, sortAsc])
 
+    const totalPage = Math.max(1, Math.ceil(filteredEmployees.length / PAGE_SIZE))
 
+    const currentPage = Math.min(page, totalPage)
+
+    const paginatedEmployees = filteredEmployees.slice(
+        (currentPage - 1) * PAGE_SIZE,
+        currentPage * PAGE_SIZE,
+    )
 
     return (
         <div className="space-y-6">
@@ -190,7 +202,7 @@ function Employee() {
                                 </td>
                             </tr>
                         ) : (
-                            filteredEmployees.map((employee) => (
+                            paginatedEmployees.map((employee) => (
                                 <tr
                                     key={employee.id}
                                     className='transition-colors hover:bg-blue-50/40'
@@ -250,14 +262,55 @@ function Employee() {
                 </div>
 
                 {/* Pagination */}
-                <div
-                    className="flex flex-col justify-between gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center">
+                <div className="flex flex-col justify-between gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center">
                     <p className="text-xs text-slate-500">
-                        Showing employees
+                        Showing {filteredEmployees.length === 0 ? 0 : (currentPage-1) * PAGE_SIZE+1}-
+                        {Math.min(
+                            currentPage * PAGE_SIZE,
+                            filteredEmployees.length,
+                        )}{' '} of {filteredEmployees.length} employees
                     </p>
 
                     <div className="flex items-center gap-1">
+                        <button
+                            type="button"
+                            disabled={currentPage === 1}
+                            onClick={() => setPage((current) => Math.max(1, current - 1))}
+                            aria-label="Previous page"
+                            className="rounded-md border border-slate-200 p-2 text-slate-600 hover:bg-slate-50 disabled:opacity-40"
+                        >
+                            <ChevronLeft size={16}/>
+                        </button>
 
+                        {Array.from(
+                            { length: totalPage },
+                            (_, index) => index + 1,
+                        ).map((pageNumber) => (
+                            <button
+                                key={pageNumber}
+                                type="button"
+                                onClick={() => setPage(pageNumber)}
+                                className={`h-8 min-w-8 rounded-md px-2 text-xs font-medium ${
+                                    currentPage === pageNumber
+                                        ? 'bg-blue-600 text-white'
+                                        : 'text-slate-600 hover:bg-slate-100'
+                                }`}
+                            >
+                                {pageNumber}
+                            </button>
+                        ))}
+
+                        <button
+                            type="button"
+                            disabled={currentPage === totalPage}
+                            onClick={() =>
+                                setPage((current) => Math.min(totalPage, current + 1))
+                            }
+                            aria-label="Next page"
+                            className="rounded-md border border-slate-200 p-2 text-slate-600 hover:bg-slate-50 disabled:opacity-40"
+                        >
+                            <ChevronRight size={16}/>
+                        </button>
                     </div>
                 </div>
             </section>
