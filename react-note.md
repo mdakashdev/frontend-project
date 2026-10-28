@@ -271,14 +271,50 @@ First - data display
 
 > achieve hocche - reat er hook gulo - useMemo, useState, useEffect
 
-3rd - sorting 
--
-
-
 
 Day-8: Oct 28, 2026
+
+3rd - sorting (ASC)
+- er jonno akta lucid theke icon use kore, seita theke onlick method use kore korlam.
+
+4th - pagination 
+- pagination frame done but need to connect real api data.
+- setar jonno static akta map use korechi - {[1,2,3,4,5].map((page) => ())} , eikhane amra button ke active korob, page er number update korbo.
+- now, connect to real api - 
+
+
+bujte hobe - pagination er koita part 
+
+1. previous button 
+2. next button 
+3. middle a koita page hobe tar data 
+
+
+main data theke jokhon `slice` use kore data niye thokhon take `index` diye slick korte hobe. tar jonno need
+
+current page, koita kore page dekate caitechi, total page. mane 3 type er data lagche slice kora jonno 
+
+sei jonno amara - `Math.max, Math.min, Math.ceil` use kortechi then `array.slice` use kortechi. 
+
+
+5th - toggle diye ki hoi?
+- eita diye - select and unselect kora jai, apatoto no need
+- edit er jonno : dropdown pore korbo.
+
+
 Day-9: Oct 29, 2026
 Day-10: Oct 30, 2026
+Day-11: Oct 31, 2026
+
+
+
+---
+
+
+
+
+
+
 
 
 
