@@ -6,6 +6,7 @@ import {
     Filter,
     ChevronDown,
     MoreVertical,
+    ArrowUpDown,
 } from 'lucide-react'
 import { employeeList } from '@/api/employeeApi.ts'
 
@@ -150,7 +151,16 @@ function Employee() {
                                     className="h-4 w-4 rounded border-slate-300 accent-blue-600"
                                 />
                             </th>
-                            <th className="px-3 py-4 font-medium">Name</th>
+                            <th className="px-3 py-4 font-medium">
+                                <button
+                                    type="button"
+                                    onClick={() => setSortAsc(!sortAsc)}
+                                    className="flex items-center gap-2 hover:text-blue-600"
+                                >
+                                    Name
+                                    <ArrowUpDown size={14}/>
+                                </button>
+                            </th>
                             <th className="px-3 py-4 font-medium">Email</th>
                             <th className="px-3 py-4 font-medium">Department</th>
                             <th className="px-3 py-4 font-medium">Status</th>
