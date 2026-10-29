@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import {
   CalendarDays,
   Upload,
@@ -21,6 +21,9 @@ const departments = [
 ];
 
 function EmployeeForm() {
+  const { empId } = useParams()
+  const isEdit = Boolean(empId)
+
   const navigate = useNavigate()
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [photo, setPhoto] = useState<File | null>(null)
@@ -78,7 +81,7 @@ function EmployeeForm() {
       {/* Heading */}
       <div>
         <h1 className="text-2xl font-bold text-slate-900">
-          Add Employee
+          { isEdit ? 'Edit Employee' : 'Add Employee'}
         </h1>
         <p className="mt-1 text-sm text-slate-500">
           Fill in the details to add a new employee.

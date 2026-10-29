@@ -26,6 +26,10 @@ const router = createBrowserRouter([
                 Component: EmployeeCreate
             },
             {
+                path:'emp/:empId/edit',
+                Component: EmployeeCreate
+            },
+            {
                 path: 'setting',
                 Component: Settings
             },
