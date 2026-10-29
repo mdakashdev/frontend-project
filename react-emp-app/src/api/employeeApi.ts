@@ -7,3 +7,7 @@ export const createEmployee = (data: FormData) => {
 export const employeeList = () => {
     return api.get('/employees');
 }
+
+export const getEmployee = (id: string) => {
+    return api.get(`/employees/${id}`);
+}

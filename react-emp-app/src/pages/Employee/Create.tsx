@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import {useEffect, useRef, useState} from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router'
 import {
@@ -8,7 +8,7 @@ import {
   ChevronDown,
 } from 'lucide-react'
 import type { EmployeeFormData } from '@/types/employee.ts'
-import { createEmployee } from "@/api/employeeApi.ts";
+import { createEmployee, getEmployee } from "@/api/employeeApi.ts";
 import axios from 'axios'
 
 const departments = [
@@ -28,6 +28,7 @@ function EmployeeForm() {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const [photo, setPhoto] = useState<File | null>(null)
   const [photoPreview, setPhotoPreview] = useState<string | null>(null)
+  const [employee, setEmployee] = useState();
 
   const {
     register,
@@ -72,6 +73,18 @@ function EmployeeForm() {
 
   }
 
+  useEffect(() => {
+
+    if (!empId) return;
+    const fetchEmployee = async () => {
+      const response = await getEmployee(empId);
+      setEmployee(response.data.data)
+      console.log('API response:', response);
+    }
+    fetchEmployee()
+
+  }, [empId])
+
   const inputClass ='mt-2 h-11 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
 
   const labelClass = 'text-sm font-medium text-slate-700'
@@ -84,7 +97,7 @@ function EmployeeForm() {
           { isEdit ? 'Edit Employee' : 'Add Employee'}
         </h1>
         <p className="mt-1 text-sm text-slate-500">
-          Fill in the details to add a new employee.
+          Fill in the details to add a new employee. {employee?.name}
         </p>
       </div>
 
