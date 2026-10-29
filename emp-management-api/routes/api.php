@@ -13,3 +13,4 @@ Route::post('/employees', [EmployeeController::class, 'store']);
 Route::post('/departments', [DepartmentController::class, 'store']);
 Route::get('/departments', [DepartmentController::class, 'list']);
 Route::get('/employees', [EmployeeController::class, 'list']);
+Route::get('/employees/{id}', [EmployeeController::class, 'show']);

@@ -49,4 +49,22 @@ class EmployeeController extends Controller
             'data' => EmployeeResource::collection($employee)
         ], 200);
     }
+
+    public function show($id)
+    {
+        $data = Employee::find($id);
+
+        if (! $data) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Employee not found',
+                'data' => null
+            ], 404);
+        }
+
+        return response()->json(['success' => true,
+            'messages' => 'Employee retrieved successfully',
+            'data' => new EmployeeResource($data)
+        ], 200);
+    }
 }
