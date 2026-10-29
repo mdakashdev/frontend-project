@@ -25,6 +25,7 @@ function Employee() {
     const [selected, setSelected] = useState<number[]>([])
     const [sortAsc, setSortAsc] = useState(true)
     const [page, setPage] = useState(1);
+    const [openMenu, setOpenMenu] = useState<number | null>(null)
 
 
     useEffect(() => {
@@ -238,18 +239,45 @@ function Employee() {
                                       {employee.status}
                                     </span>
                                     </td>
-
-                                    <td className="px-5 py-4 text-right">
+                                    <td className="relative px-5 py-3.5 text-right">
                                         <button
                                             type="button"
-                                            aria-label={`More actions for ${employee.name}`}
+                                            aria-label={`Actions for ${employee.name}`}
                                             onClick={() =>
-                                                navigate(`/emp/${employee.id}/edit`)
+                                                setOpenMenu(
+                                                    openMenu === employee.id ? null : employee.id,
+                                                )
                                             }
-                                            className="rounded-md p-1.5 text-slate-500 hover:bg-slate-100 hover:text-blue-600"
+                                            className="rounded-md p-1.5 text-slate-500 hover:bg-slate-100"
                                         >
                                             <MoreVertical size={18}/>
                                         </button>
+
+                                        {openMenu === employee.id && (
+                                            <div
+                                                className="absolute right-8 top-10 z-20 w-36 rounded-lg border border-slate-200 bg-white p-1 text-left shadow-lg">
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setOpenMenu(null)
+                                                        navigate(
+                                                            `/emp/${employee.id}/edit`,
+                                                        )
+                                                    }}
+                                                    className="w-full rounded-md px-3 py-2 text-sm hover:bg-blue-50"
+                                                >
+                                                    Edit
+                                                </button>
+
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setOpenMenu(null)}
+                                                    className="w-full rounded-md px-3 py-2 text-sm hover:bg-slate-50"
+                                                >
+                                                    View details
+                                                </button>
+                                            </div>
+                                        )}
                                     </td>
                                 </tr>
                             ))
@@ -262,9 +290,10 @@ function Employee() {
                 </div>
 
                 {/* Pagination */}
-                <div className="flex flex-col justify-between gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center">
+                <div
+                    className="flex flex-col justify-between gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center">
                     <p className="text-xs text-slate-500">
-                        Showing {filteredEmployees.length === 0 ? 0 : (currentPage-1) * PAGE_SIZE+1}-
+                        Showing {filteredEmployees.length === 0 ? 0 : (currentPage - 1) * PAGE_SIZE + 1}-
                         {Math.min(
                             currentPage * PAGE_SIZE,
                             filteredEmployees.length,
@@ -283,7 +312,7 @@ function Employee() {
                         </button>
 
                         {Array.from(
-                            { length: totalPage },
+                            {length: totalPage},
                             (_, index) => index + 1,
                         ).map((pageNumber) => (
                             <button
