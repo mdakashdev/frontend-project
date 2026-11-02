@@ -13,11 +13,5 @@ export const getEmployee = (id: string) => {
 }
 
 export const updateEmployee = (id: string, data: FormData) => {
-    console.log('Updating employee:', id);
-
-    for (const [key, value] of data.entries()) {
-        console.log(key, value);
-    }
-
     return api.post(`/employees/${id}`, data)
 }

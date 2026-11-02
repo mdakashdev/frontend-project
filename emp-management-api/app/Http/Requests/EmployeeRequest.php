@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class EmployeeRequest extends FormRequest
 {
@@ -22,10 +23,17 @@ class EmployeeRequest extends FormRequest
      */
     public function rules(): array
     {
+        $employeeId = $this->route('id');
+
         return [
             'name' => 'required|string|max:255',
             'position' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:employees,email',
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                 Rule::unique('employees', 'email')->ignore($employeeId)
+                ],
             'joining_date' => 'required|date',
             'phone' => 'nullable|string|max:20',
             'status' => 'required|in:active,inactive',

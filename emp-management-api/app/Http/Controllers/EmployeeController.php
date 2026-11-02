@@ -39,6 +39,24 @@ class EmployeeController extends Controller
         ], 201);
     }
 
+    public function update(EmployeeRequest $request, $id)
+    {
+        //find employee
+        $employee = Employee::findOrFail($id);
+
+        //validate employee
+        $data = $request->validated();
+
+        //update employee
+        $employee->update($data);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Employee Updated working',
+            'data' => $employee,
+        ]);
+    }
+
     public function list()
     {
         $employee = Employee::all();
