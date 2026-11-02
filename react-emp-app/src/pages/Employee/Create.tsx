@@ -12,12 +12,12 @@ import { createEmployee, getEmployee } from "@/api/employeeApi.ts";
 import axios from 'axios'
 
 const departments = [
-  'Engineering',
-  'Marketing',
-  'Design',
-  'Sales',
-  'HR',
-  'Finance',
+  'engineering',
+  'marketing',
+  'design',
+  'sales',
+  'hr',
+  'finance',
 ];
 
 function EmployeeForm() {
@@ -34,6 +34,7 @@ function EmployeeForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm<EmployeeFormData>({
     defaultValues: {
       status: 'Active',
@@ -78,12 +79,26 @@ function EmployeeForm() {
     if (!empId) return;
     const fetchEmployee = async () => {
       const response = await getEmployee(empId);
-      setEmployee(response.data.data)
+      const employee = response.data.data;
+      setEmployee(employee)
+
+      reset({
+        fullName: employee.name ?? '',
+        email: employee.email ?? '',
+        phone: employee.phone ?? '',
+        department: employee.department ?? '',
+        position: employee.position ?? '',
+        joiningDate: employee.joining_date ?? '',
+        status: employee.status === 'inactive' ? 'Inactive' : 'Active',
+      })
+
+
+      setPhotoPreview(employee.photo ?? null)
       console.log('API response:', response);
     }
     fetchEmployee()
 
-  }, [empId])
+  }, [empId, reset])
 
   const inputClass ='mt-2 h-11 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
 
