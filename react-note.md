@@ -303,15 +303,41 @@ sei jonno amara - `Math.max, Math.min, Math.ceil` use kortechi then `array.slice
 
 
 Day-9: Oct 29, 2026
+
+- CRUD সম্পূর্ণ করো (এতে বাস্তব কাজের প্রায় ৬০% ধারণা পাবে)
+
+- Edit employee:
+  তোমার List থেকেই `/emp/:id/edit`-এ navigate করা হচ্ছে।
+
+  এখন `useParams` দিয়ে ID নাও, employee-এর তথ্য fetch করো,
+
+  `reset(data)` দিয়ে form-এ আগের তথ্য বসাও এবং Create ও Edit—দুই ক্ষেত্রেই একই form component ব্যবহার করো।
+
+
+- edit and view details er drop down korech.
+- edit er jonno navigate kora ache, tai route kore file korte hobe. same create component use korbo edit er jonno
+- sei jono `useParams` use kore id pick korlam
+- fetch korar jonno - amra useEffect hook use korbo, tar jonno backend api er sathe axios diye api binding korbo sei method ke ei khane call korbo aar useState a rakhbo.
+
+
+1. backend api ready
+2. api binding in frontend and fetch data
+3. import fetch api in create component and fetch data store in `useState` using `useEffect`
+4. react-hook-form theke `reset` use kore data gulo form a dibo.
+5. then ami submit kore, save korar try korbo. sei jonno - submit button a click korar por jekhan theke data crate kortam 
+    seikhane try er moddhe if diye dhorechi, jei eita editId kina, jodi thake tobe sei method ta call kore diyechi 
+    sei jonno updateEmployee method importe korechi and sei releted kaj korechi.
+6. backend a 4 ta kaj hoyeche, employee find kora, validate kora, update kora  and email igonre kore.
+
 Day-10: Oct 30, 2026
 Day-11: Oct 31, 2026
 
 
 
+
+
+
 ---
-
-
-
 
 
 
