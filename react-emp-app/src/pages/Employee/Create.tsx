@@ -8,7 +8,7 @@ import {
   ChevronDown,
 } from 'lucide-react'
 import type { EmployeeFormData } from '@/types/employee.ts'
-import { createEmployee, getEmployee } from "@/api/employeeApi.ts";
+import { createEmployee, getEmployee, updateEmployee } from "@/api/employeeApi.ts";
 import axios from 'axios'
 
 const departments = [
@@ -61,7 +61,12 @@ function EmployeeForm() {
     }
 
     try {
-      await createEmployee(payload)
+      if (isEdit && empId) {
+        payload.append('_method', 'PUT')
+        await updateEmployee(empId, payload)
+      } else {
+        await createEmployee(payload)
+      }
       navigate('/emp')
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -336,7 +341,7 @@ function EmployeeForm() {
             type="submit"
             className="rounded-lg bg-blue-600 px-6 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-blue-700"
           >
-            Save Employee
+            {isEdit ? 'Update Employee' : 'Save Employee'}
           </button>
         </div>
       </form>
