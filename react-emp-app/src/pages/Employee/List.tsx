@@ -9,6 +9,7 @@ import {
     ArrowUpDown,
     ChevronLeft,
     ChevronRight,
+    Trash
 } from 'lucide-react'
 import { employeeList } from '@/api/employeeApi.ts'
 
@@ -26,6 +27,7 @@ function Employee() {
     const [sortAsc, setSortAsc] = useState(true)
     const [page, setPage] = useState(1);
     const [openMenu, setOpenMenu] = useState<number | null>(null)
+    const [deleteId, setDelete] = useState<number | null>(null);
 
 
     useEffect(() => {
@@ -276,6 +278,16 @@ function Employee() {
                                                 >
                                                     View details
                                                 </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setOpenMenu(null)
+                                                        setDelete(employee.id)
+                                                    }}
+                                                    className="w-full rounded-md px-3 py-2 text-sm text-red-600 hover:bg-red-50"
+                                                >
+                                                    Delete
+                                                </button>
                                             </div>
                                         )}
                                     </td>
@@ -343,6 +355,56 @@ function Employee() {
                     </div>
                 </div>
             </section>
+
+            {/* Delete Confirmation Modal */}
+            {deleteId !== null && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4 backdrop-blur-sm">
+
+                    <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl">
+
+                        {/* Icon */}
+                        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-red-100">
+                            <Trash size={16} className="text-red-500"/>
+                        </div>
+
+                        {/* Content */}
+                        <div className="mt-4 text-center">
+                            <h2 className="text-xl font-bold text-slate-900">
+                                Delete Employee?
+                            </h2>
+
+                            <p className="mt-2 text-sm leading-6 text-slate-500">
+                                Are you sure you want to delete this employee?
+                                This action cannot be undone.
+                            </p>
+                        </div>
+
+                        {/* Actions */}
+                        <div className="mt-7 flex items-center justify-center gap-3">
+                            <button
+                                type="button"
+                                onClick={() => setDelete(null)}
+                                className="flex-1 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    console.log('Delete employee ID:', deleteId)
+                                    setDelete(null)
+                                }}
+                                className="flex-1 rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700"
+                            >
+                                Yes, Delete
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            )}
+
         </div>
     )
 }
