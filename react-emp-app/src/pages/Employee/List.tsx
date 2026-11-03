@@ -298,7 +298,12 @@ function Employee() {
 
                                                 <button
                                                     type="button"
-                                                    onClick={() => setOpenMenu(null)}
+                                                    onClick={() => {
+                                                        setOpenMenu(null)
+                                                        navigate(
+                                                            `/emp/${employee.id}/details`
+                                                        )
+                                                    }}
                                                     className="w-full rounded-md px-3 py-2 text-sm hover:bg-slate-50"
                                                 >
                                                     View details
