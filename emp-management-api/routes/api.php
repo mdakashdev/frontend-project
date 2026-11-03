@@ -15,3 +15,4 @@ Route::get('/departments', [DepartmentController::class, 'list']);
 Route::get('/employees', [EmployeeController::class, 'list']);
 Route::get('/employees/{id}', [EmployeeController::class, 'show']);
 Route::put('/employees/{id}', [EmployeeController::class, 'update']);
+Route::delete('/employee/{id}', [EmployeeController::class, 'destroy']);

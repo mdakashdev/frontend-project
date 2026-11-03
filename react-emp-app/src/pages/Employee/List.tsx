@@ -11,7 +11,7 @@ import {
     ChevronRight,
     Trash
 } from 'lucide-react'
-import { employeeList } from '@/api/employeeApi.ts'
+import { employeeList, deleteEmployee } from '@/api/employeeApi.ts'
 
 const PAGE_SIZE = 5;
 
@@ -72,6 +72,31 @@ function Employee() {
         (currentPage - 1) * PAGE_SIZE,
         currentPage * PAGE_SIZE,
     )
+
+    const handleDelete = async () => {
+        if (deleteId === null) return;
+        try {
+            await deleteEmployee(deleteId);
+
+            // Remove deleted employee from UI
+            setWorkers((prev) =>
+                prev.filter((employee) => employee.id !== deleteId)
+            );
+
+            // Clear selected employee
+            setSelected((prev) =>
+                prev.filter((id) => id !== deleteId)
+            );
+
+            setDelete(null);
+
+        } catch (error) {
+            console.log('Delete error:', error);
+            setDeleteError('Failed to delete employee. Please try again.');
+        } finally {
+            setDeleting(false);
+        }
+    }
 
     return (
         <div className="space-y-6">
@@ -391,10 +416,7 @@ function Employee() {
 
                             <button
                                 type="button"
-                                onClick={() => {
-                                    console.log('Delete employee ID:', deleteId)
-                                    setDelete(null)
-                                }}
+                                onClick={handleDelete}
                                 className="flex-1 rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700"
                             >
                                 Yes, Delete

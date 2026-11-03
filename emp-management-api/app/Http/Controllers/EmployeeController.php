@@ -85,4 +85,16 @@ class EmployeeController extends Controller
             'data' => new EmployeeResource($data)
         ], 200);
     }
+
+    public function destroy($id)
+    {
+        $employee = Employee::findOrFail($id);
+
+        $employee->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Employee deleted successfully',
+        ]);
+    }
 }

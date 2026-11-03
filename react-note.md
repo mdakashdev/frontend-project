@@ -332,10 +332,42 @@ Day-9: Oct 29, 2026
 Day-10: Oct 30, 2026
 Day-11: Oct 31, 2026
 
+Big Target - React
+
+# November
+
+31 Oct & 1 Nov - work for project co-bond
+
+## 2 November 
+- edit page 
+
+## 3 November 
+- Delete:
+  Confirmation modal-সহ employee delete করার ব্যবস্থা করো। 
+  এতে state-কে parent component-এ নিয়ে আসা (lifting state up) এবং component-এর মধ্যে props পাঠানোর ধারণা শিখবে।
+- Detail page:
+  `/emp/:id` route তৈরি করো।
+
+> most important react-note ta start theke dekte hobe, ki ki korechi. each day
+
+- delete korar jonno, dropdown a `delete` add korlam
+- dropdown a click korle, useState a deleteId raktechi.
+- then confirmation er jonno akta modal use korechi, sekhane lucid theke `Trash` use kora hoi.
+- delete backend api is done
 
 
 
+## 4 November 
 
+State-এ TypeScript সঠিকভাবে ব্যবহার করো
+
+## 5 November
+
+Custom hook তৈরি করো (React-এর Composable)
+
+## 6 November
+
+Filter, sort এবং page-এর state URL-এ রাখো
 
 ---
 

@@ -13,5 +13,9 @@ export const getEmployee = (id: string) => {
 }
 
 export const updateEmployee = (id: string, data: FormData) => {
-    return api.post(`/employees/${id}`, data)
+    return api.post(`/employees/${id}`, data);
+}
+
+export const deleteEmployee = (id: string) => {
+    return api.delete(`/employee/${id}`);
 }
