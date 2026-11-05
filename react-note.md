@@ -359,7 +359,31 @@ Big Target - React
 
 ## 4 November 
 
+- details page - done
 State-এ TypeScript সঠিকভাবে ব্যবহার করো
+
+
+2 ta kaj korbo ajke : 
+- ei page ta summary korbo 
+- typescript bisoy ta dekhi 
+- Digital marketing 
+- english 
+- phone dekhi 20k er
+- identity
+
+
+---
+> TypeScript
+
+akta API Response niye thik kori.
+
+
+
+
+
+
+
+
 
 ## 5 November
 
