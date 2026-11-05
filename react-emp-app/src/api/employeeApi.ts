@@ -1,11 +1,11 @@
 import api from './axios.ts';
-
+import type {Employee, ApiResponse} from '@/types/employee.ts'
 export const createEmployee = (data: FormData) => {
     return api.post('/employees', data)
 }
 
 export const employeeList = () => {
-    return api.get('/employees');
+    return api.get<ApiResponse<Employee[]>>('/employees');
 }
 
 export const getEmployee = (id: string) => {

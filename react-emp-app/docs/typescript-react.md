@@ -26,6 +26,13 @@ ans: array of object.
     const [state, setState] = useState<Type>(initialValue)
 
 
+
+একটা সহজ নিয়ম মনে রাখবে:
+- Object structure: interface ব্যবহার করতে পারো।
+- Union / Primitive / Tuple: type ব্যবহার করো।
+- Object-এর জন্য type ব্যবহার করলেও ভুল নয়।
+
+
 > React + TypeScript-এর State, Props, Events এবং API Response-এর Type ভালোভাবে শিখব।
 > তারপর Employee Details page-এ এগুলো implement করব।
 

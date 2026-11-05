@@ -12,20 +12,21 @@ import {
     Trash
 } from 'lucide-react'
 import { employeeList, deleteEmployee } from '@/api/employeeApi.ts'
+import type { Employee } from '@/types/employee.ts'
 
 const PAGE_SIZE = 5;
 
 function Employee() {
     const navigate = useNavigate()
 
-    const [workers, setWorkers] = useState([]);
-    const [error, setError] = useState();
-    const [loading, setLoading] = useState(true);
-    const [filterOpen, setFilterOpen] = useState(false)
-    const [statusFilter, setStatusFilter] = useState('All')
+    const [workers, setWorkers] = useState<Employee[]>([]);
+    const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [filterOpen, setFilterOpen] = useState<boolean>(false)
+    const [statusFilter, setStatusFilter] = useState<string>('All')
     const [selected, setSelected] = useState<number[]>([])
-    const [sortAsc, setSortAsc] = useState(true)
-    const [page, setPage] = useState(1);
+    const [sortAsc, setSortAsc] = useState<boolean>(true)
+    const [page, setPage] = useState<number>(1);
     const [openMenu, setOpenMenu] = useState<number | null>(null)
     const [deleteId, setDelete] = useState<number | null>(null);
 
