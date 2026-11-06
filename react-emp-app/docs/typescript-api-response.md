@@ -1,4 +1,188 @@
-## API Response-এর Type
+# Golpo 
+
+
+amar backend api response structure centralize kora ache, so, response back korbe 
+
+{
+"success": true,
+"message": "Data retrieved successfully",
+"data": []
+}
+
+now ami frontend theke bivinno feater er api call korbo, ja ei ekoi structure response pabo. 
+
+like - employee lists, single employee, department lists, single department, etc 
+
+export const employeeList = () => {
+return api.get('/employees');
+}
+
+
+now ami jodi response er type define kori.  tahole 
+
+
+src/types/commonResponse.ts 
+
+interface Employee {
+id: number
+name: string
+email: string
+}
+
+interface EmployeeListResponse {
+success: boolean
+message: string
+data: Employee[]
+}
+
+interface SingleEmployeeResponse {
+success: boolean
+message: string
+data: Employee
+}
+
+
+interface Department {
+id: number
+department: string
+}
+
+interface DepartmentListResponse {
+success: boolean
+message: string
+data: Department[]
+}
+
+interface SingleDepartmentResponse {
+success: boolean
+message: string
+data: Department
+}
+
+
+
+export const employeeList = () => {
+return api.get<EmployeeListResponse>('/employees');
+}
+
+export const getEmployee = (id: string) => {
+return api.get<SingleEmployeeResponse>(`/employee/${id}`);
+}
+
+export const departmentList = () => {
+return api.get<DepartmentListResponse>('/departments');
+}
+
+export const getDepartment = () => {
+return api.get<SingleDepartmentResponse>(`/department/${id}`);
+}
+
+
+now ami jodi generic use kori,  
+
+interface Employee {
+id: number
+name: string
+email: string
+}
+
+interface Department {
+id: number
+department: string
+}
+
+export interface ApiResponse<T> {
+    success: boolean
+    message: string
+    data: T
+}
+
+
+export const employeeList = () => {
+return api.get<ApiResponse<Employee[]>>('/employees');
+}
+
+export const getEmployee = (id: string) => {
+return api.get<ApiResponse<Employee>>(`/employee/${id}`);
+}
+
+export const departmentList = () => {
+return api.get<ApiResponse<Department[]>>('/departments');
+}
+
+export const getDepartment = () => {
+return api.get<ApiResponse<Department>>(`/department/${id}`);
+}
+
+
+# Example 
+
+```
+export const employeeList = () => {
+    return api.get('/employees');
+}
+```
+
+ei api theke akta response asteche like :
+
+```
+{
+  "success": true,
+  "message": "Employee retrieved successfully",
+  "data": [
+      {
+        "id": 25,
+        "name": "John Doe",
+        "email": "john@example.com",
+      },
+      {
+        "id": 25,
+        "name": "John Doe",
+        "email": "john@example.com",
+      }
+  ]
+}
+```
+
+data hocche - employee er data, jodi onno api hoi, tahole seitar data asbe; tarmane data ta variable / dynamic. 
+
+sei jonno amon akta interface lagbe, jeita `generic` ja input nibe : Example - 
+
+```
+interface ApiResponse {
+   success: boolean
+   message: string
+   data: Record<string, unknown>[]
+}
+
+interface ApiResponse {
+   success: boolean
+   message: string
+   data: {
+    id: number
+    name: string
+    email: string
+   }[]
+}
+```
+
+generic
+
+```
+interface ApiResponse<T> {
+   success: boolean
+   message: string
+   data: T
+}
+```
+
+eitar subida holo, single, multiple, department, others sob cover korbe.
+
+so eitar jonno akta scenario korte hobe. for posting linkdin
+
+
+
+# API Response-এর Type
 
 এটি তোমার Employee project-এর জন্য খুব গুরুত্বপূর্ণ।
 
