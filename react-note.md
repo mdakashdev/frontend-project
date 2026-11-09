@@ -395,12 +395,6 @@ Filter, sort এবং page-এর state URL-এ রাখো
 
 ---
 
-
-
-
-
-
-
 # Target 
 - 10 * 3 = 30h
 - 
@@ -809,12 +803,6 @@ next todo - nije nije puro file ta data niye insert korte hobe. sei jonno ektu s
 1. ui form ready
 2. validation `FIELD` add
 3. schema create
-
-
-
-
-
-
 
 # question
 
