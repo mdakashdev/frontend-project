@@ -1,37 +1,57 @@
-
 Go + Next; [React + TypeScript]
 
 
-Target - ei page / ei application a jekhan jekhane type use kora jai. ta use kora &
-TypeScript -> Theory + Practical
+November: 15 days (react & typescript)
 
-9 Nov 2026
-- API response
-- useState
-
-
-Props Type
+[10, 11, 12, 13]
+Custom Hook 
 Event Type
+Department page
+1 application
+
+[16, 17, 18, 19, 20]
+1 application
+[23, 24, 25, 26, 27]
+1 application
+[30]
+1 application
 
 
------------
+Time: 3 hours
+[1hours = TS, 2hours = React]
 
-# November - 15 days
+Target: 
+React: 20 ta topics  ( react app.md theke sequence maintain kori) like - `custom hook`
+TypeScript: 20 ta topics
 
-1. need summary - ki ki jana hoyeche.
-2. React er baki bisoy gulo dekte hobe.
-3. 3 hours a = 1 hours = TypeScript, 2 hours = React
+React: 
+- Custom hook
+- (lifting state up) এবং component-এর মধ্যে props পাঠানোর ধারণা শিখবে।
+- 
 
-Target in november
-= react - 20 ta topics  ( react app.md theke sequence maintain kori) like - `custom hook`
-= typeScript - 20 ta topics
+TypeScript
+- jei koita page ache, sei page sob jaigai type use korbo.
+- Props Type
+- Event Type
 
 
-# Nov-10, 2026
-1. 4 hours  (1st- revision, ki jenechi-1h, 1h - ts, 2h - react)
+# November
+
+## Nov-10, 2026
+1. Summary - done
+2. Target - done
+2. 4 hours  (1h - ts, 2h - react)
 2. work - 3h
 
-(lifting state up) এবং component-এর মধ্যে props পাঠানোর ধারণা শিখবে।
+
+
+`Zero theke React app build korbo`. amar last experience vue.js, nuxt - sei theke next 1 month a akta application ready korbo. 
+
+ready korte jeye kivabe kivabe think kortechi sei golpo gulo korbo. ei journey ta hobe. nijer think and assistant hisabe AI use kora. 
+
+but AI use korar age, nije decision nibo je amra ki kortechi.
+
+
 
 
 

@@ -53,3 +53,8 @@
 - edit page (using reset)
 - delete
 - details page
+
+
+# TypeScript
+- API response
+- useState
