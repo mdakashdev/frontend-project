@@ -1,22 +1,63 @@
-# Topics
+
+Go + Next; [React + TypeScript]
+
+
+Target - ei page / ei application a jekhan jekhane type use kora jai. ta use kora &
+TypeScript -> Theory + Practical
+
+9 Nov 2026
+- API response
+- useState
+
+
+Props Type
+Event Type
+
+
+-----------
+
+# November - 15 days
+
+1. need summary - ki ki jana hoyeche.
+2. React er baki bisoy gulo dekte hobe.
+3. 3 hours a = 1 hours = TypeScript, 2 hours = React
+
+Target in november
+= react - 20 ta topics  ( react app.md theke sequence maintain kori) like - `custom hook`
+= typeScript - 20 ta topics
+
+
+# Nov-10, 2026
+1. 4 hours  (1st- revision, ki jenechi-1h, 1h - ts, 2h - react)
+2. work - 3h
+
+(lifting state up) এবং component-এর মধ্যে props পাঠানোর ধারণা শিখবে।
+
+
+
+---
+
+# Before 10 November
+
+## Topics
 - React app build
 - Tailwind config
 - Path alias config
 - Router / page introduce
 
-# Official
+## Official
 
 - React : https://react.dev
 - Latest stable version: 19.3
 - React Router: https://reactrouter.com/
 - Latest stable version: 8.4.0
 
-# Note
+## Note
 
 - akta language or framework a update thakte hole, seitar document a jeye changelog docs ta pora. taholei actually update thaka jai.
 
 
-# 1. React App Build
+## 1. React App Build
 
 - checked node version `node -v`
 - project init :  https://react.dev/learn/build-a-react-app-from-scratch
@@ -25,7 +66,7 @@
 pnpm create vite@latest
 ```
 
-# 2. Tailwind install & configure
+## 2. Tailwind install & configure
 
 - install doc : https://tailwindcss.com/docs/installation/using-vite
 - added plugin in vite.config.ts 
@@ -39,7 +80,7 @@ pnpm add tailwindcss @tailwindcss/vite
 
 - main structure ta think kore skeleton korlam.
 
-# 4. Path Alias Configuration এবং Alias Resolution
+## 4. Path Alias Configuration এবং Alias Resolution
 
 - se jonno `types/node` install korte hobe
 - tsconfig a baseurl & path add korte hobe
@@ -49,7 +90,7 @@ pnpm add tailwindcss @tailwindcss/vite
 pnpm add -D @types/node
 ```
 
-# 5. Router / Page Introduce 
+## 5. Router / Page Introduce 
 
 - router install korechi. and setup korechi.
 
@@ -334,7 +375,7 @@ Day-11: Oct 31, 2026
 
 Big Target - React
 
-# November
+## November
 
 31 Oct & 1 Nov - work for project co-bond
 
@@ -395,13 +436,13 @@ Filter, sort এবং page-এর state URL-এ রাখো
 
 ---
 
-# Target 
+## Target 
 - 10 * 3 = 30h
 - 
 
 ---
 
-# Question
+## Question
 1. What is JSX?
 2. what is tsx?
 3. 
@@ -804,7 +845,7 @@ next todo - nije nije puro file ta data niye insert korte hobe. sei jonno ektu s
 2. validation `FIELD` add
 3. schema create
 
-# question
+## question
 
 tailwind css test
 amar theme diye test (ja mapping korechi)
@@ -814,11 +855,11 @@ theme theke keno , kivabe use korbo ta jante hobe.
 - ki ki tool use korechi ta, shortlist korbo.
 - button, input etc nite hobe from shadcn
 
-# Note
+## Note
 
 - css er jonno always - AI theke help niyechi, specially tailwind css
 
-# Later
+## Later
 
 - const columns: ColumnDef<typeof features, Employee>[] = []
 - eitar basic type ta bujechi, now aro deep bujte hole, pore typescript dekhar somai dekhbo.
@@ -827,3 +868,8 @@ theme theke keno , kivabe use korbo ta jante hobe.
 - new formData ki ekmatro way. ??
 - useMutaiton for tanstack
 - error handling aro valo kore dekte hobe, backend error and frontend error (axios error, interceptor), toaster
+
+---
+
+
+
