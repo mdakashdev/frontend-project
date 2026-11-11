@@ -299,7 +299,7 @@ function EmployeeForm() {
                   type="file"
                   accept="image/png,image/jpeg,image/jpg"
                   className="hidden"
-                  onChange={(event) => {
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                     const file = event.target.files?.[0]
                     if (!file) return
 
