@@ -5,7 +5,7 @@ November: 15 days (react & typescript)
 
 [10, 11, 12, 13]
 Custom Hook 
-Event Type
+Event Type --> running
 Department page
 1 application
 

@@ -105,6 +105,9 @@ function EmployeeForm() {
 
   }, [empId, reset])
 
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log('event', event.target);
+  }
   const inputClass ='mt-2 h-11 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100'
 
   const labelClass = 'text-sm font-medium text-slate-700'
@@ -136,6 +139,7 @@ function EmployeeForm() {
               {...register('fullName', { required: 'Full name is required',})}
               placeholder="Enter full name"
               className={inputClass}
+              onChange={handleInput}
             />
             {errors.fullName && (
               <p className="mt-1 text-xs text-red-500">
